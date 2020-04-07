@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Gallery</title>
+	<meta charset="UTF-8">
+	<!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<title>Loading</title>
+	<!-- materialize Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!-- materialize icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- user defined css -->
+    <link type="text/css" rel="stylesheet" href="css/images.css" >
+    <!-- Importing jQuery from Google CDN -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<!-- Compiled and minified JavaScript for optimized loading -->
+    <script type="text/javascript" src="js/materialize.js"></script>
+	<!-- masonry library for image grid -->
+	<script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+	<!-- masonry image load script -->
+	<script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
+
+	<style>
+		.card .card-title {
+		  font-size: 15px;
+		  font-weight: 0;
+		  color: white;
+		  line-height: normal;
+		}
+		.card .card-content .card-title {
+		  display: block;
+		  line-height: normal;
+		  margin-bottom: 8px;
+		}
+		.card .card-image img {
+		  /*width: 100px;
+		  height: 100px;*/
+		  display: block;
+		  border-radius: 2px 2px 0 0;
+		  position: relative;
+		  left: 0;
+		  right: 0;
+		  top: 0;
+		  bottom: 0;
+		  /*width: 100%;*/
+		}
+		.card{
+			/*width: 20%;
+			/*height:100%;
+			width:100%;*/
+		}
+		.no-underline{
+            text-decoration: none;
+            color: white;
+            
+        }
+		body, html{
+		  height: 100%;
+		  background-color: black;
+		}
+	</style>
+</head>
+<body >
+	<div class="">
+		<div class="navbar-fixed">
+		    <nav>
+		      <div class="nav-wrapper black">
+		        <a href="home.html" class="material-icons">home</a>
+		        <ul class="right hide-on-med-and-down">
+		          <li><a href="literature.html">Literature</a></li>
+		          <li><a href="gallery.html">Gallery</a></li>
+		          <li><a href="#">Video + Film</a></li>
+		          <li><a href="prototypes.html">Prototypes</a></li>
+		        </ul>
+		      </div>
+		    </nav>
+		</div>
+		<!-- filter list of links  -->
+		<div class="row">
+			<div class="col s2 m2 l2 offset-s1 offset-m1 offset-l1">
+		        <a onclick="all_imgs()" class="no-underline"href="#">All</a>
+		    </div>
+		    <div class="col s2 m2 l2">
+		        <a onclick="anthro_imgs()"  class="no-underline"href="#"><span style="color: #ccc200">&#8226</span> Anthropocene(s)</a>
+		    </div> 
+		    <div class="col s2 m2 l2">
+		        <a onclick="af_imgs()" class="no-underline"href="#"> <span style="color: #ab05a7">&#8226</span> Afrofuturism</a>
+		    </div>
+		    <div class="col s2 m2 l2">
+		        <a onclick="computing_imgs()" class="no-underline"href="#"> <span style="color: #f81e51">&#8226</span> Computing</a>
+		    </div>
+		    <div class="col s2 m2 l2">
+		        <a onclick="remixing_imgs()" class="no-underline"href="#"> <span style="color: #a4fb2e">&#8226</span> Remixing</a>
+		    </div>  
+		</div>
+		<!-- image grid items, added with javascript -->
+		<div class="row">
+			<div id="maingrid" class="grid effect-1"> </div>
+		</div>
+	</div>
+
+<script>
+
+	$(document).ready(function(){
+        (function($){
+            $(function(){
+            	all_imgs();
+
+            	console.log("ready");
+                //$(".aboutme").hide();
+                //$('.aboutme').hide().fadeIn(30000);
+                $('.parallax').parallax();
+                $('.materialboxed').materialbox();
+                //$('.modal').modal();
+                //$('.slider').slider();
+                //$('.collapsible').collapsible();
+                //$('.carousel').carousel();
+                $('.grid').masonry({
+                    // options
+                    itemSelector: '.grid-item',
+                    columnWidth: '.grid-item',
+                    gutter: 15, //was 5
+                    
+
+                });
+                // layout Masonry after each image loads
+				$('.grid').imagesLoaded().progress( function() {
+				  $('.grid').masonry('layout');
+				});
+
+
+            });
+        })(jQuery);
+    });
+
+function createCard(sourc,auth,tit,des,imglink,colors){
+	
+  	// outermost card div 
+  	var outerDiv = document.createElement("DIV");
+  	var bckgroundColor = 'background-color: ' + colors;
+  	outerDiv.setAttribute('class','card medium');
+  	outerDiv.setAttribute('style',bckgroundColor);
+  	// cardImg div
+  	var imgDiv = document.createElement("DIV");
+  	imgDiv.setAttribute('class','card-image waves-effect waves-block waves-light');
+  	// make an image for imgDiv
+  	var img = document.createElement("IMG");
+  	// at correct source                
+	img.src = imglink;
+	img.setAttribute('class', 'activator'); 
+	imgDiv.appendChild(img); 
+	outerDiv.appendChild(imgDiv);
+	// ----
+	var contentDiv = document.createElement("DIV");
+	var author = document.createElement("P");
+	author.innerHTML = auth;
+	author.setAttribute('style', 'font-size: 15px'); 
+  	contentDiv.setAttribute('class','card-content');
+  	var span = document.createElement("SPAN");
+  	span.setAttribute('class','card-title activator grey-text text-darken-4');
+  	span.innerHTML = tit;
+  	var icon1 = document.createElement("I");
+  	icon1.setAttribute('class','material-icons right');
+  	icon1.innerHTML = "more_vert"; 
+  	span.appendChild(icon1); // append material icon 
+  	var linked = document.createElement("P");
+  	var link = document.createElement("A");
+  	link.href = sourc; //set the link 
+  	link.setAttribute('style','color:white ');
+  	link.innerHTML = "source"; // title as text 
+  	linked.appendChild(link); //span 
+  	contentDiv.appendChild(span); //span
+  	contentDiv.appendChild(author);
+  	contentDiv.appendChild(linked); //paragraph 
+  	outerDiv.appendChild(contentDiv); //add all this to card
+  	// -----
+  	var revealDiv = document.createElement("DIV");
+  	revealDiv.setAttribute('class','card-reveal');
+  	var span2 = document.createElement("SPAN");
+  	span2.setAttribute('class','card-title grey-text text-darken-4');
+  	span2.innerHTML = tit;
+  	var icon2 = document.createElement("I");
+  	icon2.setAttribute('class','material-icons right');
+  	icon2.innerHTML = "close"; 
+  	span2.appendChild(icon2); // append material icon 
+  	revealDiv.appendChild(span2);
+  	var description = document.createElement("P");
+  	description.innerHTML = des;
+  	revealDiv.appendChild(description);
+  	outerDiv.appendChild(revealDiv); //add all this to card
+
+  	return outerDiv;
+
+}
+function displayLiterature(dataset){
+	$("#maingrid").empty();
+	// array of json datasets 
+	var datasets = dataset; 
+	var i;
+	var color;
+	var gridItemWidthFlag = true; // when true, grid-item; when F, grid-item--width2
+	// for all datasets
+	for (i = 0; i < datasets.length; i++){
+		// choose the right color 
+	  	if (datasets[i] == afrofuturism){
+	  		console.log("color is afro");
+	  		color = '#ab05a7';
+	  	}
+	  	else if (datasets[i] == remixing){
+	  		console.log("color is remix");
+	  		color = '#a4fb2e';
+	  	}
+	  	else if (datasets[i] == computing){
+	  		console.log("color is computing");
+	  		color = '#f81e51';
+	  	}
+	  	else{
+	  		console.log("color is anthropocene");
+	  		color = '#ccc200'; // anthropocene
+	  	}
+
+	  // for current dataset
+	  for (x in datasets[i]){
+	  	// img source
+	  	var source = datasets[i][x].source;
+	  	var author = datasets[i][x].author;
+	  	var title = datasets[i][x].title;
+	  	var description = datasets[i][x].description;
+	  	var imagelink = datasets[i][x].image
+	  	
+
+	  	// create materialize card
+	  	var card = createCard(source,author,title,description,imagelink,color);
+	  	
+		// outermost card div 
+  		var gridItem = document.createElement("DIV");
+  		gridItem.setAttribute('class', 'grid-item');
+  		gridItem.appendChild(card);
+
+		$('.materialboxed').materialbox();             
+		$(".grid").append(gridItem); // card
+		$('.grid').masonry('reloadItems');
+		$('.grid').imagesLoaded().progress( function() {
+			$('.grid').masonry('layout');
+			});
+
+	  	}
+
+	  }
+}
+// function takes all card data 
+// load all the images 
+function all_imgs(){
+	displayLiterature([afrofuturism,anthropocene, computing, remixing]);
+	 
+
+}
+// load afrofuturism images (level 1 in the json file)
+function af_imgs(){
+	displayLiterature([afrofuturism]);
+}
+// load anthropocene images (level 1 in the json file)
+function anthro_imgs(){
+	displayLiterature([anthropocene]);
+}
+// load computing images (level 1 in the json file)
+function computing_imgs(){
+	displayLiterature([computing]);
+}
+// load remixing images (level 1 in the json file)
+function remixing_imgs(){
+	displayLiterature([remixing]);
+}
+
+// ************* DATASETS ************* 
+var remixing = {
+	"0":{
+	    "Index": 1,
+	    "title": "Digital Griots: African American Rhetoric in a Multimedia Age",
+	    "author": "Adam J. Banks",
+	    "source": "https://muse.jhu.edu/book/38837",
+	    "description": "null",
+	    "image": "https://muse.jhu.edu/book/38837/image/front_cover.jpg ",
+    },
+    "1":{
+	    "Index": 1,
+	    "title": "Appropriating Technology: Vernacular, Science, and Social Power",
+	    "author": "Ron Eglash",
+	    "source": "https://www.upress.umn.edu/book-division/books/appropriating-technology",
+	    "description": "null",
+	    "image": "https://www.upress.umn.edu/book-division/books/appropriating-technology/image ",
+    },
+    "2":{
+	    "Index": 1,
+	    "title": "ReMix: Reading and composing culture",
+	    "author": "Catherine G. Latterell",
+	    "source": "https://www.amazon.com/ReMix-Composing-Catherine-G-Latterell/dp/0312681674",
+	    "description": "null",
+	    "image": "https://images-na.ssl-images-amazon.com/images/I/41En%2BM0AMQL.jpg ",
+    },
+    "3":{
+	    "Index": 1,
+	    "title": "Remix Theory: The Aesthetics of Sampling",
+	    "author": "Eduardo Navas",
+	    "source": "http://remixtheory.net/?page_id=491",
+	    "description": "null",
+	    "image": "https://remixtheory.net/remixImages/Final_RT_Cover_v2Web.jpg",
+    },
+    "4":{
+	    "Index": 1,
+	    "title": "“Remix Theory” blog",
+	    "author": "Eduardo Navas",
+	    "source": "http://remixtheory.net/",
+	    "description": "null",
+	    "image": "http://remixtheory.net/remixImages/remixLogo.gif",
+    },
+    "5":{
+	    "Index": 1,
+	    "title": "Art, Media Design, and Postproduction: Open Guidelines on Appropriation and Remix",
+	    "author": "Eduardo Navas",
+	    "source": "https://www.routledge.com/Art-Media-Design-and-Postproduction-Open-Guidelines-on-Appropriation/Navas/p/book/9781138211339",
+	    "description": "null",
+	    "image": "https://remixtheory.net/wp-content/uploads/2018/07/Art_media_Cover_Navas.png",
+    },
+}
+
+var computing = {
+	"0":{
+	    "Index": 2,
+	    "title": "Down Cancer Alley: The Lived Experience of Health and Environmental Suffering in Louisiana's Chemical Corridor",
+	    "author": "Merrill Singer",
+	    "source": "https://doi.org/10.1111/j.1548-1387.2011.01154.x ",
+	    "description": "The white utopia was a black inferno.    —Sylvia Wynter",
+	    "image": "https://www.dur.ac.uk/images/IAS/2018_revisions/Fellows1819/Fellows1718/DrKYusoff.jpg",
+    },
+    "1":{
+	    "Index": 2,
+	    "title": "The Human Planet: How We Created the Anthropocene",
+	    "author": "Simon L. Lewis & Mark A. Maslin Pelican",
+	    "source": "https://yalebooks.yale.edu/book/9780300232172/human-planet",
+	    "description": "This is the view of two UK scientists who believe the impact of colonialism was so profound it can be detected in Earth’s air and rocks",
+	    "image": "https://images-na.ssl-images-amazon.com/images/I/91muqI4EPiL.jpg",
+    },
+    "2":{
+	    "Index": 2,
+	    "title": "Blood and earth: Modern slavery, ecocide, and the secret to saving the world.",
+	    "author": "Kevin Bales",
+	    "source": "http://www.kevinbales.net/blood-and-earth.html",
+	    "description": "“These two problems, this ancient and terrible problem of slavery and this newer concern that we have about climate change, are actually so tightly linked together that the solutions are fitting both of them,” ",
+	    "image": "http://www.kevinbales.net/uploads/1/1/4/2/1142278/_3060752_orig.jpg",
+    },
+    "3":{
+	    "Index": 2,
+	    "title": "A Billion Black Anthropocenes or None",
+	    "author": "Katherine Yusoff",
+	    "source": "https://www.upress.umn.edu/book-division/books/a-billion-black-anthropocenes-or-none",
+	    "description": "Yusoff initiates a transdisciplinary conversation between black feminist theory, geography, and the earth sciences, addressing the politics of the Anthropocene within the context of race, materiality, deep time, and the afterlives of geology.",
+	    "image": "https://pbs.twimg.com/media/D4xTmeEXsAgMbWS.jpg",
+    },
+    "4":{
+	    "Index": 2,
+	    "title": "Blackness and the Pitfalls of Anthropocene Ethics",
+	    "author": "Axelle Karera",
+	    "source": "https://www-jstor-org.prx.library.gatech.edu/stable/10.5325/critphilrace.7.1.0032?seq%3D1",
+	    "description": "This article is concerned with what Srinivas Aravamudan deems “the escapist philosophy of various dimensions of the hypothesis concerning the Anthropocene.”",
+	    "image": "https://pbs.twimg.com/media/EGIRtjPXkAA5wEj.jpg",
+    },
+    "5":{
+	    "Index": 2,
+	    "title": "Reorientations; or, An Indigenous Feminist Reflection on the Anthropocene",
+	    "author": "Kali Simmons",
+	    "source": "https://muse.jhu.edu/article/717132",
+	    "description": "Destruction of homelands. Loss of kinship species. Exposure to deadly contaminants. Mass extinction. Transformed lifeways. In the face of these radical changes, a question lingers: How long will life be possible?",
+	    "image": "https://muse.jhu.edu/article/717132/pdfimage",
+    },
+    "6":{
+	    "Index": 2,
+	    "title": "The Black Shoals: Offshore Formations of Black and Native Studies",
+	    "author": "Tiffany Lethabo King",
+	    "source": "https://www.dukeupress.edu/the-black-shoals",
+	    "description": "In The Black Shoals Tiffany Lethabo King uses the shoal—an offshore geologic formation that is neither land nor sea—as metaphor, mode of critique, and methodology",
+	    "image": "https://www.dukeupress.edu/Assets/Books/978-1-4780-0636-7_pr.jpg ",
+    },
+    
+}
+
+var afrofuturism = {
+	"0":{
+	    "Index": 3,
+	    "title": "My AfroComicCon 2019 Keynote Address: AfroFuturism + the Climate Emergency",
+	    "author": "Aya de Leon",
+	    "source": "https://ayadeleon.wordpress.com/2019/10/20/my-afrocomiccon-2019-keynote-address-afrofuturismthe-climate-emergency/",
+	    "description": "An address of afrofuturism and the world’s environmental crisis",
+	    "image": "https://i.pinimg.com/736x/de/7a/4d/de7a4dd36b1185d637e85233f508560f.jpg",
+    },
+    "1":{
+	    "Index": 3,
+	    "title": "Parable of the Sower",
+	    "author": "Octavia E. Butler ",
+	    "source": "https://blackandbookish.com/blog/review-parable-of-the-sower-by-octavia-butler",
+	    "description": "Octavia Butler's Parable of the Sower is a stunner. It's a terrifying vision of a dismal future brought on by the willful ignorance, racism and greed of human beings, and an eerily dangerous parallel to our present path.",
+	    "image": "https://static1.squarespace.com/static/58706598e58c627ea1666456/588e084b17044b2635c32f2e/588e087f17044b2635c3371a/1553829812402/IMG_2183.JPG?format=1000w",
+    },
+    "2":{
+	    "Index": 3,
+	    "title": "Afrofuturism: The World of Black Sci-Fi and Fantasy Culture",
+	    "author": "Ytasha Womack",
+	    "source": "https://books.google.com/books?id=pTXVAAAAQBAJ&printsec=frontcover&source=gbs_ge_summary_r&cad=0#v=onepage&q&f=false",
+	    "description": "Comprising elements of the avant-garde, science fiction, cutting-edge hip-hop, black comix, and graphic novels, Afrofuturism spans both underground and mainstream pop culture",
+	    "image": "https://www.hastac.org/sites/default/files/styles/main/public/upload/images/post/img_4595.jpg?itok=hxY41cNa",
+    },
+    "3":{
+	    "Index": 3,
+	    "title": "Black Futures Matter: Redefining Afrofuturism",
+	    "author": "Melanie McCoy",
+	    "source": "https://atlantablackstar.com/2015/05/11/black-futures-matter-redefining-afrofuturism/",
+	    "description": "Furthermore, the uniqueness of Afrofuturism is that the definition is dependent upon the interest of the Afrofuturist. What does that mean?",
+	    "image": "https://atlantablackstar.com/wp-content/uploads/2016/04/african-electronic-music-king-britt-300x300.jpg",
+    },
+	"4":{
+	    "Index": 3,
+	    "title": "Tracing OutKast’s obsession with space",
+	    "author": "Lexi Manatakis",
+	    "source": "https://www.dazeddigital.com/music/article/44435/1/outkast-space-sci-fi-influence-andre-3000-high-life",
+	    "description": "Space is the Place: we look at the ATLiens’ cosmic narratives following André 3000’s appearance in High Life",
+	    "image": "https://dazedimg-dazedgroup.netdna-ssl.com/700/azure/dazed-prod/1260/6/1266989.jpg",
+    },
+    "5":{
+	    "Index": 3,
+	    "title": "The Comet",
+	    "author": "W.E.B. Du Bois",
+	    "source": "https://www.tor.com/2017/03/15/expanded-course-in-the-history-of-black-science-fiction-w-e-b-du-bois-the-comet/",
+	    "description": "“The Comet” is a science fiction short story first published in 1920 as the final chapter of his autobiographical collection of poems and essays Darkwater: Voices from Within the Veil.",
+	    "image": "https://blackgirlnerds.com/wp-content/uploads/2018/01/comet.jpg",
+    },
+    "6":{
+	    "Index": 3,
+	    "title": "Flame Wars: Black to the Future ",
+	    "author": "Mark Dery",
+	    "source": "https://www.uvic.ca/victoria-colloquium/assets/docs/Black%20to%20the%20Future.pdf",
+	    "description": "This is the work where the term Afrofuturism was initially coined in the 1990s",
+	    "image": "https://i2.wp.com/markdery.com/wp-content/uploads/2020/02/flame_wars-2-e1581277035578.jpg?resize=600%2C840&ssl=1",
+    },
+    "7":{
+	    "Index": 3,
+	    "title": "Dark Matter: A Century of Speculative Fiction from the African Diaspora",
+	    "author": "Shiree R. Thomas",
+	    "source": "https://www.barnesandnoble.com/w/dark-matter-sheree-r-thomas/1004558383?ean=9780446677240",
+	    "description": "This anthology contains work from some of the best and brightest African-American writers of our time",
+	    "image": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1344267699i/286077._UY475_SS475_.jpg",
+    },
+     "8":{
+	    "Index": 3,
+	    "title": "Dhalgren",
+	    "author": "Samuel R. Delaney",
+	    "source": "https://www.goodreads.com/book/show/40963358-dhalgren",
+	    "description": "A mysterious disaster has stricken the midwestern American city of Bellona, and its aftereffects are disturbing",
+	    "image": "https://static1.squarespace.com/static/571e7cc14c2f859b347c0167/t/5723c07ec8f51c824e5a71e3/1461960830813/1000w/",
+    },
+    "9":{
+	    "Index": 3,
+	    "title": "Binti",
+	    "author": "Nnedi Okorafor",
+	    "source": "https://www.barnesandnoble.com/w/binti-nnedi-okorafor/1125827789",
+	    "description": "At 96 pages, this novella is a short read that packs a powerful punch, and is a natural addition to the Afrofuturism canon",
+	    "image": "https://cdn.vox-cdn.com/thumbor/CO_a8VjlAO6rjhlA7kTgoI5KmhM=/0x0:3008x2000/1400x1400/filters:focal(1280x1520:1760x2000):format(jpeg)/cdn.vox-cdn.com/uploads/chorus_image/image/52920373/aliptak_170124_1417_0002_2.0.jpg",
+    },
+    "10":{
+	    "Index": 3,
+	    "title": "The Intuitionist",
+	    "author": "Colson Whitehead",
+	    "source": "https://www.amazon.com/dp/B007YUBCM4/ref=dp-kindle-redirect?_encoding=UTF8&btkr=1",
+	    "description": "The Intuitionist is a unique novel about integration and racial progress in a world of elevators and their inspectors",
+	    "image": "https://static1.squarespace.com/static/5c254f3c4611a0f11d898c82/5c2558ff03ce6447d67aba3f/5d12b23a2216060001fe34d8/1563315730289/TheIntuitionist.jpg?format=2500w",
+    },
+}
+
+var anthropocene = {
+	"0":{
+	    "Index": 4,
+	    "title": "White Utopia/Black Inferno: Life on a Geologic Spike",
+	    "author": "Katherine Yusoff",
+	    "source": "https://www.e-flux.com/journal/97/252226/white-utopia-black-inferno-life-on-a-geologic-spike/",
+	    "description": "The white utopia was a black inferno.    —Sylvia Wynter",
+	    "image": "https://www.dur.ac.uk/images/IAS/2018_revisions/Fellows1819/Fellows1718/DrKYusoff.jpg",
+    },
+    "1":{
+	    "Index": 4,
+	    "title": "The Human Planet: How We Created the Anthropocene",
+	    "author": "Simon L. Lewis & Mark A. Maslin Pelican",
+	    "source": "https://yalebooks.yale.edu/book/9780300232172/human-planet",
+	    "description": "This is the view of two UK scientists who believe the impact of colonialism was so profound it can be detected in Earth’s air and rocks",
+	    "image": "https://images-na.ssl-images-amazon.com/images/I/91muqI4EPiL.jpg",
+    },
+    "2":{
+	    "Index": 4,
+	    "title": "Blood and earth: Modern slavery, ecocide, and the secret to saving the world.",
+	    "author": "Kevin Bales",
+	    "source": "http://www.kevinbales.net/blood-and-earth.html",
+	    "description": "“These two problems, this ancient and terrible problem of slavery and this newer concern that we have about climate change, are actually so tightly linked together that the solutions are fitting both of them,” ",
+	    "image": "http://www.kevinbales.net/uploads/1/1/4/2/1142278/_3060752_orig.jpg",
+    },
+    "3":{
+	    "Index": 4,
+	    "title": "A Billion Black Anthropocenes or None",
+	    "author": "Katherine Yusoff",
+	    "source": "https://www.upress.umn.edu/book-division/books/a-billion-black-anthropocenes-or-none",
+	    "description": "Yusoff initiates a transdisciplinary conversation between black feminist theory, geography, and the earth sciences, addressing the politics of the Anthropocene within the context of race, materiality, deep time, and the afterlives of geology.",
+	    "image": "https://pbs.twimg.com/media/D4xTmeEXsAgMbWS.jpg",
+    },
+    "4":{
+	    "Index": 4,
+	    "title": "Blackness and the Pitfalls of Anthropocene Ethics",
+	    "author": "Axelle Karera",
+	    "source": "https://www-jstor-org.prx.library.gatech.edu/stable/10.5325/critphilrace.7.1.0032?seq%3D1",
+	    "description": "This article is concerned with what Srinivas Aravamudan deems “the escapist philosophy of various dimensions of the hypothesis concerning the Anthropocene.”",
+	    "image": "https://pbs.twimg.com/media/EGIRtjPXkAA5wEj.jpg",
+    },
+    "5":{
+	    "Index": 4,
+	    "title": "Reorientations; or, An Indigenous Feminist Reflection on the Anthropocene",
+	    "author": "Kali Simmons",
+	    "source": "https://muse.jhu.edu/article/717132",
+	    "description": "Destruction of homelands. Loss of kinship species. Exposure to deadly contaminants. Mass extinction. Transformed lifeways. In the face of these radical changes, a question lingers: How long will life be possible?",
+	    "image": "https://muse.jhu.edu/article/717132/pdfimage",
+    },
+    "6":{
+	    "Index": 4,
+	    "title": "The Black Shoals: Offshore Formations of Black and Native Studies",
+	    "author": "Tiffany Lethabo King",
+	    "source": "https://www.dukeupress.edu/the-black-shoals",
+	    "description": "In The Black Shoals Tiffany Lethabo King uses the shoal—an offshore geologic formation that is neither land nor sea—as metaphor, mode of critique, and methodology",
+	    "image": "https://www.dukeupress.edu/Assets/Books/978-1-4780-0636-7_pr.jpg ",
+    },
+    
+}
+
+
+</script>
+</body>
+</html>

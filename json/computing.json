@@ -1,0 +1,139 @@
+{  
+    "0":{
+	    "Index": 0,
+	    "description": "Sharon Lavigne (L) leads The March Against Death Alley through St. James, Louisiana on Oct. 23rd, 2019",
+	    "source": "https://www.rollingstone.com/wp-content/uploads/2019/10/NewOrleans1.jpg ",
+	    "credit": "William Widmer for Rolling Stone"
+	},
+	"1":{
+	    "Index": 0,
+	    "description": "A young boy rides his tricycle on Burton Lane in St. James. The dead-end residential road is surrounded on three sides by heavy industry.",
+	    "source": "https://www.rollingstone.com/wp-content/uploads/2019/10/NewOrleans4.jpg?w=1024 ",
+	    "credit": "William Widmer for Rolling Stone"
+	},
+	"2":{
+	    "Index": 0,
+	    "description": "A boy looks out over a pool of polluted water at a pile of discarded circuit boards in the slum town of Mandoli on the outskirts of Delhi.",
+	    "source": "http://www.documentscotland.com/wp-content/uploads/2013/05/E-wasteland_2006_India_02.jpg",
+	    "credit": "© Sophie Gerrard 2006"
+	},
+	"3":{
+	    "Index": 0,
+	    "description": "Mixed computer scrap in a recycling yard. E-waste enters India as scrap metal, scrap plastic and also sometimes as charity donations. In reality much of the import is unusable and goes straight from the port to the scrap heap.",
+	    "source": "http://www.documentscotland.com/wp-content/uploads/2013/05/E-wasteland_2006_India_07.jpg",
+	    "credit": "© Sophie Gerrard 2006"
+	},
+	"4":{
+	    "Index": 0,
+	    "description": "Electronic waste (e-waste) stored in a recycling yard in Bangalore, the IT capital of India. Like many of India’s cities Bangalore is generating thousands of tons of domestic e-waste every year.",
+	    "source": "http://www.documentscotland.com/wp-content/uploads/2013/05/E-wasteland_2006_India_06.jpg",
+	    "credit": "© Sophie Gerrard 2006"
+	},
+	"5":{
+	    "Index": 0,
+	    "description": "The Gnadenhutten Massacre of Indigenous Americans in 1782.",
+	    "source": "http://www.documentscotland.com/wp-content/uploads/2013/05/E-wasteland_2006_India_10.jpg ",
+	    "credit": "© Sophie Gerrard 2006"
+	},
+	"6":{
+	    "Index": 0,
+	    "description": "London by night from the International Space Station. Earth's surface is becoming increasingly illuminated by brighter artificial night light.",
+	    "source": "https://resize.hswstatic.com/w_907/gif/night-light.jpg ",
+	    "credit": "UNIVERSAL HISTORY ARCHIVE/GETTY IMAGES"
+	},
+
+}
+{
+	"0":{
+	    "Index": 1,
+	    "description": "E-waste, the term given to discarded electronic appliances, is often shipped by developed nations to poorer countries such as Ghana. RTD visits the country's most infamous dumping ground, Agbogbloshie. Locals call it “Sodom and Gomorrah” after the infamous Biblical sin cities. Its air and soil are polluted with toxic chemicals, while extreme poverty, child labour and criminal gangs are also rife. Learn more https://rtd.rt.com/films/toxicity/ ",
+	    "source": "https://youtu.be/mleQVO1Vd1I ",
+	    "title": "ToxiCity: life at Agbobloshie, the world's largest e-waste dump in Ghana",
+    },
+    "1":{
+	    "Index": 1,
+	    "description": "Mon, Jul 23: Used electronic devices are often discarded in the cheapest way possible to some of the world's poorest countries. Sean O'Shea reports.",
+	    "source": "https://youtu.be/_-N92-wZCOU ",
+	    "title": "Examining e-waste in Africa",
+    },
+    "2":{
+	    "Index": 1,
+	    "description": "Residents living in the St. James Welcome community share their fight against pollution and slow crisis. This story was created in a digital storytelling workshop coordinated by the Louisiana Bucket Brigade, led by StoryCenter, and funded by Eileen Fisher.",
+	    "source": "https://youtu.be/XZsPTLWCuOA",
+	    "title": "Our Town, Our Fight – by Shamell and Sharon Lavigne",
+    },
+    "3":{
+	    "Index": 1,
+	    "description": "In a Louisiana town of 10,000 people, the Environmental Protection Agency (EPA) said there is some of the most toxic air in America. More than 100 petrochemical plants and refineries dot the corridor between New Orleans and Baton Rouge, often referred to as ‘cancer alley.’",
+	    "source": "https://www.cbsnews.com/video/high-cancer-risk-plagues-louisiana-town-near-chemical-plants/ ",
+	    "title": "High cancer risk plagues Louisiana town near chemical plants",
+    },
+    "4":{
+	    "Index": 1,
+	    "description": "The 2013 FHI Annual Distinguished Lecture was delivered by Rob Nixon, Rachel Carson Professor of English at the University of Wisconsin-Madison. Prof. Nixon's visit was jointly sponsored by the FHI and the Nicholas School of the Environment. The lecture took place on March 27, 2013 at the Nasher Museum.",
+	    "source": "https://www.youtube.com/watch?v=VOUGOLS14gs",
+	    "title": "Slow Violence and the Environmentalism of the Poor",
+    },
+}
+{
+	"0":{
+	    "Index": 2,
+	    "title": "Down Cancer Alley: The Lived Experience of Health and Environmental Suffering in Louisiana's Chemical Corridor",
+	    "author": "Merrill Singer",
+	    "source": "https://doi.org/10.1111/j.1548-1387.2011.01154.x ",
+	    "description": "The white utopia was a black inferno.    —Sylvia Wynter",
+	    "image": "https://www.dur.ac.uk/images/IAS/2018_revisions/Fellows1819/Fellows1718/DrKYusoff.jpg",
+    },
+    "1":{
+	    "Index": 2,
+	    "title": "The Human Planet: How We Created the Anthropocene",
+	    "author": "Simon L. Lewis & Mark A. Maslin Pelican",
+	    "source": "https://yalebooks.yale.edu/book/9780300232172/human-planet",
+	    "description": "This is the view of two UK scientists who believe the impact of colonialism was so profound it can be detected in Earth’s air and rocks",
+	    "image": "https://images-na.ssl-images-amazon.com/images/I/91muqI4EPiL.jpg",
+    },
+    "2":{
+	    "Index": 2,
+	    "title": "Blood and earth: Modern slavery, ecocide, and the secret to saving the world.",
+	    "author": "Kevin Bales",
+	    "source": "http://www.kevinbales.net/blood-and-earth.html",
+	    "description": "“These two problems, this ancient and terrible problem of slavery and this newer concern that we have about climate change, are actually so tightly linked together that the solutions are fitting both of them,” ",
+	    "image": "http://www.kevinbales.net/uploads/1/1/4/2/1142278/_3060752_orig.jpg",
+    },
+    "3":{
+	    "Index": 2,
+	    "title": "A Billion Black Anthropocenes or None",
+	    "author": "Katherine Yusoff",
+	    "source": "https://www.upress.umn.edu/book-division/books/a-billion-black-anthropocenes-or-none",
+	    "description": "Yusoff initiates a transdisciplinary conversation between black feminist theory, geography, and the earth sciences, addressing the politics of the Anthropocene within the context of race, materiality, deep time, and the afterlives of geology.",
+	    "image": "https://pbs.twimg.com/media/D4xTmeEXsAgMbWS.jpg",
+    },
+    "4":{
+	    "Index": 2,
+	    "title": "Blackness and the Pitfalls of Anthropocene Ethics",
+	    "author": "Axelle Karera",
+	    "source": "https://www-jstor-org.prx.library.gatech.edu/stable/10.5325/critphilrace.7.1.0032?seq%3D1",
+	    "description": "This article is concerned with what Srinivas Aravamudan deems “the escapist philosophy of various dimensions of the hypothesis concerning the Anthropocene.”",
+	    "image": "https://pbs.twimg.com/media/EGIRtjPXkAA5wEj.jpg",
+    },
+    "5":{
+	    "Index": 2,
+	    "title": "Reorientations; or, An Indigenous Feminist Reflection on the Anthropocene",
+	    "author": "Kali Simmons",
+	    "source": "https://muse.jhu.edu/article/717132",
+	    "description": "Destruction of homelands. Loss of kinship species. Exposure to deadly contaminants. Mass extinction. Transformed lifeways. In the face of these radical changes, a question lingers: How long will life be possible?",
+	    "image": "https://muse.jhu.edu/article/717132/pdfimage",
+    },
+    "6":{
+	    "Index": 2,
+	    "title": "The Black Shoals: Offshore Formations of Black and Native Studies",
+	    "author": "Tiffany Lethabo King",
+	    "source": "https://www.dukeupress.edu/the-black-shoals",
+	    "description": "In The Black Shoals Tiffany Lethabo King uses the shoal—an offshore geologic formation that is neither land nor sea—as metaphor, mode of critique, and methodology",
+	    "image": "https://www.dukeupress.edu/Assets/Books/978-1-4780-0636-7_pr.jpg ",
+    },
+    
+}
+
+
+

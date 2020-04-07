@@ -1,0 +1,123 @@
+{  
+    "0":{
+	    "Index": 0,
+	    "description": "Young Students, 1964",
+	    "source": "https://beardenfoundation.org/wp-content/uploads/2017/12/BeardenYoungStudents1964.jpg ",
+	    "credit": "Romare Bearden"
+	},
+	"1":{
+	    "Index": 0,
+	    "description": "Mother and Child, 19714",
+	    "source": "https://beardenfoundation.org/wp-content/uploads/2017/12/motherandchildromarebearden.jpg",
+	    "credit": "Romare Bearden"
+	},
+	"2":{
+	    "Index": 0,
+	    "description": "OFF WHITE C/O VIRGIL ABLOH religion stripe hooded Pyrex vision",
+	    "source": "https://ae01.alicdn.com/kf/HTB1V1xCJXXXXXXsXXXXq6xXFXXXF/OFF-WHITE-C-O-VIRGIL-ABLOH-religion-stripe-hooded-Pyrex-vision-men-Euramerican-sweatshirt-high-quality.jpg_640x640q70.jpg ",
+	    "credit": "OFF WHITE C/O VIRGIL ABLOH "
+	},
+	"3":{
+	    "Index": 0,
+	    "description": "PYREX VISION 'RELIGION' ALL BLACK HOODIE",
+	    "source": "https://assets.bigcartel.com/product_images/128300613/pyrex-vision-hoodie-1.jpg?auto=format&fit=max&h=1000&w=1000",
+	    "credit": "Kanye West And Designer Virgil Abloh"
+	},
+	"4":{
+	    "Index": 0,
+	    "description": "Grandmaster Flash (Mamoudie Athie) teaches Shaolin Fantastic (Shameik Moore) how to do his “quick mix theory” on the turntables in “The Get Down.” (David Lee/Netflix)",
+	    "source": "https://arc-anglerfish-washpost-prod-washpost.s3.amazonaws.com/public/TS3EKCCS4M7XVHOZ7KWYB6HAX4.jpg ",
+	    "credit": "David Lee/Netflix"
+	},
+
+}
+
+{
+	"0":{
+	    "Index": 1,
+	    "description": "All Def Music's Kayla Nicole takes a look at the history behind Houston, Texas' chopped & screwed sound and its originator, DJ Screw.",
+	    "source": "https://www.youtube.com/watch?v=VF9W93PE4Q4",
+	    "title": "The Rise Of The Chopped & Screwed Sound | The Report",
+    },
+    "1":{
+	    "Index": 1,
+	    "description": "DJ Screw Chopped & Screwed example",
+	    "source": "https://youtu.be/IzRMVZdykjo",
+	    "title": "DJ Screw - Juicy (Biggie) Chopped & Screwed",
+    },
+    "2":{
+	    "Index": 1,
+	    "description": "Example of chopped & screwed remix style",
+	    "source": "https://youtu.be/BeTfqUQ9oNQ",
+	    "title": "Roddy Ricch - The Box (Chopped & Screwed)",
+    },
+    "3":{
+	    "Index": 1,
+	    "description": "clip from the  Netflix series...The Get Down discussing DJ mixing techniques",
+	    "source": "https://www.youtube.com/watch?v=fo2Hqz0vamU",
+	    "title": "Grand Master Flash ''Be In The Moment...Yes'' The Get Down",
+    },
+    "4":{
+	    "Index": 1,
+	    "description": "Grandmaster Flash discussing and demo of remixing with vinyl",
+	    "source": "https://www.youtube.com/watch?v=fD7gsNbRv08",
+	    "title": "Baz Luhrmann - Grandmaster Flash's Master Class // The Get Down (2016-2017)",
+    },
+    "5":{
+	    "Index": 1,
+	    "description": "Grandmaster Flash demonstration of sampling and remixing as a HipHop DJ, including quick mix theory and discussions of ‘DJ science’",
+	    "source": "https://www.youtube.com/watch?v=m3YXyK-gWvc",
+	    "title": "Grandmaster Flash Talks 'The Theory' Of Being A HipHop DJ & The Beginnings Of Hip-Hop!!",
+    },
+}
+
+{
+	"0":{
+	    "Index": 2,
+	    "title": "Digital Griots: African American Rhetoric in a Multimedia Age",
+	    "author": "Adam J. Banks",
+	    "source": "https://muse.jhu.edu/book/38837",
+	    "description": "null",
+	    "image": "https://muse.jhu.edu/book/38837/image/front_cover.jpg ",
+    },
+    "1":{
+	    "Index": 2,
+	    "title": "Appropriating Technology: Vernacular, Science, and Social Power",
+	    "author": "Ron Eglash",
+	    "source": "https://www.upress.umn.edu/book-division/books/appropriating-technology",
+	    "description": "null",
+	    "image": "https://www.upress.umn.edu/book-division/books/appropriating-technology/image ",
+    },
+    "2":{
+	    "Index": 2,
+	    "title": "ReMix: Reading and composing culture",
+	    "author": "Catherine G. Latterell",
+	    "source": "https://www.amazon.com/ReMix-Composing-Catherine-G-Latterell/dp/0312681674",
+	    "description": "null",
+	    "image": "https://images-na.ssl-images-amazon.com/images/I/41En%2BM0AMQL.jpg ",
+    },
+    "3":{
+	    "Index": 2,
+	    "title": "Remix Theory: The Aesthetics of Sampling",
+	    "author": "Eduardo Navas",
+	    "source": "http://remixtheory.net/?page_id=491",
+	    "description": "null",
+	    "image": "https://remixtheory.net/remixImages/Final_RT_Cover_v2Web.jpg",
+    },
+    "4":{
+	    "Index": 2,
+	    "title": "“Remix Theory” blog",
+	    "author": "Eduardo Navas",
+	    "source": "http://remixtheory.net/",
+	    "description": "null",
+	    "image": "http://remixtheory.net/remixImages/remixLogo.gif",
+    },
+    "5":{
+	    "Index": 2,
+	    "title": "Art, Media Design, and Postproduction: Open Guidelines on Appropriation and Remix",
+	    "author": "Eduardo Navas",
+	    "source": "https://www.routledge.com/Art-Media-Design-and-Postproduction-Open-Guidelines-on-Appropriation/Navas/p/book/9781138211339",
+	    "description": "null",
+	    "image": "https://remixtheory.net/wp-content/uploads/2018/07/Art_media_Cover_Navas.png",
+    },
+}

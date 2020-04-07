@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Gallery</title>
+	<meta charset="UTF-8">
+	<!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<title>Loading</title>
+	<!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!-- materialize icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="css/images.css" >
+    <!-- Importing jQuery from Google CDN -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<!-- Compiled and minified JavaScript for optimized loading -->
+    <script type="text/javascript" src="js/materialize.js"></script>
+	<!-- masonry library for image grid -->
+	<script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+	<!-- masonry image load script -->
+	<script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
+
+	<style>
+		.landingpage{
+			
+			/* The image used 
+			background-image: url("img_girl.jpg");
+		   
+		    height: 100%;
+			
+			background-position: center;
+			background-repeat: no-repeat;
+			background-size: cover;*/
+
+		}
+		.card{
+
+			height:100%;
+			width:100%;
+		}
+		.no-underline{
+            text-decoration: none;
+            color: white;
+        }
+		body, html{
+		  height: 100%;
+		  background-color: black;
+		}
+	</style>
+</head>
+<body >
+	<div class="">
+		<div class="navbar-fixed ">
+		    <nav>
+		      <div class="nav-wrapper black">
+		        <a href="home.html" class="material-icons">home</a>
+		        <ul class="right hide-on-med-and-down">
+		          <li><a href="literature.html">Literature</a></li>
+		          <li><a href="gallery.html">Gallery</a></li>
+		          <li><a href="#">Video + Film</a></li>
+		          <li><a href="prototypes.html">Prototypes</a></li>
+		        </ul>
+		      </div>
+		    </nav>
+		</div>
+		<!-- filter list of links  -->
+		<div class="row">
+			<div class="col s2 m2 l2 offset-s1 offset-m1 offset-l1">
+		        <a onclick="all_imgs()" class="no-underline"href="#">All</a>
+		    </div>
+		    <div class="col s2 m2 l2  ">
+		        <a onclick="anthro_imgs()" class="no-underline"href="#"><span style="color: #ccc200">&#8226</span> Anthropocene(s)</a>
+		    </div> 
+		    <div class="col s2 m2 l2 ">
+		        <a onclick="af_imgs()" class="no-underline"href="#"> <span style="color: #ab05a7">&#8226</span> Afrofuturism</a>
+		    </div>
+		    <div class="col s2 m2 l2 ">
+		        <a onclick="computing_imgs()" class="no-underline"href="#"> <span style="color: #f81e51">&#8226</span> Computing</a>
+		    </div>
+		    <div class="col s2 m2 l2 ">
+		        <a onclick="remixing_imgs()" class="no-underline"href="#"> <span style="color: #a4fb2e">&#8226</span> Remixing</a>
+		    </div>  
+		</div>
+		<!-- image grid items, added with javascript -->
+		<div class="row">
+			<div id="maingrid" class="grid effect-1"> </div>
+		</div>
+	</div>
+
+<script>
+
+	$(document).ready(function(){
+        (function($){
+            $(function(){
+            	all_imgs();
+
+            	console.log("ready");
+                //$(".aboutme").hide();
+                //$('.aboutme').hide().fadeIn(30000);
+                $('.parallax').parallax();
+                $('.materialboxed').materialbox();
+                //$('.modal').modal();
+                //$('.slider').slider();
+                //$('.collapsible').collapsible();
+                //$('.carousel').carousel();
+                $('.grid').masonry({
+                    // options
+                    itemSelector: '.grid-item',
+                    columnWidth: '.grid-item',
+                    gutter: 15, //was 5
+                    
+
+                });
+                // layout Masonry after each image loads
+				$('.grid').imagesLoaded().progress( function() {
+				  $('.grid').masonry('layout');
+				});
+
+
+            });
+        })(jQuery);
+    });
+
+function displayGallery(dataset){
+	$("#maingrid").empty();
+	// array of json datasets 
+	var datasets = dataset; 
+	var i;
+	var gridItemWidthFlag = true; // when true, grid-item; when F, grid-item--width2
+	// for all datasets
+	for (i = 0; i < datasets.length; i++){
+	  // for current dataset
+	  for (x in datasets[i]){
+	  	// img source
+	  	var source = datasets[i][x].source;
+	  	var caption = datasets[i][x].description;
+	  	var credit = datasets[i][x].credit;
+	  	// make an image
+	  	var img = document.createElement("IMG");
+	  	// make an div
+	  	var div = document.createElement("DIV");
+	  	// at correct source                
+		img.src = source;
+		// correct caption with credits 
+		img.setAttribute('data-caption',caption + "  *" + "credit: " + credit);
+		// materialize class for clicking images 
+		img.setAttribute('class', 'materialboxed placeholder image'); 
+		// toggle different widths for images 
+	  	if (gridItemWidthFlag){
+	  		div.setAttribute('class', 'grid-item '); 
+	  		// negate flag 
+	  		gridItemWidthFlag = false; 
+	  	}
+	  	else {
+	  		div.setAttribute('class', 'grid-item'); 
+	  		// negate flag 
+	  		gridItemWidthFlag = true; 
+	  	}
+	  	// add image to div and append 
+		div.appendChild(img);
+		$('.materialboxed').materialbox();              
+		$(".grid").append(div);
+		$('.grid').masonry('reloadItems');
+		$('.grid').imagesLoaded().progress( function() {
+			$('.grid').masonry('layout');
+			});
+
+	  	}
+
+	  }
+
+}
+// load all the images 
+function all_imgs(){
+	displayGallery([afrofuturism,anthropocene, computing, remixing]);	  	
+}
+// load afrofuturism images (level 1 in the json file)
+function af_imgs(){
+	displayGallery([afrofuturism]);
+}
+// load anthropocene images (level 1 in the json file)
+function anthro_imgs(){
+	displayGallery([anthropocene]);
+}
+// load computing images (level 1 in the json file)
+function computing_imgs(){
+	displayGallery([computing]);
+}
+// load remixing images (level 1 in the json file)
+function remixing_imgs(){
+	displayGallery([remixing]);
+}
+var remixing = {
+	"0":{
+	    "Index": 0,
+	    "description": "Young Students, 1964",
+	    "source": "https://beardenfoundation.org/wp-content/uploads/2017/12/BeardenYoungStudents1964.jpg ",
+	    "credit": "Romare Bearden"
+	},
+	"1":{
+	    "Index": 0,
+	    "description": "Mother and Child, 19714",
+	    "source": "https://beardenfoundation.org/wp-content/uploads/2017/12/motherandchildromarebearden.jpg",
+	    "credit": "Romare Bearden"
+	},
+	"2":{
+	    "Index": 0,
+	    "description": "OFF WHITE C/O VIRGIL ABLOH religion stripe hooded Pyrex vision",
+	    "source": "https://ae01.alicdn.com/kf/HTB1V1xCJXXXXXXsXXXXq6xXFXXXF/OFF-WHITE-C-O-VIRGIL-ABLOH-religion-stripe-hooded-Pyrex-vision-men-Euramerican-sweatshirt-high-quality.jpg_640x640q70.jpg ",
+	    "credit": "OFF WHITE C/O VIRGIL ABLOH "
+	},
+	"3":{
+	    "Index": 0,
+	    "description": "PYREX VISION 'RELIGION' ALL BLACK HOODIE",
+	    "source": "https://assets.bigcartel.com/product_images/128300613/pyrex-vision-hoodie-1.jpg?auto=format&fit=max&h=1000&w=1000",
+	    "credit": "Kanye West And Designer Virgil Abloh"
+	},
+	"4":{
+	    "Index": 0,
+	    "description": "Grandmaster Flash (Mamoudie Athie) teaches Shaolin Fantastic (Shameik Moore) how to do his “quick mix theory” on the turntables in “The Get Down.” (David Lee/Netflix)",
+	    "source": "https://arc-anglerfish-washpost-prod-washpost.s3.amazonaws.com/public/TS3EKCCS4M7XVHOZ7KWYB6HAX4.jpg ",
+	    "credit": "David Lee/Netflix"
+	}
+}
+
+
+
+var computing = {
+	"0":{
+	    "Index": 0,
+	    "description": "Sharon Lavigne (L) leads The March Against Death Alley through St. James, Louisiana on Oct. 23rd, 2019",
+	    "source": "https://www.rollingstone.com/wp-content/uploads/2019/10/NewOrleans1.jpg ",
+	    "credit": "William Widmer for Rolling Stone"
+	},
+	"1":{
+	    "Index": 0,
+	    "description": "A young boy rides his tricycle on Burton Lane in St. James. The dead-end residential road is surrounded on three sides by heavy industry.",
+	    "source": "https://www.rollingstone.com/wp-content/uploads/2019/10/NewOrleans4.jpg?w=1024 ",
+	    "credit": "William Widmer for Rolling Stone"
+	},
+	"2":{
+	    "Index": 0,
+	    "description": "A boy looks out over a pool of polluted water at a pile of discarded circuit boards in the slum town of Mandoli on the outskirts of Delhi.",
+	    "source": "http://www.documentscotland.com/wp-content/uploads/2013/05/E-wasteland_2006_India_02.jpg",
+	    "credit": "© Sophie Gerrard 2006"
+	},
+	"3":{
+	    "Index": 0,
+	    "description": "Mixed computer scrap in a recycling yard. E-waste enters India as scrap metal, scrap plastic and also sometimes as charity donations. In reality much of the import is unusable and goes straight from the port to the scrap heap.",
+	    "source": "http://www.documentscotland.com/wp-content/uploads/2013/05/E-wasteland_2006_India_07.jpg",
+	    "credit": "© Sophie Gerrard 2006"
+	},
+	"4":{
+	    "Index": 0,
+	    "description": "Electronic waste (e-waste) stored in a recycling yard in Bangalore, the IT capital of India. Like many of India’s cities Bangalore is generating thousands of tons of domestic e-waste every year.",
+	    "source": "http://www.documentscotland.com/wp-content/uploads/2013/05/E-wasteland_2006_India_06.jpg",
+	    "credit": "© Sophie Gerrard 2006"
+	},
+	"5":{
+	    "Index": 0,
+	    "description": "The Gnadenhutten Massacre of Indigenous Americans in 1782.",
+	    "source": "http://www.documentscotland.com/wp-content/uploads/2013/05/E-wasteland_2006_India_10.jpg ",
+	    "credit": "© Sophie Gerrard 2006"
+	},
+	"6":{
+	    "Index": 0,
+	    "description": "London by night from the International Space Station. Earth's surface is becoming increasingly illuminated by brighter artificial night light.",
+	    "source": "https://resize.hswstatic.com/w_907/gif/night-light.jpg ",
+	    "credit": "UNIVERSAL HISTORY ARCHIVE/GETTY IMAGES"
+	}
+}
+
+
+var afrofuturism = {  
+    "0":{
+	    "Index": 0,
+	    "description": "Afrofuturistic illustration, futuristic woman ",
+	    "source": "https://ayadeleon.files.wordpress.com/2019/10/shuri-and-afrofuturism.jpg?w=399&h=234",
+	    "credit": "unknown"
+	},
+	"1":{
+	    "Index": 0,
+	    "description": "Rihanna, as an otherworldly warrior queen, in the September issue of W magazine.",
+	    "source": "https://static01.nyt.com/images/2016/12/18/fashion/18AFROFUTIRSM-WEB2/18AFROFUTIRSM-WEB2-superJumbo.jpg",
+	    "credit": "Steven Klein; styled by Edward Enninful",
+	},
+	"2":{
+	    "Index": 0,
+	    "description": "Solange Knowles on “Saturday Night Live” in November, flaunting a sundial-size headdress of crystals and tight-woven braids.",
+	    "source": "https://static01.nyt.com/images/2016/12/18/fashion/18AFROFUTIRSM-WEB1/18AFROFUTIRSM-WEB1-jumbo.jpg?quality=90&auto=webp",
+	    "credit": "Dana Edelson/NBC, via Getty Images",
+	},
+    "3":{
+	    "Index": 0,
+	    "description": "“Syzygy,” by the artist Lina Iris Viktor, who paints queenly self-portraits with a futuristic edge.",
+	    "source": "https://static01.nyt.com/images/2016/12/18/fashion/18AFROFUTIRSM-WEB4/18AFROFUTIRSM-WEB4-superJumbo.jpg?quality=90&auto=webp",
+	    "credit": "Lina Iris Viktor",
+    },
+    "4":{
+	    "Index": 0,
+	    "description": "Erykah Badu’s music and aesthetic embody afrofuturism to the core ",
+	    "source": "https://41.media.tumblr.com/93f46b88987febe4639395a8f6f49c62/tumblr_ny65ysRPlx1u9abp3o10_1280.jpg",
+	    "credit": "Reblogoloy",
+    },
+    "5":{
+	    "Index": 0,
+	    "description": "Badu is known for her quirky signature style along with her piercing vocals and experimental sound.",
+	    "source": "https://i2.wp.com/dailytrojan.com/wp-content/uploads/2018/02/badu1.png?fit=954%2C906",
+	    "credit": "Steve Rose",
+    },
+    "6":{
+	    "Index": 0,
+	    "description": "From Givenchy’s spring 2014 ready-to-wear collection. Riccardo Tisci of Givenchy was among the first designers to integrate Afrofuturist imagery into his runway shows",
+	    "source": "https://static01.nyt.com/images/2016/12/18/fashion/18AFROFUTIRSM-WEB7-SUB/18AFROFUTIRSM-WEB7-SUB-superJumbo.jpg?quality=90&auto=webp",
+	    "credit": "Gio Staiano/Nowfashion",
+    },
+    "7":{
+	    "Index": 0,
+	    "description": "Jerome LaMaar, the owner of the South Bronx boutique 9J, in fur-rimmed virtual-reality goggles.",
+	    "source": "https://static01.nyt.com/images/2016/12/18/fashion/18AFROFUTIRSM-WEB3/18AFROFUTIRSM-WEB3-jumbo.jpg?quality=90&auto=webp",
+	    "credit": "Deidre Schoo for The New York Times",
+    },
+	"8":{
+	    "Index": 0,
+	    "description": "n/a",
+	    "source": "https://atlantablackstar.com/wp-content/uploads/2016/04/african-electronic-music-king-britt-300x300.jpg",
+	    "credit": "unknown",
+    },
+    "9":{
+	    "Index": 0,
+	    "description": "Afrofuturism: A language of rebellion",
+	    "source": "https://cifs.dk/media/2442/afrofuturism.jpg",
+	    "credit": "unknown",
+    },
+    "10":{
+	    "Index": 0,
+	    "description": "The Cosmic Genius of Sun Ra",
+	    "source": "https://media.redbullmusicacademy.com/assets/Andrew%20Putler_Redferns_Getty%20Images.33dec364.jpg",
+	    "credit": "Andrew Putler/Redferns/Getty Images",
+	 },
+    "11":{
+	    "Index": 0,
+	    "description": "Outkast ATLiens Album Cover",
+	    "source": "https://dazedimg-dazedgroup.netdna-ssl.com/700/azure/dazed-prod/1260/6/1266989.jpg",
+	    "credit": "Outkast",
+    },
+    "12":{
+	    "Index": 0,
+	    "description": "Andre 3000 performs at Lollapalooza in 2014",
+	    "source": "https://i.cbc.ca/1.5014411.1549908212!/fileImage/httpImage/image.jpg_gen/derivatives/16x9_780/andre-3000-lollapalooza.jpg",
+	    "credit": "Theo Wargo",
+    },
+    "13":{
+	    "Index": 0,
+	    "description": "Solange Knowles in an Iris van Herpen dress and custom Brother Vellies shoes.",
+	    "source": "https://pmcfootwearnews.files.wordpress.com/2018/05/solange-aurora-james-met-gala-brother-vellies03.jpg",
+	    "credit": "REX SHUTTERSTOCK",
+    }
+}
+
+var anthropocene = {  
+    "0":{
+	    "Index": 0,
+	    "description": "The Gnadenhutten Massacre of Indigenous Americans in 1782.",
+	    "source": "https://www.history.com/.image/c_limit%2Ccs_srgb%2Cq_auto:good%2Cw_620/MTU3ODc4NjAyNzE2ODgyMjQ5/image-placeholder-title.webp",
+	    "credit": "Archive Photos/Getty Images"
+	},
+	"2":{
+	    "Index": 0,
+	    "description": "Battle of Tippecanoe, 1811",
+	    "source": "https://i.pinimg.com/originals/c6/75/83/c675832168dc8113932a07b51212eabf.jpg",
+	    "credit": "Universal History Archive/Getty Images"
+	},
+	"3":{
+	    "Index": 0,
+	    "description": "Captives being brought on board a slave ship on the West Coast of Africa (Slave Coast), c1880. ",
+	    "source": "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRZ6mf-skvMsXyvBJhggJTzC6Y4MvObuCe8a7gINMzcRh4Omh1d&usqp=CAU",
+	    "credit": "Ann Ronan Pictures/Print Collector/Getty Images"
+	},
+	"4":{
+	    "Index": 0,
+	    "description": "In Captivity",
+	    "source": "https://www.thoughtco.com/thmb/niHchbXQftcDM8N2OotnDt9fKn4=/768x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/slave-trade-93574625-5895bc875f9b5874eee6883b.jpg",
+	    "credit": "Chicago History Museum / Getty Images"
+	},
+	"5":{
+	    "Index": 0,
+	    "description": "“The ecological consequences of cotton farming and the slave labor...inhibit agriculture in the South to this day.” -- Aaron Joslin",
+	    "source": "https://floridahumanities.org/wp-content/uploads/2020/02/rc02221.jpg",
+	    "credit": "unknown"
+	},
+	"6":{
+	    "Index": 0,
+	    "description": "Modern day enslavement of Uzbekistan children ",
+	    "source": "https://www.trustedclothes.com/blog/wp-content/uploads/2017/05/uzbekistan-child-labor-cotton.jpg",
+	    "credit": "unknown"
+	},
+	"7":{
+	    "Index": 0,
+	    "description": "Modern slavery: 'Blood diamonds' dug from African mines by children as young as 11",
+	    "source": "https://i.dailymail.co.uk/i/pix/2015/10/01/15/2CF9637600000578-3256249-Deadly_trade_The_export_of_diamonds_from_CAR_was_banned_in_2012_-a-125_1443708627486.jpg",
+	    "credit": "Amnesty International "
+	},
+	"8":{
+	    "Index": 0,
+	    "description": "Despite near-continuous development, oil, gas, and other petrochemical companies are not finished building new factories and refineries in communities of poor Black people",
+	    "source": "https://bigeasymagazine.b-cdn.net/wp-content/uploads/2019/04/cancer_alley_woman_fishing_with_plants_in_background.jpeg",
+	    "credit": "Treehugger"
+	},
+	"9":{
+	    "Index": 0,
+	    "description": "Environmental racism & slow crises: Chemical plants and factories line the roads and suburbs of the area known as 'Cancer Alley'",
+	    "source": "https://www.sierraclub.org/sites/www.sierraclub.org/files/sce-authors/u14011/Cancer%20Alley%20Protest.png",
+	    "credit": "unknown"
+	},
+	"10":{
+	    "Index": 0,
+	    "description": "Protestors led by Reverend Joseph Lowery march against a proposed toxic waste dump in Warren County, North Carolina, in October 1982",
+	    "source": "https://assets.nrdc.org/sites/default/files/styles/header_background/public/coms10_rm_515297744_900x600.jpg?itok=pf3xJ1l1",
+	    "credit": "Bettman/Getty Images"
+	},
+	"11":{
+	    "Index": 0,
+	    "description": "Article: Environmental racism in India & Africa ",
+	    "source": "https://truthaholics.files.wordpress.com/2014/04/india-e-waste-apr-29-2014.jpg?w=199&h=300",
+	    "credit": "unknown"
+	},
+	"12":{
+	    "Index": 0,
+	    "description": "Environmental Injustice: Protestors block the delivery of toxic PCB waste to a landfill in Afton, North Carolina, 1982",
+	    "source": "https://assets.nrdc.org/sites/default/files/styles/header_background/public/ejmovement_82-09-24-pcb-1_900x600.jpg?itok=v1iQREbx",
+	    "credit": "Ricky Stilley"
+	},
+	"13":{
+	    "Index": 0,
+	    "description": "“Durban Poison” in South Africa:  the largest concentration of petrochemical industries, waste water treatment works, numerous toxic waste landfill sites in the country",
+	    "source": "https://atlantablackstar.com/wp-content/uploads/2016/02/south-durban-poison-600x450.jpg",
+	    "credit": "unknown"
+	},
+	"14":{
+	    "Index": 0,
+	    "description": "Studies show that communities of color are especially vulnerable to environmental injustice and environmental racism.",
+	    "source": "https://media.pri.org/s3fs-public/styles/story_main/public/story/images/Flint%20water%20protesters.png?itok=uzwx7l2l",
+	    "credit": "Petra Daher"
+	}
+}
+
+
+</script>
+</body>
+</html>
