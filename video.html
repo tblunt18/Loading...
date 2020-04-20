@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Video</title>
+	<meta charset="UTF-8">
+	<!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<title>Loading</title>
+	<!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!-- materialize icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="css/images.css" >
+    <!-- Importing jQuery from Google CDN -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<!-- Compiled and minified JavaScript for optimized loading -->
+    <script type="text/javascript" src="js/materialize.js"></script>
+	<!-- masonry library for image grid -->
+	<script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+	<!-- masonry image load script -->
+	<script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
+
+	<style>
+		nav ul li.active {
+		  background-color: rgba(5, 7, 10, 1);
+
+		}
+		.card{
+
+			height:100%;
+			width:100%;
+		}
+		.no-underline{
+            text-decoration: none;
+            
+        }
+		body, html{
+		  height: 100%;
+
+		  background-color: black;
+		}
+		nav ul a:hover {
+	      background-color: rgba(31, 32, 30, 0.44);
+	    }
+	</style>
+</head>
+<body>
+	<div class="">
+		<div class="navbar-fixed ">
+		    <nav>
+		      <div class="nav-wrapper black" style="border-bottom: 2px solid white;">
+		        
+		        <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+		        <a href="#" class="brand-logo"><img style="height:12%;width:20%; position:relative;left: 10px" src="images/2619logo.png"></a>
+		        <ul class="right hide-on-med-and-down">
+		          <li><a href="home.html" style="left: 10px">Home</a></li>
+		          <li><a href="about.html">About</a></li>
+		          <li><a href="literature.html">Literature</a></li>
+		          <li><a href="gallery.html">Photos</a></li>
+		          <li class="active" ><a href="video.html">Video + Film</a></li>
+		          <li><a href="prototypes.html">Prototypes</a></li>
+		        </ul>
+		      </div>
+		    </nav>
+		    <ul class="sidenav" id="mobile-demo">
+			    <li><a href="home.html">Home</a></li>
+		          <li><a href="about.html">About</a></li>
+		          <li><a href="literature.html">Literature</a></li>
+		          <li><a href="gallery.html">Photos</a></li>
+		          <li><a href="video.html">Video + Film</a></li>
+		          <li><a href="prototypes.html">Prototypes</a></li>
+			</ul>
+		</div>
+		
+		<!-- filter list of links  -->
+		<div class="row" style="padding-top:20px">
+			<div class="col s12 m2 l2 offset-s1 offset-m1 offset-l1">
+		        <a onclick="all_imgs()" id="all" class="no-underline"href="#">All</a>
+		    </div>
+		    <div class="col s12 m2 l2 ">
+		        <a onclick="anthro_imgs()" id="anthro" class="no-underline"href="#"><span style="color: #cccc33">&#8226</span> Anthropocene(s)</a>
+		    </div> 
+		    <div class="col s12 m2 l2 ">
+		        <a onclick="af_imgs()" id="afro" class="no-underline"href="#"> <span style="color: #660066">&#8226</span> Afrofuturism</a>
+		    </div>
+		    <div class="col s12 m2 l2 ">
+		        <a onclick="computing_imgs()" id="computing" class="no-underline"href="#"> <span style="color: #cc3366">&#8226</span> Computing</a>
+		    </div>
+		    <div class="col s12 m2 l2 ">
+		        <a onclick="remixing_imgs()" id="remix" class="no-underline"href="#"> <span style="color: #66cc99">&#8226</span> Remixing</a>
+		    </div>  
+		</div>
+		<!-- sub sorts -->
+		<div class="row">
+		    <div class="col s12 m2 l2 offset-m4 offset-l4">
+		        <a onclick="slow_imgs()" id="slow" class="no-underline"href="#"><i>slow crisis</i></a>
+		    </div> 
+		    <div class="col s12 m2 l2 ">
+		        <a onclick="decol_imgs()" id="decol" class="no-underline"href="#"><i>decolonization</i></a>
+		    </div>
+		    <div class="col s12 m2 l2 ">
+		        <a onclick="repair_imgs()" id="repair" class="no-underline"href="#"><i>repair & rare</i></a>
+		    </div>  
+		</div>
+		<!-- image grid items, added with javascript -->
+		<div class="row" >
+			<div style="padding-left: 15px;" id="maingrid" class="grid effect-1"> </div>
+		</div>
+	</div>
+
+<script>
+	// holds the items that are currently selected 
+	var selectedSets = [];
+	// flags for sorting sets
+	var afroOn = false;
+	var anthroOn = false;
+	var remixOn = false;
+	var computingOn = false;
+	var decolOn = false;
+	var slowCrisisOn = false;
+	var careRepairOn = false;
+
+	$(document).ready(function(){
+        (function($){
+            $(function(){
+            	all_imgs();
+
+            	console.log("ready");
+                $('.parallax').parallax();
+                $('.materialboxed').materialbox();
+                $('.sidenav').sidenav();
+                $('.grid').masonry({
+                    // options
+                    itemSelector: '.grid-item',
+                    columnWidth: '.grid-item',
+                    gutter: 70, //was 5
+                    
+                    
+
+                });
+                // layout Masonry after each image loads
+				$('.grid').imagesLoaded().progress( function() {
+				  $('.grid').masonry('layout');
+				});
+
+
+            });
+        })(jQuery);
+    });
+
+function displayGallery(dataset){
+	$("#maingrid").empty();
+	// array of json datasets 
+	var datasets = dataset; 
+	var i;
+	var gridItemWidthFlag = true; // when true, grid-item; when F, grid-item--width2
+	// for all datasets
+	for (i = 0; i < datasets.length; i++){
+	  // for current dataset
+	  for (x in datasets[i]){
+	  	// vid source
+	  	var source = datasets[i][x].source;
+	  	var caption = datasets[i][x].description;
+	  	var title = datasets[i][x].title; 
+	  	// make an image
+	  	var video = document.createElement("IFRAME");
+	  	// make an div
+	  	var div = document.createElement("DIV");
+	  	// at correct source                
+		video.src = source;
+		// correct caption with credits 
+		//video.setAttribute('data-caption',caption + "  *" + "title: " + title);
+		// materialize class for clicking images 
+		video.setAttribute('class', 'materialboxed placeholder'); 
+		video.style.width = 620;
+		video.style.height = 349;
+		//video.setAttribute('style','width:620px; height:349px');
+		// toggle different widths for images 
+	  	if (gridItemWidthFlag){
+	  		div.setAttribute('class', 'grid-item'); 
+	  		div.setAttribute('style','margin-bottom: 20px;');
+	  		// negate flag 
+	  		gridItemWidthFlag = false; 
+	  	}
+	  	else {
+	  		div.setAttribute('class', 'grid-item'); 
+	  		div.setAttribute('style','margin-bottom: 20px;');
+	  		// negate flag 
+	  		gridItemWidthFlag = true; 
+	  	}
+	  	// add image to div and append 
+		div.appendChild(video);
+		$('.materialboxed').materialbox();              
+		$(".grid").append(div);
+		$('.grid').masonry('reloadItems');
+		/*$('.grid').imagesLoaded().progress( function() {
+			$('.grid').masonry('layout');
+			});*/
+
+	  	}
+
+	  }
+
+}
+function slow_imgs(){ // slow
+	document.getElementById("all").setAttribute('style','color:white');
+	var a = document.getElementById("slow");
+	if (slowCrisisOn == true){
+		// turn it off 
+		a.setAttribute('style','color:white');
+		slowCrisisOn = false;
+		const index = selectedSets.indexOf(slowCrisis);
+		//selectedSets.pop(index);
+		if (index > -1) {
+		  selectedSets.splice(index, 1);
+		}
+
+	}
+	else{
+		// turn it on 
+		a.setAttribute('style','color:#cc3366');
+		slowCrisisOn = true;
+		selectedSets.push(slowCrisis);
+		
+	}
+	// if something is in the list, display all sets 
+	if (selectedSets.length > 0){
+		displayGallery(selectedSets);
+	}
+	else{
+		//displayGallery([afrofuturism]);
+		all_imgs();
+	}
+}
+
+function decol_imgs(){ // decol decolOn
+	document.getElementById("all").setAttribute('style','color:white');
+	var a = document.getElementById("decol");
+	if (decolOn == true){
+		// turn it off 
+		a.setAttribute('style','color:white');
+		decolOn = false;
+		const index = selectedSets.indexOf(decolonization);
+		//selectedSets.pop(index);
+		if (index > -1) {
+		  selectedSets.splice(index, 1);
+		}
+
+	}
+	else{
+		// turn it on 
+		a.setAttribute('style','color:#cc3366');
+		decolOn = true;
+		selectedSets.push(decolonization);
+		
+	}
+	// if something is in the list, display all sets 
+	if (selectedSets.length > 0){
+		displayGallery(selectedSets);
+	}
+	else{
+		//displayGallery([afrofuturism]);
+		all_imgs();
+	}
+}
+
+function repair_imgs(){ // repair careRepairOn
+	document.getElementById("all").setAttribute('style','color:white');
+	var a = document.getElementById("repair");
+	if (careRepairOn == true){
+		// turn it off 
+		a.setAttribute('style','color:white');
+		careRepairOn = false;
+		const index = selectedSets.indexOf(careRepair);
+		//selectedSets.pop(index);
+		if (index > -1) {
+		  selectedSets.splice(index, 1);
+		}
+
+	}
+	else{
+		// turn it on 
+		a.setAttribute('style','color:#cc3366');
+		careRepairOn = true;
+		selectedSets.push(careRepair);
+		
+	}
+	// if something is in the list, display all sets 
+	if (selectedSets.length > 0){
+		displayGallery(selectedSets);
+	}
+	else{
+		//displayGallery([afrofuturism]);
+		all_imgs();
+	}
+}
+
+// load all the images 
+function all_imgs(){
+	document.getElementById("decol").setAttribute('style','color:white');
+	document.getElementById("slow").setAttribute('style','color:white');
+	document.getElementById("repair").setAttribute('style','color:white');
+	document.getElementById("anthro").setAttribute('style','color:white');
+	document.getElementById("afro").setAttribute('style','color:white');
+	document.getElementById("computing").setAttribute('style','color:white');
+	document.getElementById("remix").setAttribute('style','color:white');
+	document.getElementById("all").setAttribute('style','color:#66cc99');
+	// change the states for the categories 
+	displayGallery([afrofuturism,anthropocene, computing, remixing]);	  	
+}
+// load afrofuturism images (level 1 in the json file)
+function af_imgs(){
+	document.getElementById("all").setAttribute('style','color:white');
+	var a = document.getElementById("afro");
+	if (afroOn == true){
+		// turn it off 
+		a.setAttribute('style','color:white');
+		afroOn = false;
+		const index = selectedSets.indexOf(afrofuturism);
+		//selectedSets.pop(index);
+		if (index > -1) {
+		  selectedSets.splice(index, 1);
+		}
+
+	}
+	else{
+		// turn it on 
+		a.setAttribute('style','color:#66cc99');
+		afroOn = true;
+		selectedSets.push(afrofuturism);
+		
+	}
+	// if something is in the list, display all sets 
+	if (selectedSets.length > 0){
+		displayGallery(selectedSets);
+	}
+	else{
+		//displayGallery([afrofuturism]);
+		all_imgs();
+	}
+
+}
+// load anthropocene images (level 1 in the json file)
+function anthro_imgs(){
+	document.getElementById("all").setAttribute('style','color:white');
+	var a = document.getElementById("anthro");
+	if (anthroOn == true){
+		// turn it off 
+		a.setAttribute('style','color:white');
+		anthroOn = false;
+		const index = selectedSets.indexOf(anthropocene);
+		//selectedSets.pop(index);
+		if (index > -1) {
+		  selectedSets.splice(index, 1);
+		}
+
+	}
+	else{
+		// turn it on 
+		a.setAttribute('style','color:#66cc99');
+		anthroOn = true;
+		selectedSets.push(anthropocene);
+		
+	}
+	// if something is in the list, display all sets 
+	if (selectedSets.length > 0){
+		displayGallery(selectedSets);
+	}
+	else{
+		//displayGallery([anthropocene]);
+		all_imgs();
+	}
+	
+}
+// load computing images (level 1 in the json file)
+function computing_imgs(){
+	document.getElementById("all").setAttribute('style','color:white');
+	var a = document.getElementById("computing");
+	if (computingOn == true){
+		// turn it off 
+		a.setAttribute('style','color:white');
+		computingOn = false;
+		const index = selectedSets.indexOf(computing);
+		//selectedSets.pop(index);
+		if (index > -1) {
+		  selectedSets.splice(index, 1);
+		}
+
+	}
+	else{
+		// turn it on 
+		a.setAttribute('style','color:#66cc99');
+		computingOn = true;
+		selectedSets.push(computing);
+		
+	}
+	// if something is in the list, display all sets 
+	if (selectedSets.length > 0){
+		displayGallery(selectedSets);
+	}
+	else{
+		//displayGallery([computing]);
+		all_imgs();
+	}
+	
+}
+// load remixing images (level 1 in the json file)
+function remixing_imgs(){
+	document.getElementById("all").setAttribute('style','color:white');
+	var a = document.getElementById("remix");
+	if (remixOn == true){
+		// turn it off 
+		a.setAttribute('style','color:white');
+		remixOn = false;
+		const index = selectedSets.indexOf(remixing);
+		//selectedSets.pop(index);
+		if (index > -1) {
+		  selectedSets.splice(index, 1);
+		}
+
+	}
+	else{
+		// turn it on 
+		a.setAttribute('style','color:#66cc99');
+		remixOn = true;
+		selectedSets.push(remixing);
+		
+	}
+	// if something is in the list, display all sets 
+	if (selectedSets.length > 0){
+		displayGallery(selectedSets);
+	}
+	else{
+		//displayGallery([remixing]);
+		all_imgs();
+	}
+}
+var remixing = {
+	"0":{
+	    "Index": 0,
+	    "description": "All Def Music's Kayla Nicole takes a look at the history behind Houston, Texas' chopped & screwed sound and its originator, DJ Screw.",
+	    "source": "https://www.youtube.com/embed/VF9W93PE4Q4",
+	    "title": "The Rise Of The Chopped & Screwed Sound | The Report"
+	},
+	"1":{
+	    "Index": 0,
+	    "description": "DJ Screw Chopped & Screwed example",
+	    "source": "https://www.youtube/embed/IzRMVZdykjo",
+	    "title": "DJ Screw - Juicy (Biggie) Chopped & Screwed",
+	},
+	"2":{
+	    "Index": 0,
+	    "description": "Example of chopped & screwed remix style",
+	    "source": "https://www.youtube/embed/BeTfqUQ9oNQ",
+	    "title": "Roddy Ricch - The Box (Chopped & Screwed)",
+	},
+	"3":{
+	    "Index": 0,
+	    "description": "clip from the  Netflix series...The Get Down discussing DJ mixing techniques",
+	    "source": "https://www.youtube.com/embed/fo2Hqz0vamU",
+	    "title": "Grand Master Flash ''Be In The Moment...Yes'' The Get Down",
+	},
+	"4":{
+	    "Index": 0,
+	    "description": "Grandmaster Flash discussing and demo of remixing with vinyl",
+	    "source": "https://www.youtube.com/embed/fD7gsNbRv08",
+	    "title": "Baz Luhrmann - Grandmaster Flash's Master Class // The Get Down (2016-2017)",
+	},
+	"5":{
+		"Index": 1,
+	    "description": "Grandmaster Flash demonstration of sampling and remixing as a HipHop DJ, including quick mix theory and discussions of ‘DJ science’",
+	    "source": "https://www.youtube.com/embed/m3YXyK-gWvc",
+	    "title": "Grandmaster Flash Talks 'The Theory' Of Being A HipHop DJ & The Beginnings Of Hip-Hop!!",
+	}
+}
+
+
+
+var computing = {
+	"0":{
+	    "Index": 0,
+	    "description": "The 2013 FHI Annual Distinguished Lecture was delivered by Rob Nixon, Rachel Carson Professor of English at the University of Wisconsin-Madison. Prof. Nixon's visit was jointly sponsored by the FHI and the Nicholas School of the Environment. The lecture took place on March 27, 2013 at the Nasher Museum.",
+	    "source": "https://www.youtube.com/embed/VOUGOLS14gs",
+	    "title": "Slow Violence and the Environmentalism of the Poor",
+	},
+	"1":{
+	    "Index": 0,
+	    "description": "E-waste, the term given to discarded electronic appliances, is often shipped by developed nations to poorer countries such as Ghana. RTD visits the country's most infamous dumping ground, Agbogbloshie. Locals call it “Sodom and Gomorrah” after the infamous Biblical sin cities. Its air and soil are polluted with toxic chemicals, while extreme poverty, child labour and criminal gangs are also rife. Learn more https://rtd.rt.com/films/toxicity/ ",
+	    "source": "https://www.youtube/embed/mleQVO1Vd1I ",
+	    "title": "ToxiCity: life at Agbobloshie, the world's largest e-waste dump in Ghana",
+	},
+	"2":{
+	    "Index": 0,
+	    "description": "Mon, Jul 23: Used electronic devices are often discarded in the cheapest way possible to some of the world's poorest countries. Sean O'Shea reports.",
+	    "source": "https://www.youtube/embed/_-N92-wZCOU ",
+	    "title": "Examining e-waste in Africa",
+	},
+	"3":{
+	    "Index": 0,
+	    "description": "Residents living in the St. James Welcome community share their fight against pollution and slow crisis. This story was created in a digital storytelling workshop coordinated by the Louisiana Bucket Brigade, led by StoryCenter, and funded by Eileen Fisher.",
+	    "source": "https://www.youtube/embed/XZsPTLWCuOA",
+	    "title": "Our Town, Our Fight – by Shamell and Sharon Lavigne",
+	},
+	"4":{
+	    "Index": 0,
+	    "description": "In a Louisiana town of 10,000 people, the Environmental Protection Agency (EPA) said there is some of the most toxic air in America. More than 100 petrochemical plants and refineries dot the corridor between New Orleans and Baton Rouge, often referred to as ‘cancer alley.’",
+	    "source": "https://www.youtube/embed/XZsPTLWCuOA",
+	    "title": "High cancer risk plagues Louisiana town near chemical plants",
+	},
+	
+}
+
+
+var afrofuturism = {  
+    "0":{
+	    "Index": 0,
+	    "description": "Afrofuturism has taken on a new public face through a new generation of recording artists — Erykah Badu, Missy Elliott and Janelle Monáe",
+    "source": "https://www.youtube.com/embed/hHcyJPTTn9w",
+    "title": "Missy Elliott - The Rain (Supa Dupa Fly) [Official Music Video]",
+	},
+	"1":{
+	    "Index": 0,
+	    "Index": 1,
+    "description": "A bit of afrofuturism from Janelle Monae’s album ",
+    "source": "https://www.youtube.com/embed/xsDViDcxVzg",
+    "title": "01 - Janelle Monae - Suite II Overture",
+	},
+	"2":{
+	    "Index": 0,
+	    "description": "The best scenes from the 2018 Black Panther Movie (which brought Afrofuturism to Hollywood/the mainstream) ",
+    "source": "https://www.youtube.com/embed/gAEXKmfAFaE",
+    "title": "Black Panther (2018) Best Scenes",
+	},
+    "3":{
+	    "Index": 0,
+	    "description": "An Afrofuturistic dystopian film ",
+    "source": "https://www.youtube.com/embed/IlR7l_B86Fc",
+    "title": "Pumzi",
+    },
+    "4":{
+	    "Index": 0,
+	    "description": "The first UFO Mothership P-Funk landing, live, direct and in concert. De-boarding this P-Funk-ship enterprise are many drooling clones, legendary funk aliens and their unscrupulous, schizophrenic, ingenious leader...George 'Star Child' Clinton.",
+    "source": "https://www.youtube.com/embed/uQFGkGk4PSc",
+    "title": "The Parliament Funkadelic - Mothership ",
+    },
+    "5":{
+	    "Index": 0,
+	    "description": "WHEN THEY LED A POST-APOCALYPTIC ESCAPE TO THE PYRAMIDS",
+    "source": "https://www.youtube/embed/uqB_UVlhlPA",
+    "title": "Outkast - Elevators (Me & You)",
+    },
+    "6":{
+	    "Index": 0,
+	    "description": "WHEN THEY PAID HOMAGE TO THE PLUTONIA, A FUTURISTIC CITY",
+    "source": "https://www.youtube.com/embed/uqhJfjbNuQg",
+    "title": "Outkast - Prototype",
+    },
+    "7":{
+	    "Index": 0,
+	    "description": "In this inaugural episode of BK3K we find 2 sisters living in Brooklyn 'sometime in the future'. We soon learn that a basic human need, namely the sun, comes at a premium.",
+    "source": "https://www.youtube/embed/QPskRo3_4WU",
+    "title": "They Charge for the Sun",
+    },
+	"8":{
+	    "Index": 0,
+	    "description": "The Twi language of Ghanaian word, 'sankofa' meaning 'to return, to seek, to take' is applied in his emotionally tolling, yet thrilling film. Sankofa follows a narcissistic supermodel who is sucked back in time to a West Indies plantation as a slave,",
+    "source": "https://www.youtube/embed/NOGWSL2Pkoc",
+    "title": "Sankofa",
+    },
+    "9":{
+	    "Index": 0,
+	    "description": "Afronauts is both a journey back in time and a gaze into the future. It tells the hidden story of Zambian citizens who tried to beat the United States to the moon. ",
+    "source": "https://www.youtube/embed/Jd9278JAjkU",
+    "title": "Afronauts",
+    },
+   
+}
+
+var anthropocene = {  
+    "0":{
+	    "Index": 0,
+	    "description": "Cotton farming was not only ecologically damaging on the land, but physically and emotionally brutal on the bodies and morales of enslaved Black people ",
+	    "source": "https://www.youtube.com/embed/zcJ6Wxdcj-E",
+	    "title": "12 years a slave cotton field song",
+	},
+	"2":{
+	    "Index": 0,
+	    "description": "Landfills, chemical waste facilities and power plants are more often built in poor and minority communities, which don't have the power or money to advocate for themselves.",
+	    "source": "https://www.youtube.com/embed/30xLg2HHg8Q",
+	    "title": "A brief history of environmental justice ",
+	},
+	"3":{
+	    "Index": 0,
+	    "description": "This piece of work is a bird's eye view of the history by scaling down a month length of time into one second.  No letter is used for equal messaging to all viewers without language barrier.  The blinking light, sound and the numbers on the world map show when, where and how many experiments each country have conducted",
+	    "source": "https://www.youtube.com/embed/cjAqR1zICA0",
+	    "title": "'1945-1998' by ISAO HASHIMOTO",
+	},
+	
+}
+var decolonization = {
+	"0":{
+		"Index": 0,
+		"description":"by Chimamanda Ngozi Adichie TEDGlobal 2009",
+		"source":"https://embed.ted.com/talks/chimamanda_ngozi_adichie_the_danger_of_a_single_story",
+		"title":"The Danger of a Single Story",
+	},
+	"1":{
+		"Index": 0,
+		"description":"Cotton farming was not only ecologically damaging on the land, but physically and emotionally brutal on the bodies and morales of enslaved Black people ",
+		"source":"https://www.youtube.com/embed/zcJ6Wxdcj-E",
+		"title":"12 years a slave cotton field song",
+	},
+	
+}
+var slowCrisis = {
+	"0":{
+		"Index": 0,
+		"description":"Landfills, chemical waste facilities and power plants are more often built in poor and minority communities, which don't have the power or money to advocate for themselves",
+		"source":"https://www.youtube.com/embed/30xLg2HHg8Q",
+		"title":"A brief history of environmental justice",
+	},
+	"1":{
+		"Index": 0,
+		"description":"E-waste, the term given to discarded electronic appliances, is often shipped by developed nations to poorer countries such as Ghana. ",
+		"source":"https://www.youtube.com/embed/mleQVO1Vd1I",
+		"title":"ToxiCity: life at Agbobloshie, the world's largest e-waste dump in Ghana",
+	},
+	"2":{
+		"Index": 0,
+		"description":"Mon, Jul 23: Used electronic devices are often discarded in the cheapest way possible to some of the world's poorest countries. Sean O'Shea reports.",
+		"source":"https://www.youtube.com/embed/_-N92-wZCOU",
+		"title":"Examining e-waste in Africa",
+	},
+	"3":{
+		"Index": 0,
+		"description":"Residents living in the St. James Welcome community share their fight against pollution and slow crisis.",
+		"source":"https://www.youtube.com/embed/XZsPTLWCuOA",
+		"title":"Our Town, Our Fight – by Shamell and Sharon Lavigne",
+	},
+	"4":{
+		"Index": 0,
+		"description":"In a Louisiana town of 10,000 people, the Environmental Protection Agency (EPA) said there is some of the most toxic air in America",
+		"source":"https://www.cbsnews.com/video/high-cancer-risk-plagues-louisiana-town-near-chemical-plants/",
+		"title":"High cancer risk plagues Louisiana town near chemical plants",
+	},
+	"5":{
+		"Index": 0,
+		"description":"The 2013 FHI Annual Distinguished Lecture was delivered by Rob Nixon, Rachel Carson Professor of English at the University of Wisconsin-Madison",
+		"source":"https://www.youtube.com/embed/VOUGOLS14gs",
+		"title":"Slow Violence and the Environmentalism of the Poor",
+	},
+	
+}
+
+var careRepair = {
+	"0":{
+		"Index": 0,
+		"description":"Video of Kintsugi Sensei Showzi Tsukamoto doing technique.",
+		"source":"https://www.youtube.com/embed/b4g4hm2UtBs",
+		"title":"The Art of Kintsugi | Transformation through Brokeness & Restoration",
+	},
+	"1":{
+		"Index": 0,
+		"description":"Kintsugi is the ancient Japanese craft of fusing broken pottery with gold.",
+		"source":"https://www.youtube.com/embed/VtD1m7EgF5Y",
+		"title":"Artisan Series: Kintsugi with Sensei Tsukamoto",
+	},
+	"2":{
+		"Index": 0,
+		"description":"Getrude Matshe at TEDxTeAro",
+		"source":"https://www.youtube.com/embed/BzIyOtusDxE",
+		"title":"Ubuntu - a person is a person through other persons",
+	},
+	"3":{
+		"Index": 0,
+		"description":"What if our global mindset was refocused on the transcendent concept of Ubuntu — the African philosophy that represents the power of human connectedness, kindness and compassion?",
+		"source":"https://www.youtube.com/embed/BrnhdY0B7Cg",
+		"title":"Ubuntu: The One Word to Change How You Work, Live and Lead | Shola Richards | TEDxSouthLakeTahoe",
+	},
+	"4":{
+		"Index": 0,
+		"description":"Banks Gwaxula co-founded Ubuntu Education Fund, an NGO that employs over 55 people and has transformed the lives of over 40,000 children, often from cradle to career.",
+		"source":"https://www.youtube.com/embed/gT0bEF-0pp8",
+		"title":"Ubuntu - our holistic approach to education: Banks Gwaxula at TEDxSoweto 2013",
+	},
+	"5":{
+		"Index": 0,
+		"description":"Watch Dozie Okeleke as he shares with us the  philosophy of Ubuntu: 'I am because we are'. We are all connected and the only way to be realised as persons is through other people",
+		"source":"https://www.youtube.com/embed/vBUy7XmbB7M",
+		"title":"I am because we are | Dozie Okeleke | TEDxINSEAD",
+	},
+	"6":{
+		"Index": 0,
+		"description":"none",
+		"source":"https://www.youtube.com/embed/MHbXk63wMTI",
+		"title":"Lakota Origin Story by Elder Duane Hollow Horn Bear",
+	},
+	"7":{
+		"Index": 0,
+		"description":"none",
+		"source":"https://www.youtube.com/embed/J-rBtH3rPMU",
+		"title":"The Sacredness of Water, Lakota Elder Duane Hollow Horn Bear",
+	},
+	"8":{
+		"Index": 0,
+		"description":"none",
+		"source":"https://www.youtube.com/embed/-q5StYtlSD8",
+		"title":"Lakota Time by Elder Duane Hollow Horn Bear",
+	},
+	"9":{
+		"Index": 0,
+		"description":"This video is part of a set of interviews for the WoLakota Project.",
+		"source":"https://www.youtube.com/embed/k-ii1bA9GIY",
+		"title":"The Importance of Stories with Duane Hollow Horn Bear",
+	},
+
+}
+
+
+</script>
+</body>
+</html>

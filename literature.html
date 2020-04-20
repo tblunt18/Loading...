@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Gallery</title>
+	<title>Literature</title>
 	<meta charset="UTF-8">
 	<!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -24,10 +24,11 @@
 
 	<style>
 		.card .card-title {
-		  font-size: 15px;
+		  font-size: 14px;
 		  font-weight: 0;
 		  color: white;
 		  line-height: normal;
+		  font-weight: bold;
 		}
 		.card .card-content .card-title {
 		  display: block;
@@ -56,52 +57,93 @@
             color: white;
             
         }
+        nav ul li.active {
+		  background-color: rgba(5, 7, 10, 1);
+
+		}
 		body, html{
 		  height: 100%;
 		  background-color: black;
 		}
+		nav ul a:hover {
+	      background-color: rgba(31, 32, 30, 0.44);
+	    }
 	</style>
 </head>
 <body >
 	<div class="">
-		<div class="navbar-fixed">
+		<div class="navbar-fixed ">
 		    <nav>
-		      <div class="nav-wrapper black">
-		        <a href="home.html" class="material-icons">home</a>
+		      <div class="nav-wrapper black" style="border-bottom: 2px solid white;">
+		        
+		        <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+		        <a href="#" class="brand-logo"><img style="height:12%;width:20%; position:relative;left: 10px" src="images/2619logo.png"></a>
 		        <ul class="right hide-on-med-and-down">
-		          <li><a href="literature.html">Literature</a></li>
-		          <li><a href="gallery.html">Gallery</a></li>
-		          <li><a href="#">Video + Film</a></li>
+		          <li><a href="home.html" style="left: 10px">Home</a></li>
+		          <li><a href="about.html">About</a></li>
+		          <li class="active"><a href="literature.html">Literature</a></li>
+		          <li><a href="gallery.html">Photos</a></li>
+		          <li><a href="video.html">Video + Film</a></li>
 		          <li><a href="prototypes.html">Prototypes</a></li>
 		        </ul>
 		      </div>
 		    </nav>
+		    <ul class="sidenav" id="mobile-demo">
+			    <li><a href="home.html">Home</a></li>
+		          <li><a href="about.html">About</a></li>
+		          <li><a href="literature.html">Literature</a></li>
+		          <li><a href="gallery.html">Photos</a></li>
+		          <li><a href="video.html">Video + Film</a></li>
+		          <li><a href="prototypes.html">Prototypes</a></li>
+			</ul>
 		</div>
 		<!-- filter list of links  -->
-		<div class="row">
-			<div class="col s2 m2 l2 offset-s1 offset-m1 offset-l1">
-		        <a onclick="all_imgs()" class="no-underline"href="#">All</a>
+		<div class="row" style="padding-top:20px">
+			<div class="col s12 m2 l2 offset-s1 offset-m1 offset-l1">
+		        <a onclick="all_imgs()" id="all" class="no-underline"href="#">All</a>
 		    </div>
-		    <div class="col s2 m2 l2">
-		        <a onclick="anthro_imgs()"  class="no-underline"href="#"><span style="color: #ccc200">&#8226</span> Anthropocene(s)</a>
+		    <div class="col s12 m2 l2 ">
+		        <a onclick="anthro_imgs()" id="anthro" class="no-underline"href="#"><span style="color: #bcbc2f">&#8226</span> Anthropocene(s)</a>
 		    </div> 
-		    <div class="col s2 m2 l2">
-		        <a onclick="af_imgs()" class="no-underline"href="#"> <span style="color: #ab05a7">&#8226</span> Afrofuturism</a>
+		    <div class="col s12 m2 l2 ">
+		        <a onclick="af_imgs()" id="afro" class="no-underline"href="#"> <span style="color: #660066">&#8226</span> Afrofuturism</a>
 		    </div>
-		    <div class="col s2 m2 l2">
-		        <a onclick="computing_imgs()" class="no-underline"href="#"> <span style="color: #f81e51">&#8226</span> Computing</a>
+		    <div class="col s12 m2 l2 ">
+		        <a onclick="computing_imgs()" id="computing" class="no-underline"href="#"> <span style="color: #cc3366">&#8226</span> Computing</a>
 		    </div>
-		    <div class="col s2 m2 l2">
-		        <a onclick="remixing_imgs()" class="no-underline"href="#"> <span style="color: #a4fb2e">&#8226</span> Remixing</a>
+		    <div class="col s12 m2 l2 ">
+		        <a onclick="remixing_imgs()" id="remix" class="no-underline"href="#"> <span style="color: #66cc99">&#8226</span> Remixing</a>
+		    </div>  
+		</div>
+		<!-- sub sorts -->
+		<div class="row">
+		    <div class="col s12 m2 l2 offset-m4 offset-l4">
+		        <a onclick="slow_imgs()" id="slow" class="no-underline"href="#"><i>slow crisis</i></a>
+		    </div> 
+		    <div class="col s12 m2 l2 ">
+		        <a onclick="decol_imgs()" id="decol" class="no-underline"href="#"><i>decolonization</i></a>
+		    </div>
+		    <div class="col s12 m2 l2 ">
+		        <a onclick="repair_imgs()" id="repair" class="no-underline"href="#"><i>repair & care</i></a>
 		    </div>  
 		</div>
 		<!-- image grid items, added with javascript -->
 		<div class="row">
-			<div id="maingrid" class="grid effect-1"> </div>
+			<div style="padding-left: 15px;" id="maingrid" class="grid effect-1"> </div>
 		</div>
 	</div>
 
 <script>
+	// holds the items that are currently selected 
+	var selectedSets = [];
+	// flags for sorting sets
+	var afroOn = false;
+	var anthroOn = false;
+	var remixOn = false;
+	var computingOn = false;
+	var decolOn = false;
+	var slowCrisisOn = false;
+	var careRepairOn = false;
 
 	$(document).ready(function(){
         (function($){
@@ -113,10 +155,7 @@
                 //$('.aboutme').hide().fadeIn(30000);
                 $('.parallax').parallax();
                 $('.materialboxed').materialbox();
-                //$('.modal').modal();
-                //$('.slider').slider();
-                //$('.collapsible').collapsible();
-                //$('.carousel').carousel();
+                $('.sidenav').sidenav();
                 $('.grid').masonry({
                     // options
                     itemSelector: '.grid-item',
@@ -156,10 +195,10 @@ function createCard(sourc,auth,tit,des,imglink,colors){
 	var contentDiv = document.createElement("DIV");
 	var author = document.createElement("P");
 	author.innerHTML = auth;
-	author.setAttribute('style', 'font-size: 15px'); 
+	author.setAttribute('style', 'font-size: 14px'); 
   	contentDiv.setAttribute('class','card-content');
   	var span = document.createElement("SPAN");
-  	span.setAttribute('class','card-title activator grey-text text-darken-4');
+  	span.setAttribute('class','card-title activator white-text text-darken-4');
   	span.innerHTML = tit;
   	var icon1 = document.createElement("I");
   	icon1.setAttribute('class','material-icons right');
@@ -168,7 +207,7 @@ function createCard(sourc,auth,tit,des,imglink,colors){
   	var linked = document.createElement("P");
   	var link = document.createElement("A");
   	link.href = sourc; //set the link 
-  	link.setAttribute('style','color:white ');
+  	link.setAttribute('class','grey-text darken-2');
   	link.innerHTML = "source"; // title as text 
   	linked.appendChild(link); //span 
   	contentDiv.appendChild(span); //span
@@ -181,6 +220,7 @@ function createCard(sourc,auth,tit,des,imglink,colors){
   	var span2 = document.createElement("SPAN");
   	span2.setAttribute('class','card-title grey-text text-darken-4');
   	span2.innerHTML = tit;
+  	span2.setAttribute('style', 'font-size: 16px');
   	var icon2 = document.createElement("I");
   	icon2.setAttribute('class','material-icons right');
   	icon2.innerHTML = "close"; 
@@ -203,10 +243,10 @@ function displayLiterature(dataset){
 	var gridItemWidthFlag = true; // when true, grid-item; when F, grid-item--width2
 	// for all datasets
 	for (i = 0; i < datasets.length; i++){
-		// choose the right color 
+		/* 
 	  	if (datasets[i] == afrofuturism){
 	  		console.log("color is afro");
-	  		color = '#ab05a7';
+	  		color = '#660066';
 	  	}
 	  	else if (datasets[i] == remixing){
 	  		console.log("color is remix");
@@ -214,15 +254,32 @@ function displayLiterature(dataset){
 	  	}
 	  	else if (datasets[i] == computing){
 	  		console.log("color is computing");
-	  		color = '#f81e51';
+	  		color = '#cc3366';
+	  	}
+	  	else if (datasets[i] == anthropocene){
+	  		console.log("color is anthropocene");
+	  		color = '#bcbc2f';
 	  	}
 	  	else{
-	  		console.log("color is anthropocene");
-	  		color = '#ccc200'; // anthropocene
-	  	}
+	  		console.log("color is for sub theme");
+	  		color = '#ff9900'; // anthropocene
+	  	}*/
 
 	  // for current dataset
 	  for (x in datasets[i]){
+	  	if (datasets[i][x].Index == 4){
+	  		color = '#bcbc2f'; // anthro 
+	  	}
+	  	else if (datasets[i][x].Index == 3){
+	  		color = '#660066'; // afro 
+	  	}
+	  	else if (datasets[i][x].Index == 2){
+	  		color = '#cc3366'; // computing 
+	  	}
+	  	else{
+	  		color = '#47c285'; //remix 
+	  	}
+
 	  	// img source
 	  	var source = datasets[i][x].source;
 	  	var author = datasets[i][x].author;
@@ -250,28 +307,237 @@ function displayLiterature(dataset){
 
 	  }
 }
-// function takes all card data 
+function slow_imgs(){ // slow
+	document.getElementById("all").setAttribute('style','color:white');
+	var a = document.getElementById("slow");
+	if (slowCrisisOn == true){
+		// turn it off 
+		a.setAttribute('style','color:white');
+		slowCrisisOn = false;
+		const index = selectedSets.indexOf(slowCrisis);
+		//selectedSets.pop(index);
+		if (index > -1) {
+		  selectedSets.splice(index, 1);
+		}
+
+	}
+	else{
+		// turn it on 
+		a.setAttribute('style','color:#cc3366');
+		slowCrisisOn = true;
+		selectedSets.push(slowCrisis);
+		
+	}
+	// if something is in the list, display all sets 
+	if (selectedSets.length > 0){
+		displayLiterature(selectedSets);
+	}
+	else{
+		//displayGallery([afrofuturism]);
+		all_imgs();
+	}
+}
+
+function decol_imgs(){ // decol decolOn
+	document.getElementById("all").setAttribute('style','color:white');
+	var a = document.getElementById("decol");
+	if (decolOn == true){
+		// turn it off 
+		a.setAttribute('style','color:white');
+		decolOn = false;
+		const index = selectedSets.indexOf(decolonization);
+		//selectedSets.pop(index);
+		if (index > -1) {
+		  selectedSets.splice(index, 1);
+		}
+
+	}
+	else{
+		// turn it on 
+		a.setAttribute('style','color:#cc3366');
+		decolOn = true;
+		selectedSets.push(decolonization);
+		
+	}
+	// if something is in the list, display all sets 
+	if (selectedSets.length > 0){
+		displayLiterature(selectedSets);
+	}
+	else{
+		//displayGallery([afrofuturism]);
+		all_imgs();
+	}
+}
+
+function repair_imgs(){ // repair careRepairOn
+	document.getElementById("all").setAttribute('style','color:white');
+	var a = document.getElementById("repair");
+	if (careRepairOn == true){
+		// turn it off 
+		a.setAttribute('style','color:white');
+		careRepairOn = false;
+		const index = selectedSets.indexOf(careRepair);
+		//selectedSets.pop(index);
+		if (index > -1) {
+		  selectedSets.splice(index, 1);
+		}
+
+	}
+	else{
+		// turn it on 
+		a.setAttribute('style','color:#cc3366');
+		careRepairOn = true;
+		selectedSets.push(careRepair);
+		
+	}
+	// if something is in the list, display all sets 
+	if (selectedSets.length > 0){
+		displayLiterature(selectedSets);
+	}
+	else{
+		//displayGallery([afrofuturism]);
+		all_imgs();
+	}
+} 
 // load all the images 
 function all_imgs(){
+	document.getElementById("decol").setAttribute('style','color:white');
+	document.getElementById("slow").setAttribute('style','color:white');
+	document.getElementById("repair").setAttribute('style','color:white');
+	document.getElementById("anthro").setAttribute('style','color:white');
+	document.getElementById("afro").setAttribute('style','color:white');
+	document.getElementById("computing").setAttribute('style','color:white');
+	document.getElementById("remix").setAttribute('style','color:white');
+	document.getElementById("all").setAttribute('style','color:#66cc99');
 	displayLiterature([afrofuturism,anthropocene, computing, remixing]);
 	 
 
 }
-// load afrofuturism images (level 1 in the json file)
 function af_imgs(){
-	displayLiterature([afrofuturism]);
+	document.getElementById("all").setAttribute('style','color:white');
+	var a = document.getElementById("afro");
+	if (afroOn == true){
+		// turn it off 
+		a.setAttribute('style','color:white');
+		afroOn = false;
+		const index = selectedSets.indexOf(afrofuturism);
+		//selectedSets.pop(index);
+		if (index > -1) {
+		  selectedSets.splice(index, 1);
+		}
+
+	}
+	else{
+		// turn it on 
+		a.setAttribute('style','color:#66cc99');
+		afroOn = true;
+		selectedSets.push(afrofuturism);
+		
+	}
+	// if something is in the list, display all sets 
+	if (selectedSets.length > 0){
+		displayLiterature(selectedSets);
+	}
+	else{
+		//displayGallery([afrofuturism]);
+		all_imgs();
+	}
+
 }
 // load anthropocene images (level 1 in the json file)
 function anthro_imgs(){
-	displayLiterature([anthropocene]);
+	document.getElementById("all").setAttribute('style','color:white');
+	var a = document.getElementById("anthro");
+	if (anthroOn == true){
+		// turn it off 
+		a.setAttribute('style','color:white');
+		anthroOn = false;
+		const index = selectedSets.indexOf(anthropocene);
+		//selectedSets.pop(index);
+		if (index > -1) {
+		  selectedSets.splice(index, 1);
+		}
+
+	}
+	else{
+		// turn it on 
+		a.setAttribute('style','color:#66cc99');
+		anthroOn = true;
+		selectedSets.push(anthropocene);
+		
+	}
+	// if something is in the list, display all sets 
+	if (selectedSets.length > 0){
+		displayLiterature(selectedSets);
+	}
+	else{
+		//displayGallery([anthropocene]);
+		all_imgs();
+	}
+	
 }
 // load computing images (level 1 in the json file)
 function computing_imgs(){
-	displayLiterature([computing]);
+	document.getElementById("all").setAttribute('style','color:white');
+	var a = document.getElementById("computing");
+	if (computingOn == true){
+		// turn it off 
+		a.setAttribute('style','color:white');
+		computingOn = false;
+		const index = selectedSets.indexOf(computing);
+		//selectedSets.pop(index);
+		if (index > -1) {
+		  selectedSets.splice(index, 1);
+		}
+
+	}
+	else{
+		// turn it on 
+		a.setAttribute('style','color:#66cc99');
+		computingOn = true;
+		selectedSets.push(computing);
+		
+	}
+	// if something is in the list, display all sets 
+	if (selectedSets.length > 0){
+		displayLiterature(selectedSets);
+	}
+	else{
+		//displayGallery([computing]);
+		all_imgs();
+	}
+	
 }
 // load remixing images (level 1 in the json file)
 function remixing_imgs(){
-	displayLiterature([remixing]);
+	document.getElementById("all").setAttribute('style','color:white');
+	var a = document.getElementById("remix");
+	if (remixOn == true){
+		// turn it off 
+		a.setAttribute('style','color:white');
+		remixOn = false;
+		const index = selectedSets.indexOf(remixing);
+		//selectedSets.pop(index);
+		if (index > -1) {
+		  selectedSets.splice(index, 1);
+		}
+
+	}
+	else{
+		// turn it on 
+		a.setAttribute('style','color:#66cc99');
+		remixOn = true;
+		selectedSets.push(remixing);
+		
+	}
+	// if something is in the list, display all sets 
+	if (selectedSets.length > 0){
+		displayLiterature(selectedSets);
+	}
+	else{
+		//displayGallery([remixing]);
+		all_imgs();
+	}
 }
 
 // ************* DATASETS ************* 
@@ -535,6 +801,176 @@ var anthropocene = {
 	    "image": "https://www.dukeupress.edu/Assets/Books/978-1-4780-0636-7_pr.jpg ",
     },
     
+}
+var decolonization = {
+	"0":{
+	    "Index": 4,
+	    "title": "On the Importance of a Date, or Decolonizing the Anthropocene",
+	    "author": "Heather Davis & Zoe Todd",
+	    "source": "https://www.acme-journal.org/index.php/acme/article/view/1539",
+	    "description": "This article argues for the importance of including Indigenous knowledges into contemporary discussions of the Anthropocene. We argue that a start date coincident with colonization of the Americas would more adequately open up these conversations.",
+	    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSrOO-KMukCkWdtIoNYch_Vz0f84F-SbrPpwym0iFmU0LZ_d_5j&usqp=CAU",
+    },
+    "1":{
+	    "Index": 4,
+	    "title": "Indigenous Climate Change Studies: Indigenizing Futures, Decolonizing the Anthropocene",
+	    "author": "Kyle Whyte",
+	    "source": "https://read.dukeupress.edu/english-language-notes/article-abstract/55/1-2/153/135912/Indigenous-Climate-Change-Studies-Indigenizing?redirectedFrom=fulltext",
+	    "description": "Indigenous and allied scholars, knowledge keepers, scientists, learners, change-makers, and leaders are creating a field to support Indigenous peoples’ capacities to address anthropogenic (human-caused) climate change.",
+	    "image": "https://www.dukeupress.edu/Assets/Journals/ELN_55_1-2_pr.jpg",
+    },
+    "2":{
+	    "Index": 4,
+	    "title": "Future rivers of the Anthropocene or whose Anthropocene is it? Decolonising the Anthropocene!",
+	    "author": "Eleanor Hayman, Colleen James, Mark Wedge",
+	    "source": "https://jps.library.utoronto.ca/index.php/des/article/view/30396 ",
+	    "description": "This paper focuses on glaciers within the context of the Anthropocene and other colonial terracentric histories maintained by the dominant mono-cultural imaginary",
+	    "image": "https://jps.library.utoronto.ca/public/journals/85/cover_issue_2004_en_US.png",
+    },
+    "3":{
+	    "Index": 4,
+	    "title": "Situating Indigenous and Black Childhoods in the Anthropocene",
+	    "author": "Fikile Nxumalo",
+	    "source": "https://link.springer.com/referenceworkentry/10.1007%2F978-3-319-67286-1_37",
+	    "description": "This chapter engages with selected Indigenous and Black feminist onto-epistemological concepts in relation to their potential for interrupting the ongoing absenting or essentializing of Indigenous and Black childhoods in dominant North American nature education discourses.",
+	    "image": "https://media.springernature.com/w306/springer-static/cover-hires/book/978-3-319-67286-1",
+    },
+    "4":{
+	    "Index": 4,
+	    "title": "Reorientations; or, An Indigenous Feminist Reflection on the Anthropocene",
+	    "author": "Kali Simmons",
+	    "source": "https://muse.jhu.edu/article/717132/pdf",
+	    "description": "Destruction of homelands. Loss of kinship species. Exposure to deadly contaminants. Mass extinction. Transformed lifeways. In the face of these radical changes, a question lingers: How long will life be possible? ",
+	    "image": "https://utpress.utexas.edu/sites/default/files/journals_covers/jcms-catalog-s20-cover2.jpg",
+    },
+    "5":{
+	    "Index": 4,
+	    "title": "White Utopia/Black Inferno: Life on a Geologic Spike",
+	    "author": "Katherine Yusoff ",
+	    "source": "https://www.e-flux.com/journal/97/252226/white-utopia-black-inferno-life-on-a-geologic-spike/",
+	    "description": "The white utopia was a black inferno.—Sylvia Wynter",
+	    "image": "https://www.dur.ac.uk/images/IAS/2018_revisions/Fellows1819/Fellows1718/DrKYusoff.jpg",
+    },
+    "6":{
+	    "Index": 4,
+	    "title": "The Human Planet: How We Created the Anthropocene",
+	    "author": "Simon L. Lewis & Mark A. Maslin Pelican",
+	    "source": "https://yalebooks.yale.edu/book/9780300232172/human-planet",
+	    "description": "This is the view of two UK scientists who believe the impact of colonialism was so profound it can be detected in Earth’s air and rocks",
+	    "image": "https://images-na.ssl-images-amazon.com/images/I/91muqI4EPiL.jpg",
+    },
+    "7":{
+	    "Index": 4,
+	    "title": "Blood and earth: Modern slavery, ecocide, and the secret to saving the world.",
+	    "author": "Kevin Bales",
+	    "source": "http://www.kevinbales.net/blood-and-earth.html",
+	    "description": "These two problems, this ancient and terrible problem of slavery and this newer concern that we have about climate change, are actually so tightly linked together that the solutions are fitting both of them",
+	    "image": "http://www.kevinbales.net/uploads/1/1/4/2/1142278/_3060752_orig.jpg",
+    },
+    "9":{
+	    "Index": 4,
+	    "title": "A Billion Black Anthropocenes or None",
+	    "author": "Katherine Yusoff",
+	    "source": "https://www.upress.umn.edu/book-division/books/a-billion-black-anthropocenes-or-none",
+	    "description": "Yusoff initiates a transdisciplinary conversation between black feminist theory, geography, and the earth sciences, addressing the politics of the Anthropocene within the context of race, materiality, deep time, and the afterlives of geology.",
+	    "image": "https://pbs.twimg.com/media/D4xTmeEXsAgMbWS.jpg",
+    },
+    "10":{
+	    "Index": 4,
+	    "title": "Blackness and the Pitfalls of Anthropocene Ethics",
+	    "author": "Axelle Karera",
+	    "source": "https://www-jstor-org.prx.library.gatech.edu/stable/10.5325/critphilrace.7.1.0032?seq%3D1",
+	    "description": "This article is concerned with what Srinivas Aravamudan deems “the escapist philosophy of various dimensions of the hypothesis concerning the Anthropocene",
+	    "image": "https://pbs.twimg.com/media/EGIRtjPXkAA5wEj.jpg",
+    },
+    "12":{
+	    "Index": 4,
+	    "title": "The Black Shoals: Offshore Formations of Black and Native Studies",
+	    "author": "Tiffany Lethabo King",
+	    "source": "https://www.dukeupress.edu/the-black-shoals",
+	    "description": "In The Black Shoals Tiffany Lethabo King uses the shoal—an offshore geologic formation that is neither land nor sea—as metaphor, mode of critique, and methodology to theorize the encounter between Black studies and Native studies.",
+	    "image": "https://www.dukeupress.edu/Assets/Books/978-1-4780-0636-7_pr.jpg ",
+    },
+
+	
+}
+var slowCrisis = {
+	"0":{
+	    "Index": 2,
+	    "title": "Down Cancer Alley: The Lived Experience of Health and Environmental Suffering in Louisiana's Chemical Corridor",
+	    "author": "Merrill Singer",
+	    "source": "https://doi.org/10.1111/j.1548-1387.2011.01154.x ",
+	    "description": "This article engages arguments made by Auyero and Swistun concerning the uncertainties and confusions that emerge when official or empowered pronouncements about the health impacts of living near waste‐generating factories conflict with the everyday experience of perceived health‐related contamination in an impoverished community.",
+	    "image": "https://anthrosource.onlinelibrary.wiley.com/cover/15481387",
+    },
+    "1":{
+	    "Index": 2,
+	    "title": "Unfair Trade e-Waste in Africa",
+	    "author": "Charles W. Schmidt",
+	    "source": "https://doi.org/10.1289/ehp.114-a232",
+	    "description": "Up to 75% of the electronics shipped to the Computer Village are irreparable junk, according to the Computer and Allied Product Dealers Association of Nigeria, a local industry group. Nigeria has a thriving repair market, but no capacity to safely deal with electronic waste, most of which winds up in landfills and informal dumps. ",
+	    "image": "https://anthrosource.onlinelibrary.wiley.com/cms/asset/6bc66da7-1b63-4386-9b93-ea553f78c91e/maq.2011.25.issue-1.cover.gif",
+    },
+    "2":{
+	    "Index": 2,
+	    "title": "Slow Violence and the Environmentalism of the Poor",
+	    "author": "Rob Nixon",
+	    "source": "https://www.hup.harvard.edu/catalog.php?isbn=9780674072343",
+	    "description": "The violence wrought by climate change, toxic drift, deforestation, oil spills, and the environmental aftermath of war takes place gradually and often invisibly. Using the innovative concept of “slow violence” to describe these threats, Rob Nixon focuses on the inattention we have paid.",
+	    "image": "https://www.hup.harvard.edu/images/jackets/9780674072343-lg.jpg",
+    },
+    "3":{
+	    "Index": 2,
+	    "title": "Climate science and slow violence: A view from political geography and STS on mobilizing technoscientific ontologies of climate change",
+	    "author": "Shannon O'Lear",
+	    "source": "https://www.sciencedirect.com/science/article/abs/pii/S0962629815000062",
+	    "description": "This paper's central concern is to trace how dominant, scientific understanding of climate change is mobilized in ways that set a course towards slow violence. ",
+	    "image": "https://ars.els-cdn.com/content/image/X09626298.jpg",
+    },
+    "4":{
+	    "Index": 2,
+	    "title": "Slow violence and toxic geographies: ‘Out of sight’to whom?",
+	    "author": "Thom Davies",
+	    "source": "https://journals.sagepub.com/doi/full/10.1177/2399654419841063",
+	    "description": "Toxic pollution is a form of violence. This article explores the gradual brutalities that communities surrounded by petrochemical infrastructure endure over time. ",
+	    "image": "https://i1.rgstatic.net/publication/332362303_Slow_violence_and_toxic_geographies_'Out_of_sight'_to_whom/links/5d63a77e299bf1f70b0dcefd/largepreview.png",
+    },
+    "5":{
+	    "Index": 2,
+	    "title": "Toxic Space and Time: Slow Violence, Necropolitics, and Petrochemical Pollution",
+	    "author": "Thom Davies",
+	    "source": "https://www.tandfonline.com/doi/full/10.1080/24694452.2018.1470924",
+	    "description": "This article explores how time interacts forcefully with the experience of living within toxic spaces. Through ethnographic research and interviews with residents of a contaminated town in Louisiana, the article unpacks the uncertain temporalities",
+	    "image": "https://www.tandfonline.com/doi/cover-img/10.1080/raag21.v108.i06",
+    },
+    "6":{
+	    "Index": 2,
+	    "title": "Fast Machines, Slow Violence: ICTs, Planned Obsolescence, and E-waste",
+	    "author": "Sabine LeBel",
+	    "source": "https://www.tandfonline.com/doi/abs/10.1080/14747731.2015.1056492",
+	    "description": "This paper brings the temporalities of the global e-waste recycling trade into the temporal reckonings of speed, acceleration, and simultaneity typically associated with information and communications technologies (ICTs). Following feminist philosopher Sofia, it begins with a reconsideration of theories of technology as they relate to time and the environment. ",
+	    "image": "https://www.tandfonline.com/doi/cover-img/10.1080/14747731.2015.1057046",
+    },
+	
+}
+
+var careRepair = {
+	"0":{
+	    "Index": 3,
+	    "title": "Nature in crisis: An ecological construction and conservation of the environment in Swazi oral literature.",
+	    "author": "Enongene Mirabeau Sone",
+	    "source": "https://www.nisc.co.za/media/products/201409161410850613168043380.jpg",
+	    "description": "Swazis’ use of oral literature through songs, praises, stories, riddles and proverbs shows how they love and value nature and the environment. The aim of this paper is to show how values expressed in Swazi oral literature are consistent with the ecological wisdom of the Swazi people who produce them.",
+	    "image": "https://www.tandfonline.com/doi/cover-img/10.1080/rjal20.v040.i01",
+    },
+    "1":{
+	    "Index": 3,
+	    "title": "Ubuntu is Not Only about the Human! An Analysis of the Role of African Philosophy and Ethics in Environment Management",
+	    "author": "Danford T. Chibvongodze",
+	    "source": "https://www.tandfonline.com/doi/abs/10.1080/09709274.2016.11906968",
+	    "description": "A Marxist discourse on metabolic rift is used to examine the alienation of Africans from their environment and religious connections by capitalism and urbanisation. The paper emphasises the understanding of Ubuntu as an intimate relationship between humans and the natural environment.",
+	    "image": "https://www.tandfonline.com/doi/cover-img/10.1080/rhue20.v060.i02-03",
+    },
 }
 
 

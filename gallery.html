@@ -22,16 +22,8 @@
 	<script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
 
 	<style>
-		.landingpage{
-			
-			/* The image used 
-			background-image: url("img_girl.jpg");
-		   
-		    height: 100%;
-			
-			background-position: center;
-			background-repeat: no-repeat;
-			background-size: cover;*/
+		nav ul li.active {
+		  background-color: rgba(5, 7, 10, 1);
 
 		}
 		.card{
@@ -41,54 +33,92 @@
 		}
 		.no-underline{
             text-decoration: none;
-            color: white;
+            
         }
 		body, html{
 		  height: 100%;
+
 		  background-color: black;
 		}
+		nav ul a:hover {
+	      background-color: rgba(31, 32, 30, 0.44);
+	    }
 	</style>
 </head>
-<body >
+<body>
 	<div class="">
 		<div class="navbar-fixed ">
 		    <nav>
-		      <div class="nav-wrapper black">
-		        <a href="home.html" class="material-icons">home</a>
+		      <div class="nav-wrapper black" style="border-bottom: 2px solid white;">
+		        
+		        <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+		        <a href="#" class="brand-logo"><img style="height:12%;width:20%; position:relative;left: 10px" src="images/2619logo.png"></a>
 		        <ul class="right hide-on-med-and-down">
+		          <li><a href="home.html" style="left: 10px">Home</a></li>
+		          <li><a href="about.html">About</a></li>
 		          <li><a href="literature.html">Literature</a></li>
-		          <li><a href="gallery.html">Gallery</a></li>
-		          <li><a href="#">Video + Film</a></li>
+		          <li class="active"><a href="gallery.html">Photos</a></li>
+		          <li><a href="video.html">Video + Film</a></li>
 		          <li><a href="prototypes.html">Prototypes</a></li>
 		        </ul>
 		      </div>
 		    </nav>
+		    <ul class="sidenav" id="mobile-demo">
+			    <li><a href="home.html">Home</a></li>
+		          <li><a href="about.html">About</a></li>
+		          <li><a href="literature.html">Literature</a></li>
+		          <li><a href="gallery.html">Photos</a></li>
+		          <li><a href="video.html">Video + Film</a></li>
+		          <li><a href="prototypes.html">Prototypes</a></li>
+			</ul>
 		</div>
 		<!-- filter list of links  -->
-		<div class="row">
-			<div class="col s2 m2 l2 offset-s1 offset-m1 offset-l1">
-		        <a onclick="all_imgs()" class="no-underline"href="#">All</a>
+		<div class="row" style="padding-top:20px">
+			<div class="col s12 m2 l2 offset-s1 offset-m1 offset-l1">
+		        <a onclick="all_imgs()" id="all" class="no-underline"href="#">All</a>
 		    </div>
-		    <div class="col s2 m2 l2  ">
-		        <a onclick="anthro_imgs()" class="no-underline"href="#"><span style="color: #ccc200">&#8226</span> Anthropocene(s)</a>
+		    <div class="col s12 m2 l2 ">
+		        <a onclick="anthro_imgs()" id="anthro" class="no-underline"href="#"><span style="color: #cccc33">&#8226</span> Anthropocene(s)</a>
 		    </div> 
-		    <div class="col s2 m2 l2 ">
-		        <a onclick="af_imgs()" class="no-underline"href="#"> <span style="color: #ab05a7">&#8226</span> Afrofuturism</a>
+		    <div class="col s12 m2 l2 ">
+		        <a onclick="af_imgs()" id="afro" class="no-underline"href="#"> <span style="color: #660066">&#8226</span> Afrofuturism</a>
 		    </div>
-		    <div class="col s2 m2 l2 ">
-		        <a onclick="computing_imgs()" class="no-underline"href="#"> <span style="color: #f81e51">&#8226</span> Computing</a>
+		    <div class="col s12 m2 l2 ">
+		        <a onclick="computing_imgs()" id="computing" class="no-underline"href="#"> <span style="color: #cc3366">&#8226</span> Computing</a>
 		    </div>
-		    <div class="col s2 m2 l2 ">
-		        <a onclick="remixing_imgs()" class="no-underline"href="#"> <span style="color: #a4fb2e">&#8226</span> Remixing</a>
+		    <div class="col s12 m2 l2 ">
+		        <a onclick="remixing_imgs()" id="remix" class="no-underline"href="#"> <span style="color: #66cc99">&#8226</span> Remixing</a>
+		    </div>  
+		</div>
+		<!-- sub sorts -->
+		<div class="row">
+		    <div class="col s12 m2 l2 offset-m4 offset-l4">
+		        <a onclick="slow_imgs()" id="slow" class="no-underline"href="#"><i>slow crisis</i></a>
+		    </div> 
+		    <div class="col s12 m2 l2 ">
+		        <a onclick="decol_imgs()" id="decol" class="no-underline"href="#"><i>decolonization</i></a>
+		    </div>
+		    <div class="col s12 m2 l2 ">
+		        <a onclick="repair_imgs()" id="repair" class="no-underline"href="#"><i>repair & care</i></a>
 		    </div>  
 		</div>
 		<!-- image grid items, added with javascript -->
 		<div class="row">
-			<div id="maingrid" class="grid effect-1"> </div>
+			<div style="padding-left: 15px;" id="maingrid" class="grid effect-1"> </div>
 		</div>
 	</div>
 
 <script>
+	// holds the items that are currently selected 
+	var selectedSets = [];
+	// flags for sorting sets
+	var afroOn = false;
+	var anthroOn = false;
+	var remixOn = false;
+	var computingOn = false;
+	var decolOn = false;
+	var slowCrisisOn = false;
+	var careRepairOn = false;
 
 	$(document).ready(function(){
         (function($){
@@ -100,10 +130,7 @@
                 //$('.aboutme').hide().fadeIn(30000);
                 $('.parallax').parallax();
                 $('.materialboxed').materialbox();
-                //$('.modal').modal();
-                //$('.slider').slider();
-                //$('.collapsible').collapsible();
-                //$('.carousel').carousel();
+                $('.sidenav').sidenav();
                 $('.grid').masonry({
                     // options
                     itemSelector: '.grid-item',
@@ -148,12 +175,14 @@ function displayGallery(dataset){
 		img.setAttribute('class', 'materialboxed placeholder image'); 
 		// toggle different widths for images 
 	  	if (gridItemWidthFlag){
-	  		div.setAttribute('class', 'grid-item '); 
+	  		div.setAttribute('class', 'grid-item ');
+
 	  		// negate flag 
 	  		gridItemWidthFlag = false; 
 	  	}
 	  	else {
 	  		div.setAttribute('class', 'grid-item'); 
+	  		
 	  		// negate flag 
 	  		gridItemWidthFlag = true; 
 	  	}
@@ -171,25 +200,237 @@ function displayGallery(dataset){
 	  }
 
 }
+function slow_imgs(){ // slow
+	document.getElementById("all").setAttribute('style','color:white');
+	var a = document.getElementById("slow");
+	if (slowCrisisOn == true){
+		// turn it off 
+		a.setAttribute('style','color:white');
+		slowCrisisOn = false;
+		const index = selectedSets.indexOf(slowCrisis);
+		//selectedSets.pop(index);
+		if (index > -1) {
+		  selectedSets.splice(index, 1);
+		}
+
+	}
+	else{
+		// turn it on 
+		a.setAttribute('style','color:#cc3366');
+		slowCrisisOn = true;
+		selectedSets.push(slowCrisis);
+		
+	}
+	// if something is in the list, display all sets 
+	if (selectedSets.length > 0){
+		displayGallery(selectedSets);
+	}
+	else{
+		//displayGallery([afrofuturism]);
+		all_imgs();
+	}
+}
+
+function decol_imgs(){ // decol decolOn
+	document.getElementById("all").setAttribute('style','color:white');
+	var a = document.getElementById("decol");
+	if (decolOn == true){
+		// turn it off 
+		a.setAttribute('style','color:white');
+		decolOn = false;
+		const index = selectedSets.indexOf(decolonization);
+		//selectedSets.pop(index);
+		if (index > -1) {
+		  selectedSets.splice(index, 1);
+		}
+
+	}
+	else{
+		// turn it on 
+		a.setAttribute('style','color:#cc3366');
+		decolOn = true;
+		selectedSets.push(decolonization);
+		
+	}
+	// if something is in the list, display all sets 
+	if (selectedSets.length > 0){
+		displayGallery(selectedSets);
+	}
+	else{
+		//displayGallery([afrofuturism]);
+		all_imgs();
+	}
+}
+
+function repair_imgs(){ // repair careRepairOn
+	document.getElementById("all").setAttribute('style','color:white');
+	var a = document.getElementById("repair");
+	if (careRepairOn == true){
+		// turn it off 
+		a.setAttribute('style','color:white');
+		careRepairOn = false;
+		const index = selectedSets.indexOf(careRepair);
+		//selectedSets.pop(index);
+		if (index > -1) {
+		  selectedSets.splice(index, 1);
+		}
+
+	}
+	else{
+		// turn it on 
+		a.setAttribute('style','color:#cc3366');
+		careRepairOn = true;
+		selectedSets.push(careRepair);
+		
+	}
+	// if something is in the list, display all sets 
+	if (selectedSets.length > 0){
+		displayGallery(selectedSets);
+	}
+	else{
+		//displayGallery([afrofuturism]);
+		all_imgs();
+	}
+}
 // load all the images 
 function all_imgs(){
+	document.getElementById("decol").setAttribute('style','color:white');
+	document.getElementById("slow").setAttribute('style','color:white');
+	document.getElementById("repair").setAttribute('style','color:white');
+	document.getElementById("anthro").setAttribute('style','color:white');
+	document.getElementById("afro").setAttribute('style','color:white');
+	document.getElementById("computing").setAttribute('style','color:white');
+	document.getElementById("remix").setAttribute('style','color:white');
+	document.getElementById("all").setAttribute('style','color:#66cc99');
+	// change the states for the categories 
 	displayGallery([afrofuturism,anthropocene, computing, remixing]);	  	
 }
 // load afrofuturism images (level 1 in the json file)
 function af_imgs(){
-	displayGallery([afrofuturism]);
+	document.getElementById("all").setAttribute('style','color:white');
+	var a = document.getElementById("afro");
+	if (afroOn == true){
+		// turn it off 
+		a.setAttribute('style','color:white');
+		afroOn = false;
+		const index = selectedSets.indexOf(afrofuturism);
+		//selectedSets.pop(index);
+		if (index > -1) {
+		  selectedSets.splice(index, 1);
+		}
+
+	}
+	else{
+		// turn it on 
+		a.setAttribute('style','color:#66cc99');
+		afroOn = true;
+		selectedSets.push(afrofuturism);
+		
+	}
+	// if something is in the list, display all sets 
+	if (selectedSets.length > 0){
+		displayGallery(selectedSets);
+	}
+	else{
+		//displayGallery([afrofuturism]);
+		all_imgs();
+	}
+
 }
 // load anthropocene images (level 1 in the json file)
 function anthro_imgs(){
-	displayGallery([anthropocene]);
+	document.getElementById("all").setAttribute('style','color:white');
+	var a = document.getElementById("anthro");
+	if (anthroOn == true){
+		// turn it off 
+		a.setAttribute('style','color:white');
+		anthroOn = false;
+		const index = selectedSets.indexOf(anthropocene);
+		//selectedSets.pop(index);
+		if (index > -1) {
+		  selectedSets.splice(index, 1);
+		}
+
+	}
+	else{
+		// turn it on 
+		a.setAttribute('style','color:#66cc99');
+		anthroOn = true;
+		selectedSets.push(anthropocene);
+		
+	}
+	// if something is in the list, display all sets 
+	if (selectedSets.length > 0){
+		displayGallery(selectedSets);
+	}
+	else{
+		//displayGallery([anthropocene]);
+		all_imgs();
+	}
+	
 }
 // load computing images (level 1 in the json file)
 function computing_imgs(){
-	displayGallery([computing]);
+	document.getElementById("all").setAttribute('style','color:white');
+	var a = document.getElementById("computing");
+	if (computingOn == true){
+		// turn it off 
+		a.setAttribute('style','color:white');
+		computingOn = false;
+		const index = selectedSets.indexOf(computing);
+		//selectedSets.pop(index);
+		if (index > -1) {
+		  selectedSets.splice(index, 1);
+		}
+
+	}
+	else{
+		// turn it on 
+		a.setAttribute('style','color:#66cc99');
+		computingOn = true;
+		selectedSets.push(computing);
+		
+	}
+	// if something is in the list, display all sets 
+	if (selectedSets.length > 0){
+		displayGallery(selectedSets);
+	}
+	else{
+		//displayGallery([computing]);
+		all_imgs();
+	}
+	
 }
 // load remixing images (level 1 in the json file)
 function remixing_imgs(){
-	displayGallery([remixing]);
+	document.getElementById("all").setAttribute('style','color:white');
+	var a = document.getElementById("remix");
+	if (remixOn == true){
+		// turn it off 
+		a.setAttribute('style','color:white');
+		remixOn = false;
+		const index = selectedSets.indexOf(remixing);
+		//selectedSets.pop(index);
+		if (index > -1) {
+		  selectedSets.splice(index, 1);
+		}
+
+	}
+	else{
+		// turn it on 
+		a.setAttribute('style','color:#66cc99');
+		remixOn = true;
+		selectedSets.push(remixing);
+		
+	}
+	// if something is in the list, display all sets 
+	if (selectedSets.length > 0){
+		displayGallery(selectedSets);
+	}
+	else{
+		//displayGallery([remixing]);
+		all_imgs();
+	}
 }
 var remixing = {
 	"0":{
@@ -444,6 +685,158 @@ var anthropocene = {
 	    "source": "https://media.pri.org/s3fs-public/styles/story_main/public/story/images/Flint%20water%20protesters.png?itok=uzwx7l2l",
 	    "credit": "Petra Daher"
 	}
+}
+
+var decolonization = {
+	"0":{
+		"Index": 0,
+		"description":"The Gnadenhutten Massacre of Indigenous Americans in 1782.",
+		"source":"https://www.history.com/.image/c_limit%2Ccs_srgb%2Cq_auto:good%2Cw_620/MTU3ODc4NjAyNzE2ODgyMjQ5/image-placeholder-title.webp ",
+		"credit":"Archive Photos/Getty Images",
+	},
+	"1":{
+		"Index": 0,
+		"description":"Battle of Tippecanoe, 1811",
+		"source":"https://i.pinimg.com/originals/53/47/d6/5347d6d793b6e6eda8dd2d79025ceec9.jpg",
+		"credit":"Universal History Archive/Getty Images",
+	},
+	"2":{
+		"Index": 0,
+		"description":"Captives being brought on board a slave ship on the West Coast of Africa (Slave Coast), c1880. ",
+		"source":"https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRZ6mf-skvMsXyvBJhggJTzC6Y4MvObuCe8a7gINMzcRh4Omh1d&usqp=CAU",
+		"credit":"Ann Ronan Pictures/Print Collector/Getty Images",
+	},
+	"3":{
+		"Index": 0,
+		"description":"C“The ecological consequences of cotton farming and the slave labor...inhibit agriculture in the South to this day.” -- Aaron Joslin",
+		"source":"https://floridahumanities.org/wp-content/uploads/2020/02/rc02221.jpg",
+		"credit":"No credits",
+	},
+}
+var slowCrisis = {
+	"0":{
+		"Index": 0,
+		"description":"Modern slavery: 'Blood diamonds' dug from African mines by children as young as 11",
+		"source":"https://i.dailymail.co.uk/i/pix/2015/10/01/15/2CF9637600000578-3256249-Deadly_trade_The_export_of_diamonds_from_CAR_was_banned_in_2012_-a-125_1443708627486.jpg ",
+		"credit":"Amnesty International ",
+	},
+	"1":{
+		"Index": 0,
+		"description":"Despite near-continuous development, oil, gas, and other petrochemical companies are not finished building new factories and refineries in communities of poor Black people",
+		"source":"https://bigeasymagazine.b-cdn.net/wp-content/uploads/2019/04/cancer_alley_woman_fishing_with_plants_in_background.jpeg",
+		"credit":"Treehugger",
+	},
+	"2":{
+		"Index": 0,
+		"description":"Environmental racism & slow crises: Chemical plants and factories line the roads and suburbs of the area known as 'Cancer Alley' ",
+		"source":"https://i.insider.com/5ddecb47fd9db2217f3dc432?width=600&format=jpeg&auto=webp",
+		"credit":"Giles Clarke/Getty",
+	},
+	"3":{
+		"Index": 0,
+		"description":"Environmental racism & slow crises: Sierra Club Delta Chapter and dozens of other environmental and citizen groups fight proposed facilities seeking to locate and increase pollution in Cancer Alley",
+		"source":"https://www.sierraclub.org/sites/www.sierraclub.org/files/sce-authors/u14011/Cancer%20Alley%20Protest.png",
+		"credit":"No credit",
+	},
+	"4":{
+		"Index": 0,
+		"description":"Protestors led by Reverend Joseph Lowery march against a proposed toxic waste dump in Warren County, North Carolina, in October 1982",
+		"source":"https://assets.nrdc.org/sites/default/files/styles/header_background/public/coms10_rm_515297744_900x600.jpg?itok=pf3xJ1l1",
+		"credit":"Bettman/Getty Images",
+	},
+	"5":{
+		"Index": 0,
+		"description":"Article: Environmental racism in India & Africa",
+		"source":"https://truthaholics.files.wordpress.com/2014/04/india-e-waste-apr-29-2014.jpg?w=199&h=300 ",
+		"credit":"No credit ",
+	},
+	"6":{
+		"Index": 0,
+		"description":"Environmental Injustice: Protestors block the delivery of toxic PCB waste to a landfill in Afton, North Carolina, 1982",
+		"source":"https://assets.nrdc.org/sites/default/files/styles/header_background/public/ejmovement_82-09-24-pcb-1_900x600.jpg?itok=v1iQREbx",
+		"credit":"Ricky Stilley",
+	},
+	"7":{
+		"Index": 0,
+		"description":"“Durban Poison” in South Africa:  the largest concentration of petrochemical industries, waste water treatment works, numerous toxic waste landfill sites in the country",
+		"source":"https://atlantablackstar.com/wp-content/uploads/2016/02/south-durban-poison-600x450.jpg",
+		"credit":"No credit",
+	},
+	"8":{
+		"Index": 0,
+		"description":"Studies show that communities of color are especially vulnerable to environmental injustice and environmental racism.",
+		"source":"https://media.pri.org/s3fs-public/styles/story_main/public/story/images/Flint%20water%20protesters.png?itok=uzwx7l2l",
+		"credit":"Petra Daher",
+	},
+	"9":{
+		"Index": 0,
+		"description":"Sharon Lavigne (L) leads The March Against Death Alley through St. James, Louisiana on Oct. 23rd, 2019",
+		"source":"https://www.rollingstone.com/wp-content/uploads/2019/10/NewOrleans1.jpg",
+		"credit":"William Widmer for Rolling Stone",
+	},
+	"10":{
+		"Index": 0,
+		"description":"A young boy rides his tricycle on Burton Lane in St. James. The dead-end residential road is surrounded on three sides by heavy industry.",
+		"source":"https://www.rollingstone.com/wp-content/uploads/2019/10/NewOrleans4.jpg?w=1024",
+		"credit":"William Widmer for Rolling Stone",
+	},
+	"11":{
+		"Index": 0,
+		"description":"Mixed computer scrap in a recycling yard. E-waste enters India as scrap metal, scrap plastic and also sometimes as charity donations. In reality much of the import is unusable and goes straight from the port to the scrap heap.",
+		"source":"http://www.documentscotland.com/wp-content/uploads/2013/05/E-wasteland_2006_India_07.jpg",
+		"credit":"© Sophie Gerrard 2006",
+	},
+	"12":{
+		"Index": 0,
+		"description":"A boy looks out over a pool of polluted water at a pile of discarded circuit boards in the slum town of Mandoli on the outskirts of Delhi.",
+		"source":"http://www.documentscotland.com/wp-content/uploads/2013/05/E-wasteland_2006_India_02.jpg",
+		"credit":"© Sophie Gerrard 2006",
+	},
+	"13":{
+		"Index": 0,
+		"description":"Electronic waste (e-waste) stored in a recycling yard in Bangalore, the IT capital of India. Like many of India’s cities Bangalore is generating thousands of tons of domestic e-waste every year.",
+		"source":"http://www.documentscotland.com/wp-content/uploads/2013/05/E-wasteland_2006_India_06.jpg",
+		"credit":"© Sophie Gerrard 2006",
+	},
+	"14":{
+		"Index": 0,
+		"description":"E-waste containing lead, mercury and cadmium stored in a recycling workshop in Maya Puri, Delhi. The toxic metals contained in these switches and connectors will leach into the environment over time, causing ground, water and air pollution.",
+		"source":"http://www.documentscotland.com/wp-content/uploads/2013/05/E-wasteland_2006_India_10.jpg",
+		"credit":"© Sophie Gerrard 2006",
+	},
+}
+
+var careRepair = {
+	"0":{
+		"Index": 0,
+		"description":"Example of kintsugi",
+		"source":"https://www.theschooloflife.com/thebookoflife/wp-content/uploads/2016/01/Kintsugi-bowl-honurushi-number-32.jpg",
+		"credit":"none",
+	},
+	"1":{
+		"Index": 0,
+		"description":"Example of kintsugi",
+		"source":"https://www.thisiscolossal.com/wp-content/uploads/2014/05/bowl-1.jpg",
+		"credit":"Wikipedia",
+	},
+	"2":{
+		"Index": 0,
+		"description":"Example of kintsugi",
+		"source":"https://images.squarespace-cdn.com/content/v1/526d4e63e4b0bc407050d861/1503696847045-UUSDS359Y9R2JYKNRTLM/ke17ZwdGBToddI8pDm48kLRWbIR2DtYcOh6s2e2-Q5F7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z5QPOohDIaIeljMHgDF5CVlOqpeNLcJ80NK65_fV7S1UQcuxtkA12-OCPsZHWbJgLh1nlhfaux6qqK6UxSch6k6DCeKV-BrhqRjQnW1nxj9pA/yee.jpg",
+		"credit":"“Korean artist Yee Sookyung constructs massive ceramic sculptures that are crafted from rejected porcelain pieces made by contemporary Korean pottery master Lim Hang-Taek. She uses the kintsugi technique to build, not repair.”",
+	},
+	"3":{
+		"Index": 0,
+		"description":"Example of kintsugi",
+		"source":"https://tomisnotaboy.files.wordpress.com/2016/03/1ef33-image.jpg?w=840",
+		"credit":"none",
+	},
+	"4":{
+		"Index": 0,
+		"description":"Example of ubuntu",
+		"source":"https://www.tusharvakil.com/wp-content/uploads/2018/04/ubuntu-1024x568.jpg",
+		"credit":"none",
+	},
 }
 
 

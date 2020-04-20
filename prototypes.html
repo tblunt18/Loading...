@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Gallery</title>
+	<title>Prototypes</title>
 	<meta charset="UTF-8">
 	<!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -22,6 +22,73 @@
 	<script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
 
 	<style>
+		.collapsible-header {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        cursor: pointer;
+        -webkit-tap-highlight-color: transparent;
+        line-height: 1.5;
+        padding: 0.2rem;
+        /*background-color: black;*/
+        border-top: 1px none;
+        border-bottom: 1px none;
+      }
+      .collapsible {
+        border-style: solid;
+        border-bottom: 0.5px solid white;
+        border-top: none;
+        border-right: none;
+        border-left: none;
+        margin: 0.5rem 0 1rem 0;
+      }
+      .collapsible-body {
+        display: none;
+        border-bottom: 1px none #ddd;
+        -webkit-box-sizing: border-box;
+                box-sizing: border-box;
+        padding: 0.2rem;
+      }
+		.row .col.offset-m1 {
+		    margin-left: 7.3333333333%;
+		}
+		.row .col.offset-l1 {
+		    margin-left: 7.3333333333%;
+		}
+	   .parallax-container {
+        position: relative;
+        overflow: hidden;
+        height: 600px;
+       }
+      .parallax-container .parallax img #topimg {
+        opacity: 0;
+        position: absolute;
+        left: 50%;
+        bottom: 0;
+        min-width: 50%;  /* originally 100%  */
+        min-height: 50%; /* originally 100% */
+        max-height: 250%; /* max values were added in by me, not in materialize */
+        max-width: 250%;
+        -webkit-transform: translate3d(0, 0, 0);
+                transform: translate3d(0, 0, 0);
+        -webkit-transform: translateX(-50%);
+                transform: translateX(-50%);
+       }
+      .parallax-container .parallax img {
+        opacity: 0;
+        position: absolute;
+        left: 50%;
+        bottom: 0;
+        min-width: 50%;  /* originally 100%  */
+        min-height: 50%; /* originally 100% */
+        max-height: 145%; /* max values were added in by me, not in materialize */
+        max-width: 145%;
+        -webkit-transform: translate3d(0, 0, 0);
+                transform: translate3d(0, 0, 0);
+        -webkit-transform: translateX(-50%);
+                transform: translateX(-50%);
+       }
 		.card.large {
 		  height: 500px;
 		}
@@ -30,205 +97,205 @@
 			height:100%;
 			width:100%;
 		}
+		.card-reveal p{
+			color:black;
+		}
 		.no-underline{
             text-decoration: none;
             color: white;
         }
+        nav ul li.active {
+		  background-color: rgba(5, 7, 10, 1);
+
+		}
 		body, html{
 		  height: 100%;
-		  background-color: black;
+		  
 		}
+		.section ul li p a{
+	      text-decoration: underline;
+	      color: white;
+	    }
+	    .section p a{
+	      text-decoration: underline;
+	      color: white;
+	    }
+	    
+	    .section p {
+	      color: white;
+	    }
+	    h5{
+	      color: white;
+	    }
+	    nav ul a:hover {
+	      background-color: rgba(31, 32, 30, 0.44);
+	    }
 	</style>
 </head>
 <body>
 	<div class="">
 		<div class="navbar-fixed ">
 		    <nav>
-		      <div class="nav-wrapper black">
-		        <a href="home.html" class="material-icons">home</a>
+		      <div class="nav-wrapper black" style="border-bottom: 2px solid white;">
+		        
+		        <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+		        <a href="#" class="brand-logo"><img style="height:12%;width:20%; position:relative;left: 10px" src="images/2619logo.png"></a>
 		        <ul class="right hide-on-med-and-down">
+		          <li><a href="home.html" style="left: 10px">Home</a></li>
+		          <li><a href="about.html">About</a></li>
 		          <li><a href="literature.html">Literature</a></li>
-		          <li><a href="gallery.html">Gallery</a></li>
-		          <li><a href="#">Video + Film</a></li>
-		          <li><a href="prototypes.html">Prototypes</a></li>
+		          <li><a href="gallery.html">Photos</a></li>
+		          <li><a href="video.html">Video + Film</a></li>
+		          <li class="active"><a href="prototypes.html">Prototypes</a></li>
 		        </ul>
 		      </div>
 		    </nav>
+		    <ul class="sidenav" id="mobile-demo">
+			    <li><a href="home.html">Home</a></li>
+		          <li><a href="about.html">About</a></li>
+		          <li><a href="literature.html">Literature</a></li>
+		          <li><a href="gallery.html">Photos</a></li>
+		          <li><a href="video.html">Video + Film</a></li>
+		          <li><a href="prototypes.html">Prototypes</a></li>
+			</ul>
 		</div>
-		<!-- filter list of links  -->
-		<div class="section " style="background-color: #ffa400">
-	      <div class="row container">
-	        <h2 class="header white-text">The Mix: Extending the Beat</h2>
-	        <p class="white-text text-darken-3 lighten-3">Planned obsolescence and the black boxing of technological devices has made it difficult for users to keep their devices and encourages the rapid increase of e-waste. What might we learn from cultures that have been silenced by capitalism about the relationship between humans and the environment? How might we extend the lifespan of computing products through principles of repair and care rooted in african and indigenous philosophies? Using remixing approaches and techniques, we provide various ideas that play on care, repair, and imperfection to extend the life cycles of devices -- “extending the beat” in response to the problems such as e-waste, unbalanced impact, and slow violence. We begin with african and indigenous philosophies and techniques as a strategy of decolonizing the anthropocene. 
-	        </p>
-	      </div>
 
-    	</div>
+		<div class="parallax-container">
+	      <div class="parallax" style="background-color: #cc3399"><img src="images/IMG_protypes/6_extBeat_v2.png"></div>
+	    </div>
 
-    	<div class="row">
-	      	<div class="offset-m1 offset-l1 col s12 m6 l6">
-	      		<div class="card ">
-				    <div class="card-image waves-effect waves-block waves-light">
-				      <img class="activator" src="images/IMG_protypes/wanakaTreePumzi_v2.png">
-				    </div>
-				    <div class="card-content">
-				      <span class="card-title activator grey-text text-darken-4">Death to Manifest Destiny .v1<i class="material-icons right">more_vert</i></span>
-				      <p><a href="#"></a></p>
-				    </div>
-				    <div class="card-reveal">
-				      <span class="card-title grey-text text-darken-4">Death to Manifest Destiny .v1<i class="material-icons right">close</i></span>
-				      <p>Ubuntu is a Zulu term meaning "I am because we are," or "humanity towards others.” It is often used in a more philosophical sense to mean "the belief in a universal bond of sharing that connects all humanity." Mitakuye Oyasin reflects the world view of interconnectedness held by the Lakota people of North America. It, as a concept and phrase, is often expressed in many Yankton Sioux prayers, as well as by ceremonial people in other Lakota communities. The phrase translates in English as "all my relatives," "we are all related," or "all my relations." It is a prayer of oneness and harmony with all forms of life: other people, animals, birds, insects, trees and plants, rocks, rivers, mountains and valleys. Building on the principles of Ubuntu and Mitakuye Oyasin, how might we reconsider our technological waste as part of the broader circle of life? Can we reconsider what “waste” is and its potential to give back to the environment? Can e-waste be seeds for plants or food for other animals, for example?
-					</p>
-				    </div>
-				</div>
-	      	</div>
-	      	<!-- card panels with additional info -->
-	      	<div class=" col s12 m4 l4">
-	      		<div class="card-panel" style="background-color: #ab05a7">
-			        <span class="white-text"><b style="color:black">Ubuntu</b> is a Zulu term meaning "I am because we are," or "humanity towards others," or in Xhosa,"umntu ngumntu ngabantu". It is often used in a more philosophical sense to mean "the belief in a universal bond of sharing that connects all humanity."
-			        </span>
-			    </div>
-	      	</div>
-	      	<div class=" col s12 m4 l4">
-	      		<div class="card-panel" style="background-color: #770475">
-			        <span class="white-text"><b style="color:black">Mitakuye Oyasin</b> (All Are Related) reflects the world view of interconnectedness held by the Lakota people of North America. It, as a concept and phrase, is often expressed in many Yankton Sioux prayers, as well as by ceremonial people in other Lakota communities. The phrase translates in English as "all my relatives," "we are all related," or "all my relations." It is a prayer of oneness and harmony with all forms of life: other people, animals, birds, insects, trees and plants, rocks, rivers, mountains and valleys. It requires that prior to engaging in potentially harmful activities, we must consider the long-term effects on the land, the water, the air, the animals and other people. Can we shift the project of computing from that of conquering growth to ideals about dependent relations?
-
-			        </span>
-			    </div>
-	      	</div>
-
-	      	<div class="offset-m1 offset-l1 col s12 m6 l6">
-				<div class="card ">
-				    <div class="card-image waves-effect waves-block waves-light">
-				      <img class="activator" src="images/IMG_protypes/plantingTech.png">
-				    </div>
-				    <div class="card-content">
-				      <span class="card-title activator grey-text text-darken-4">Death to Manifest Destiny .v2<i class="material-icons right">more_vert</i></span>
-				      <p><a href="#"></a></p>
-				    </div>
-				    <div class="card-reveal">
-				      <span class="card-title grey-text text-darken-4">Death to Manifest Destiny .v2<i class="material-icons right">close</i></span>
-				      <p>Ubuntu is a Zulu term meaning "I am because we are," or "humanity towards others.” It is often used in a more philosophical sense to mean "the belief in a universal bond of sharing that connects all humanity." Mitakuye Oyasin reflects the world view of interconnectedness held by the Lakota people of North America. It, as a concept and phrase, is often expressed in many Yankton Sioux prayers, as well as by ceremonial people in other Lakota communities. The phrase translates in English as "all my relatives," "we are all related," or "all my relations." It is a prayer of oneness and harmony with all forms of life: other people, animals, birds, insects, trees and plants, rocks, rivers, mountains and valleys. Building on the principles of Ubuntu and Mitakuye Oyasin, how might we reconsider our technological waste as part of the broader circle of life? Can we reconsider what “waste” is and its potential to give back to the environment? Can e-waste be seeds for plants or food for other animals, for example?
-					</p>
-				    </div>
-				</div>
-			</div>
-        </div>
-
+		<div class="section " style="background-color: #cc3399">
+	    	<div class="row container">
+		        <h2 class="header white-text">The Mix: Extending the Beat</h2>
+		        <h5>Product Lifespan and Reducing E-waste</h5>
+		        <p class="white-text text-darken-3 lighten-3">Planned obsolescence and the black boxing of technological devices has made it difficult for users to keep their devices and encourages the rapid increase of e-waste. What might we learn from cultures that have been silenced by capitalism about the relationship between humans and the environment? How might we extend the lifespan of computing products through principles of repair and care rooted in african and indigenous philosophies? Using remixing approaches and techniques, we provide various ideas that play on care, repair, and imperfection to extend the life cycles of devices -- “extending the beat” in response to the problems such as e-waste, unbalanced impact, and slow violence. We begin with african and indigenous philosophies and techniques as a strategy of decolonizing the anthropocene. 
+		        </p>
+		        <ul class="collapsible z-depth-0">
+	              
+	              <li>
+	                <div class="collapsible-header transparent white-text"><i class="material-icons">arrow_drop_down</i>Ubuntu
+	                </div>
+	                <div class="collapsible-body"><span><p>Ubuntu is an African philosophy meaning "I am because we are," or "humanity towards others," or in Xhosa,"umntu ngumntu ngabantu". It is often used in a more philosophical sense to mean "the belief in a universal bond of sharing that connects all humanity."</p></span></div>
+	              </li>
+	              <li>
+	                <div class="collapsible-header transparent white-text"><i class="material-icons">arrow_drop_down</i>Mitakuye Oyasin
+	                </div>
+	                <div class="collapsible-body"><span><p>Mitakuye Oyasin (All Are Related) reflects the world view of interconnectedness held by the Lakota people of North America. It, as a concept and phrase, is often expressed in many Yankton Sioux prayers, as well as by ceremonial people in other Lakota communities. The phrase translates in English as "all my relatives," "we are all related," or "all my relations." It is a prayer of oneness and harmony with all forms of life: other people, animals, birds, insects, trees and plants, rocks, rivers, mountains and valleys. It requires that prior to engaging in potentially harmful activities, we must consider the long-term effects on the land, the water, the air, the animals and other people. Can we shift the project of computing from that of conquering growth to ideals about dependent relations?
+					</p></span></div>
+	              </li>
+	              <li>
+	                <div class="collapsible-header transparent white-text"><i class="material-icons">arrow_drop_down</i>Tiaki
+	                </div>
+	                <div class="collapsible-body"><span><p>Tiaki is a Māori concept that means “to guard, keep,” “to look after, nurse, care, protect, conserve, save”. Visitors to New Zealand are asked to take the Tiaki Promise. Rooted in a strong connection with the land and a duty of care for it, the “Tiaki Promise is a commitment to care for New Zealand. For now, and for future generations.” Perhaps our technological objects can do more than just not cause harm, maybe they should actively engage care for people and place, as tiaki does.</p></span></div>
+	              </li>
+	         	</ul>
+	    	</div>
 		
+
 		<div class="row">
-			<div class="offset-m1 offset-l1 col s12 m6 l6">
+
+			<div class="offset-m2 offset-l2 col s12 m3 l3">
 				<div class="card ">
 				    <div class="card-image waves-effect waves-block waves-light">
-				      <img class="activator" src="images/IMG_protypes/kintsugiDevices.png">
+				      <img class="activator" src="images/IMG_protypes/6_mendingBrokenPieces.png">
 				    </div>
 				    <div class="card-content">
 				      <span class="card-title activator grey-text text-darken-4">Mending Broken Pieces<i class="material-icons right">more_vert</i></span>
-				      <p><a href="#"></a></p>
+				      <p><a style="color:#660066" id="explore" href="manifestdestiny.html#mending">Explore</a></p>
 				    </div>
 				    <div class="card-reveal">
-				      <span class="card-title grey-text text-darken-4">Mending Broken Pieces<i class="material-icons right">close</i></span>
-				      <p>Kintsugi is the Japanese art of repairing broken pottery by mending the areas of breakage with lacquer dusted or mixed with precious metals. The “broken-ness” of the objects is celebrated and their usability extended beyond that of its original use. How might we resist the temptations of planned obsolescence and the fragility of technological devices to instead embrace the damage and repair that occurs through the life of these objects? Kintsugi is often connected to the philosophy of Wabi-sabi which is centered on the acceptance of transience and imperfection. It is an aesthetic tradition that is sometimes described as one of beauty that is "imperfect, impermanent, and incomplete". Our technological devices have been designed based on ideals that are rooted in precision and perfection. What if they were instead driven by imperfection and assumed impermanence?
+				      <span class="card-title black-text text-darken-4">Mending Broken Pieces<i class="material-icons right">close</i></span>
+				      <p style="color:black">Kintsugi is the Japanese art of repairing broken pottery by mending the areas of breakage with lacquer dusted or mixed with precious metals. The “broken-ness” of the objects is celebrated and their usability extended beyond that of its original use. How might we resist the temptations of planned obsolescence and the fragility of technological devices to instead embrace the damage and repair that occurs through the life of these objects? Kintsugi is often connected to the philosophy of Wabi-sabi which is centered on the acceptance of transience and imperfection. It is an aesthetic tradition that is sometimes described as one of beauty that is "imperfect, impermanent, and incomplete". Our technological devices have been designed based on ideals that are rooted in precision and perfection. What if they were instead driven by imperfection and assumed impermanence?
 					</p>
 				    </div>
 				</div>
 			</div>
-			<!-- card panels with additional info -->
-	      	<div class=" col s12 m4 l4">
-	      		<div class="card-panel" style="background-color: #eba20f">
-			        <span class="white-text"><b style="color:black">Kintsugi </b> (金継ぎ, "golden joinery"), also known as Kintsukuroi (金繕い, "golden repair"), is the Japanese art of repairing broken pottery by mending the areas of breakage with lacquer dusted or mixed with powdered gold, silver, or platinum. The resulting pieces are believed to have significant beauty and are often considered more valuable than the original. The “broken-ness” of the objects is celebrated and their usability extended beyond that of its original use. How might we resist the temptations of planned obsolescence and the fragility of technological devices to instead embrace the damage and repair that occurs through the life of these objects? 
-			        </span>
-			    </div>
-	      	</div>
-	      	<div class=" col s12 m4 l4">
-	      		<div class="card-panel" style="background-color: #c98b0d">
-			        <span class="white-text"><b style="color:black">Wabi-sabi </b> (侘寂) is centered on the acceptance of transience and imperfection. It is an aesthetic tradition that is sometimes described as one of beauty that is "imperfect, impermanent, and incomplete". It is derived from the Buddhist teaching of the three marks of existence (三法印, sanbōin), specifically impermanence (無常, mujō), suffering (苦, ku) and emptiness or absence of self-nature (空, kū). Our technological devices have been designed based on ideals that are rooted in precision and perfection. What if they were instead driven by imperfection and assumed impermanence?
-			        </span>
-			    </div>
-	      	</div>
-		</div>
-		<div class="row">
-			<div class="offset-m1 offset-l1 col s12 m6 l6">
+
+			<div class="offset-m2 offset-l2 col s12 m3 l3">
 				<div class="card ">
 				    <div class="card-image waves-effect waves-block waves-light">
-				      <img class="activator" src="images/IMG_protypes/patchworkDevices.png">
+				      <img class="activator" src="images/IMG_protypes/6_geesPatchwork.png">
 				    </div>
 				    <div class="card-content">
-				      <span class="card-title activator grey-text text-darken-4">Gee’s Patchwork v1<i class="material-icons right">more_vert</i></span>
-				      <p><a href="#"></a></p>
+				      <span class="card-title activator black-text text-darken-4">Gee’s Patchwork <i class="material-icons right">more_vert</i></span>
+				      <p><a style="color:#660066" href="manifestdestiny.html#patchwork">Explore</a></p>
 				    </div>
 				    <div class="card-reveal">
-				      <span class="card-title grey-text text-darken-4">Gee’s Patchwork v1<i class="material-icons right">close</i></span>
-				      <p>Gee’s Bend is a small, remote, African American community in Alabama that is surrounded by the Alabama River on three sides. Many of the residents can trace their ancestry to slaves of the Pettway plantation. The women of Gee’s Bend have quilted patchwork masterpieces dating back as far as the mid-nineteenth century. A collection of these masterpieces have been exhibited in museums across the country. Patchwork quilting and scrap quilting were important to African American communities as a practical means of using scraps and discarded material to make blankets and clothes, but it was also important as a way to share stories or even to transport coded messages between members of the community. The tradition “was born of scarcity and resourcefulness, arising in times and places where the shortages of cloth called for the inventive salvaging of fabric scraps and remnants.” How might we see new potential in the “scrap” and “discarded” materials from computing? How might computing scraps or pieces be “quilted” together in ways that open the black box and include the user as a co-creator?
+				      <span class="card-title grey-text text-darken-4">Gee’s Patchwork <i class="material-icons right">close</i></span>
+				      <p style="color:black">Gee’s Bend is a small, remote, African American community in Alabama that is surrounded by the Alabama River on three sides. Many of the residents can trace their ancestry to slaves of the Pettway plantation. The women of Gee’s Bend have quilted patchwork masterpieces dating back as far as the mid-nineteenth century. A collection of these masterpieces have been exhibited in museums across the country. Patchwork quilting and scrap quilting were important to African American communities as a practical means of using scraps and discarded material to make blankets and clothes, but it was also important as a way to share stories or even to transport coded messages between members of the community. The tradition “was born of scarcity and resourcefulness, arising in times and places where the shortages of cloth called for the inventive salvaging of fabric scraps and remnants.” How might we see new potential in the “scrap” and “discarded” materials from computing? How might computing scraps or pieces be “quilted” together in ways that open the black box and include the user as a co-creator?
 					</p>
 				    </div>
 				</div>
 			</div>
-			<!-- card panels with additional info -->
-	      	<div class=" col s12 m4 l4">
-	      		<div class="card-panel" style="background-color: #17d3cd">
-			        <span class="white-text"><b style="color:black">Gee’s Bend</b>  is a small, remote, African American community in Alabama that is surrounded by the Alabama River on three sides. Many of the residents can trace their ancestry to slaves of the Pettway plantation. The women of Gee’s Bend have quilted patchwork masterpieces dating back as far as the mid-nineteenth century.
-			        </span>
-			    </div>
-	      	</div>
-	      	<div class="offset-m1 offset-l1 col s12 m6 l6">
-				<div class="card ">
-				    <div class="card-image waves-effect waves-block waves-light">
-				      <img class="activator" src="images/IMG_protypes/patchworkDevices_v2.png">
-				    </div>
-				    <div class="card-content">
-				      <span class="card-title activator grey-text text-darken-4">Gee’s Patchwork v2<i class="material-icons right">more_vert</i></span>
-				      <p><a href="#"></a></p>
-				    </div>
-				    <div class="card-reveal">
-				      <span class="card-title grey-text text-darken-4">Gee’s Patchwork v2<i class="material-icons right">close</i></span>
-				      <p>Gee’s Bend is a small, remote, African American community in Alabama that is surrounded by the Alabama River on three sides. Many of the residents can trace their ancestry to slaves of the Pettway plantation. The women of Gee’s Bend have quilted patchwork masterpieces dating back as far as the mid-nineteenth century. A collection of these masterpieces have been exhibited in museums across the country. Patchwork quilting and scrap quilting were important to African American communities as a practical means of using scraps and discarded material to make blankets and clothes, but it was also important as a way to share stories or even to transport coded messages between members of the community. The tradition “was born of scarcity and resourcefulness, arising in times and places where the shortages of cloth called for the inventive salvaging of fabric scraps and remnants.” How might we see new potential in the “scrap” and “discarded” materials from computing? How might computing scraps or pieces be “quilted” together in ways that open the black box and include the user as a co-creator?
-					</p>
-				    </div>
-				</div>
-			</div>
-	      	
-		</div>
-		<div class="section " style="background-color: #73c304">
-	      <div class="row container">
-	        <h2 class="header white-text">The Mix: The Computer Scientist as DJ </h2>
-	        <p class="white-text text-darken-3 lighten-3">The DJ is to music as the Computer Scientist is to programmable technology. The DJ is responsible for the creative work that bubbles to the fore in the nightclub, on the records we play, in the on-stage performances of our favorite artists, or in the solo groove that we blast through our headphones. These creations permeate our lives in quite meaningful ways, and a world without remixes and mashups quickly becomes a dull, monotonous one of little variety. The method is by no means simple, as many elements must be artfully and thoughtfully sampled, revamped, edited, and or omitted altogether. The message is just as complex as the method, where a DJ could take tunes from times long past and use them in the present to, say, make a statement about anything--to pull us into the past in fresh ways that suddenly have us jamming songs from our grandparents’ era. This is the beauty of the remix that the DJ masters. What we’re asking here is this: what would computing and the anthropocene look like if computer scientists embodied the methods and goals of a DJ through afrofuturistic, environmentally conscious lens? 
-	        </p>
-	      </div>
+
+
+        	</div>
     	</div>
 
-    	<div class="row">
-	      	<div class="offset-m1 offset-l1 col s12 m6 l6"> 
-				<div class="card ">
-				    <div class="card-image waves-effect waves-block waves-light">
-				      <img class="activator" src="images/IMG_protypes/livePerformance_v2.png">
-				    </div>
-				    <div class="card-content">
-				      <span class="card-title activator grey-text text-darken-4">CS Live at…<i class="material-icons right">more_vert</i></span>
-				      <p><a href="#"></a></p>
-				    </div>
-				    <div class="card-reveal">
-				      <span class="card-title grey-text text-darken-4">CS Live at…<i class="material-icons right">close</i></span>
-				      <p>Live DJ performances include real time mixing, crowd interaction, and sometimes even live musicians, beat boxes, or singing. Live coding events share many of these qualities. Computer scientists are experimenting with coding as a performative act broadcasting oversized code for the audience to see and/or making visual or musical compositions using computation in real time. What can computer science learn from these live, real time approaches? How might we think about the development of software differently if users gave live feedback during the coding process? How might a “call and response” approach reduce waste?
-					</p>
-				    </div>
-				</div>
-	      	</div>
-	      	<div class=" col s12 m4 l4">
-	      		<div class="card-panel" style="background-color: #73c304">
-			        <span class="white-text"><b style="color:black">Chopped n Screwed </b>  In the early 1990s, DJ Screw introduced “chopped and screwed” (also called screwed and chopped, or slowed and throwed) onto the Houston Hip-Hop scene. The technique slows the tempo of a recording to between 60 and 70 quarter-note beats per minute and applies operations such as skipping beats, record scratching, and stop-time to affect portions of the music to make a "chopped-up" version of the original. The slow down of tempo creates the opportunity for intervention and creative expression. Perhaps our obsession with speed has collapsed these opportunities. Can we reconsider software and hardware through the chopped n screwed framework? 
-
-			        </span>
-			    </div>
-	      	</div>
-	      	<div class=" col s12 m4 l4">
-	      		<div class="card-panel" style="background-color: #62a503">
-			        <span class="white-text"><b style="color:black">Methods</b>  Playing on the taxonomies of remixing that Banks and Navas discuss, we explore (a) extension, which which grows directly from an original, (b) selective versioning, which keeps and deletes elements of the original, still adding new sounds but keeping the original essence, and (c) the reflective remix that “allegorizes and extends the aesthetic of a sampling, where the remixed version challenges the aura of the original” (Banks, 2011; Navas, Remix Theory Blog). We hope that applying various methods to the concepts and practices that we will remix and prototype will shed light on remixing and Afrofuturism-the-project broadly (Brock, 2020).  
-
-			        </span>
-			    </div>
-	      	</div>
+		<div class="parallax-container">
+	      <div class="parallax" style="background-color: #339999"><img src="images/IMG_protypes/7_CSasDJ.png"></div>
 	    </div>
+		
+		<div class="section " style="background-color: #339999">
+	      <div class="row container">
+	        <h2 class="header white-text">The Mix: The Computer Scientist as DJ </h2>
+	        <h5>Rethinking the Computer Scientist</h5>
+	        <p class="white-text text-darken-3 lighten-3">The DJ is to music as the Computer Scientist is to programmable technology. The DJ is responsible for the creative work that bubbles to the fore in the nightclub, on the records we play, in the on-stage performances of our favorite artists, or in the solo groove that we blast through our headphones. These creations permeate our lives in quite meaningful ways, and a world without remixes and mashups quickly becomes a dull, monotonous one of little variety. The method is by no means simple, as many elements must be artfully and thoughtfully sampled, revamped, edited, and or omitted altogether. The message is just as complex as the method, where a DJ could take tunes from times long past and use them in the present to, say, make a statement about anything--to pull us into the past in fresh ways that suddenly have us jamming songs from our grandparents’ era. This is the beauty of the remix that the DJ masters. What we’re asking here is this: what would computing and the anthropocene look like if computer scientists embodied the methods and goals of a DJ through afrofuturistic, environmentally conscious lens? 
+	        </p>
+			<ul class="collapsible z-depth-0">
+	              
+	              <li>
+	                <div class="collapsible-header transparent white-text"><i class="material-icons">arrow_drop_down</i>DJ as Digital Griot 
+	                </div>
+	                <div class="collapsible-body"><span><p>Fill in text</p></span></div>
+	              </li>
+	              <li>
+	                <div class="collapsible-header transparent white-text"><i class="material-icons">arrow_drop_down</i>Appropriating Technology
+	                </div>
+	                <div class="collapsible-body"><span><p>Fill in text</p></span></div>
+	              </li>
+	          </ul>
+
+	      </div>
+			<div class="row">
+		      	<div class="offset-m2 offset-l2 col s12 m3 l3"> 
+					<div class="card ">
+					    <div class="card-image waves-effect waves-block waves-light">
+					      <img class="activator" src="images/IMG_protypes/7_liveAt.png">
+					    </div>
+					    <div class="card-content">
+					      <span class="card-title activator grey-text text-darken-4">CS Live at…<i class="material-icons right">more_vert</i></span>
+					      <p><a style="color:#660066" href="manifestdestiny.html#liveAt">Explore</a></p>
+					    </div>
+					    <div class="card-reveal">
+					      <span class="card-title black-text text-darken-4">CS Live at…<i class="material-icons right">close</i></span>
+					      <p style="color:black">Live DJ performances include real time mixing, crowd interaction, and sometimes even live musicians, beat boxes, or singing. Live coding events share many of these qualities. Computer scientists are experimenting with coding as a performative act broadcasting oversized code for the audience to see and/or making visual or musical compositions using computation in real time. What can computer science learn from these live, real time approaches? How might we think about the development of software differently if users gave live feedback during the coding process? How might a “call and response” approach reduce waste?
+						</p>
+					    </div>
+					</div>
+		      	</div>  
+				<div class="offset-m2 offset-l2 col s12 m3 l3"> 
+					<div class="card ">
+					    <div class="card-image waves-effect waves-block waves-light">
+					      <img class="activator" src="images/IMG_protypes/7_artOfCodtellin.png">
+					    </div>
+					    <div class="card-content">
+					      <span class="card-title activator grey-text text-darken-4">Da Art of Codetellin’<i class="material-icons right">more_vert</i></span>
+					      <p><a style="color:#660066" href="manifestdestiny.html#codeTellin">Explore</a></p>
+					    </div>
+					    <div class="card-reveal">
+					      <span class="card-title black-text text-darken-4">CS Live at…<i class="material-icons right">close</i></span>
+					      <p style="color:black">This prototype explores moving away from the black text box to an interface that lets you “sample” software to make new software.
+						</p>
+					    </div>
+					</div>
+		    	</div> 
+		    </div>
+		     
+
+    	</div>
+
+    	
 
 
 
@@ -244,12 +311,10 @@
             	console.log("ready");
                 //$(".aboutme").hide();
                 //$('.aboutme').hide().fadeIn(30000);
+                $('.collapsible').collapsible();
                 $('.parallax').parallax();
                 $('.materialboxed').materialbox();
-                //$('.modal').modal();
-                //$('.slider').slider();
-                //$('.collapsible').collapsible();
-                //$('.carousel').carousel();
+                $('.sidenav').sidenav();
                 $('.grid').masonry({
                     // options
                     itemSelector: '.grid-item',
