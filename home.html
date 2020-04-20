@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<head> 
 	<meta charset="UTF-8">
 	<!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -94,29 +94,7 @@
             text-decoration: none;
             color: white;
     }
-    .modal {
-      display: none;
-      /*position: fixed;*/
-      top: 500px;
-      left: 0;
-      right: 0;
-      background-color: #660066;
-      padding: 0;
-      max-height: 70%;
-      width: 55%;
-      margin: auto;
-      overflow-y: auto;
-      border-radius: 2px;
-      will-change: top, opacity;
-    }
-    .modal .modal-footer {
-      border-radius: 0 0 2px 2px;
-      background-color: #660066;
-      padding: 4px 6px;
-      height: 56px;
-      width: 100%;
-      text-align: right;
-    }
+
     nav ul li.active {
       background-color: rgba(5, 7, 10, 1);
 
@@ -149,20 +127,34 @@
     .campFire{
       color: #ff9900;
     }
+    .navbar-fixed .nav-wrapper .brand-logo img {
+       height: 30px;
+       padding-left: 10px;
+
+    }
 	</style>
     
    
 </head>
 <body>
+  <ul class="sidenav" id="mobile-demo">
+          <li><a href="home.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="literature.html">Literature</a></li>
+            <li><a href="gallery.html">Photos</a></li>
+            <li><a href="video.html">Video + Film</a></li>
+            <li><a href="prototypes.html">Prototypes</a></li>
+  </ul>
   <!-- NAVBAR -->
 	<div class="navbar-fixed ">
         <nav>
           <div class="nav-wrapper black" style="border-bottom: 2px solid white;">
             
             <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-            <a href="#" class="brand-logo"><img style="height:12%;width:20%; position:relative;left: 10px" src="images/2619logo.png"></a>
+            <a href="#" class="brand-logo"><img src="images/2619logo.png"></a>
             <ul class="right hide-on-med-and-down">
-              <li class="active"><a href="home.html" style="left: 10px">Home</a></li>
+              
+              <li class="active"><a href="home.html" >Home</a></li>
               <li><a href="about.html">About</a></li>
               <li><a href="literature.html">Literature</a></li>
               <li><a href="gallery.html">Photos</a></li>
@@ -170,50 +162,41 @@
               <li><a href="prototypes.html">Prototypes</a></li>
             </ul>
           </div>
-        </nav>
-        <ul class="sidenav" id="mobile-demo">
-          <li><a href="home.html">Home</a></li>
-              <li><a href="about.html">About</a></li>
-              <li><a href="literature.html">Literature</a></li>
-              <li><a href="gallery.html">Photos</a></li>
-              <li><a href="video.html">Video + Film</a></li>
-              <li><a href="prototypes.html">Prototypes</a></li>
-      </ul>
-    </div>
-
+        </nav>    
+   </div>
+    
     <div id="skit" class="section black onlythis">
-      <div class="row">
-        <div class="col s12 offset-m4 offset-l4 m7 l7">
-          <a href="#" class="brand-logo "><img style="height:62%;width:70%;" src="images/2619logo.png"></a>
-        </div>
-      </div>
+      
 
-      <div class="row container ">
-        
+      <div class="row  " style="padding-left: 25px">
+        <h2 class=" white-text">Twenty-Six-Nineteen</h2>
         <h6 class=" white-text">Remixing Computing in the Anthropocene</h6>
         <!-- GIFS; POEM-->
         <div class="col s12 m6 l6">
           <p>
           <b>Intro</b>
-          <p class="stankonia"> <span style="color: #cc3366">&#8226</span>  Live, from the center of the Earth <br>
-          <span style="color: #cc3366">&#8226</span>  Seven light-years into the possible we go <br>
-          <span style="color: #cc3366">&#8226</span>  Welcome to twenty-six-nineteen, the place from which all remixed things come<br></p>
-          <p class="campFire"><span style="color: #ff9900">&#8226</span>  A long, long, long, long time ago, before the beginnin' of time <br>
-            <span style="color: #ff9900">&#8226</span>  There were thi- there were others - there was thi’ people <br>
-            <span style="color: #ff9900">&#8226</span>  A group called by many names. ...Yeah <br>
-            <span style="color: #ff9900">&#8226</span>  There were many of 'em <br>
-            <span style="color: #ff9900">&#8226</span>  One was named..forgotten and one was named invisible, or sum' like that <br>
-            <span style="color: #ff9900">&#8226</span>  Anyway, dem' folks made some of the coldest stuff I ever experienced in my life <br></p>
-          <p class="stankonia"><span style="color: #cc3366">&#8226</span> Would you like to come? <br></p>
-          <p class="campFire"><span style="color: #ff9900">&#8226</span>  Anyway, legend has it, that if you <br>
-            <span style="color: #ff9900">&#8226</span>  Listen real still: <br>
-            <span style="color: #ff9900">&#8226</span>  Okay <br>
-            <span style="color: #ff9900">&#8226</span>  Anyway, legend has it, if you close your eyes, and be real still, you can hear them folks at night <br></p>
-          <p class="campFire"> <span style="color: #ff9900">&#8226</span>  ...Hoody hooo....<br></p>
-           Shhh! Listen! Listen, y’all listen! <br></p>
-          <p><i>*skit sampled from <a style="color: #ff9900" class="campFire" href="">“Camp Fire Intro”</a> by Outkast on Big Boi and Dré Presents, and from 
-            <a style="color: #cc3366" class="stankonia" href="">“Intro”</a> by Outkast on the Stankonia album</p></i>
-        </p>
+          <p class="stankonia"> <span style="color: #cc3366;">&#8226</span>  <a href="https://genius.com/Outkast-intro-lyrics">Live, from the center of the Earth</a> <br>
+          <span style="color: #cc3366;">&#8226</span>  <a href="https://genius.com/Outkast-intro-lyrics">Seven light-years</a> into the possible we go <br>
+          <span style="color: #cc3366;">&#8226</span>  <a href="https://genius.com/Outkast-intro-lyrics">Welcome to</a> twenty-six-nineteen, <a href="https://genius.com/Outkast-intro-lyrics">the place from which all</a> remixed <a href="https://genius.com/Outkast-intro-lyrics">things come</a><br></p>
+          
+          <p class="campFire"><span style="color: #ff9900;">&#8226</span>  <a href="https://genius.com/Outkast-camp-fire-intro-lyrics">A long, long, long, long time ago, before the beginnin' of time</a> <br>
+            <span style="color: #ff9900;">&#8226</span>  <a href="https://genius.com/Outkast-camp-fire-intro-lyrics">There were thi- there were</a> others - <a href="https://genius.com/Outkast-camp-fire-intro-lyrics">there was thi’</a> people <br>
+            <span style="color: #ff9900;">&#8226</span>  <a href="https://genius.com/Outkast-camp-fire-intro-lyrics">A group called</a> by many names. <a href="https://genius.com/Outkast-camp-fire-intro-lyrics">...Yeah</a> <br>
+            <span style="color: #ff9900;">&#8226</span>  <a href="https://genius.com/Outkast-camp-fire-intro-lyrics">There were</a> many <a href="https://genius.com/Outkast-camp-fire-intro-lyrics">of 'em</a> <br>
+            <span style="color: #ff9900;">&#8226</span>  <a href="https://genius.com/Outkast-camp-fire-intro-lyrics">One was named..</a>forgotten <a href="https://genius.com/Outkast-camp-fire-intro-lyrics">and one was named</a> invisible, <a href="https://genius.com/Outkast-camp-fire-intro-lyrics">or sum' like that</a> <br>
+            <span style="color: #ff9900;">&#8226</span>  <a href="https://genius.com/Outkast-camp-fire-intro-lyrics">Anyway, dem'</a> folks <a href="https://genius.com/Outkast-camp-fire-intro-lyrics">made some of the coldest</a> stuff <a href="https://genius.com/Outkast-camp-fire-intro-lyrics">I ever</a> experienced <a href="https://genius.com/Outkast-camp-fire-intro-lyrics">in my life</a> <br></p>
+
+          <p class="stankonia"><span style="color: #cc3366;">&#8226</span> <a href="https://genius.com/Outkast-intro-lyrics">Would you like to come?</a> <br></p>
+          
+          <p class="campFire"><span style="color: #ff9900;">&#8226</span>  <a href="https://genius.com/Outkast-camp-fire-intro-lyrics">Anyway, legend has it, that if you</a> <br>
+            <span style="color: #ff9900;">&#8226</span>  <a href="https://genius.com/Outkast-camp-fire-intro-lyrics">Listen real still:</a> <br>
+            <span style="color: #ff9900;">&#8226</span>  <a href="https://genius.com/Outkast-camp-fire-intro-lyrics">Okay</a> <br>
+            <span style="color: #ff9900;">&#8226</span>  <a href="https://genius.com/Outkast-camp-fire-intro-lyrics">Anyway, legend has it, if you close your eyes, and be real still, you can hear them</a> folks <a href="https://genius.com/Outkast-camp-fire-intro-lyrics">at night</a> <br></p>
+          <p class="campFire"> <span style="color: #ff9900;">&#8226</span>  <a href="https://genius.com/Outkast-camp-fire-intro-lyrics">...Hoody hooo....</a><br></p>
+           <p class="campFire"><span style="color: #ff9900;">&#8226</span><a href="https://genius.com/Outkast-camp-fire-intro-lyrics">Shhh! Listen! Listen,</a> y’all <a href="https://genius.com/Outkast-camp-fire-intro-lyrics">listen!</a></p> <br>
+          <p><i>*skit sampled from <a style="color: #ff9900;" class="campFire" href="https://genius.com/Outkast-camp-fire-intro-lyrics">“Camp Fire Intro”</a> by Outkast on Big Boi and Dré Presents, and from 
+            <a style="color: #cc3366;" class="stankonia" href="https://genius.com/Outkast-intro-lyrics">“Intro”</a> by Outkast on the Stankonia album</i></p>
+        
         </div>
         <!-- 
         <div class="col s12 m6 m6">
@@ -221,7 +204,7 @@
         </div>-->
         <div class="col s12 m6 m6">
           <!--<img style="width: 100%;height:95%;" src="images/homegif.gif"></div> -->
-          <div style="width:100%;height:0;padding-bottom:56%;position:relative;"><iframe src="https://giphy.com/embed/S5zD0kOuGK8eoQnIHl" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div>
+          <div style="width:100%;height:auto;padding-bottom:60%;position:relative;"><iframe src="https://giphy.com/embed/S5zD0kOuGK8eoQnIHl" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div>
         </div>
 
         
@@ -377,8 +360,12 @@
                     $('.collapsible').collapsible();
                     $('.parallax').parallax();
                     //$('.modal').modal();
-                    $('#audience_modal').modal('open', 0) // open modal
+                    
                     $('.sidenav').sidenav();
+                    $('.button-collapse').sidenav({
+                        closeOnClick: true
+                      }
+                    );
                     /*$('.grid').masonry({
                         // options
                         itemSelector: '.grid-item',
