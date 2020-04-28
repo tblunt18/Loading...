@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Death to Manifest</title>
+	<title>Extending the Beat</title>
 	<!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-	<title>Prototypes Extended</title>
+	
 	<!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <!-- materialize icons -->
@@ -22,10 +22,10 @@
 
 	<style>
 		.navbar-fixed .nav-wrapper .brand-logo img {
-       height: 30px;
-       padding-left: 10px;
+	       height: 30px;
+	       padding-left: 10px;
 
-    }
+	    }
 		.collapsible-header {
         display: -webkit-box;
         display: -webkit-flex;
@@ -39,14 +39,7 @@
         border-top: 1px none;
         border-bottom: 1px none;
       }
-      .collapsible {
-        border-style: solid;
-        border-bottom: 0.5px solid white;
-        border-top: none;
-        border-right: none;
-        border-left: none;
-        margin: 0.5rem 0 1rem 0;
-      }
+    
       .collapsible-body {
         display: none;
         border-bottom: 1px none #ddd;
@@ -106,16 +99,46 @@
             text-decoration: none;
             color: white;
         }
+        .section p a {
+	      text-decoration: underline;
+	      color: white;
+	    }
         .section ul li p a{
 	      text-decoration: underline;
 	      color: white;
 	    }
-	    .section p a{
+	    .section p a:hover {
+
 	      text-decoration: underline;
-	      color: white;
+	      color: black;
 	    }
 	    .section p {
 	      color: white;
+	      font-size: 16px;
+	      line-height:2.0;
+	    }
+	  	h2 {
+		    font-size:3em;
+		    line-height: 100%;
+		    font-weight:300;
+	  	}
+	    h5 {
+	      font-size:1.5em;
+	      line-height: 100%;
+	        color: white;
+	        font-weight:300;
+	    }
+	    .onlythis p a:hover {
+	    text-decoration: underline;
+	        color: #cc3366;
+	    }
+	    .collapsible {
+	        border-style: solid;
+	        border-bottom: none;
+	        border-top: none;
+	        border-right: none;
+	        border-left: none;
+	        margin: 0.5rem 0 1rem 0;
 	    }
         nav ul li.active {
 		  background-color: rgba(5, 7, 10, 1);
@@ -138,7 +161,7 @@
         <li><a href="literature.html">Literature</a></li>
         <li><a href="gallery.html">Photos</a></li>
         <li><a href="video.html">Video + Film</a></li>
-        <li><a href="prototypes.html">Prototypes</a></li>
+        <li><a href="prototypes.html">Mixes</a></li>
     </ul>
     <!-- NAVBAR -->
     <div class="navbar-fixed ">
@@ -154,7 +177,7 @@
                 <li><a href="literature.html">Literature</a></li>
                 <li><a href="gallery.html">Photos</a></li>
                 <li ><a href="video.html">Video + Film</a></li>
-                <li class="active"><a href="prototypes.html">Prototypes</a></li>
+                <li class="active"><a href="prototypes.html">Mixes</a></li>
               </ul>
             </div>
           </nav>    
@@ -171,12 +194,12 @@
 		         <ul class="collapsible z-depth-0">
 	              
 	              <li>
-	                <div class="collapsible-header transparent white-text"><i class="material-icons">arrow_drop_down</i>Kintsugi
+	                <div class="collapsible-header transparent white-text"><i class="material-icons">chevron_right</i>Kintsugi
 	                </div>
 	                <div class="collapsible-body white-text"><span><p>Kintsugi (“golden joinery"), also known as Kintsukuroi ("golden repair"), is the Japanese art of repairing broken pottery by mending the areas of breakage with lacquer dusted or mixed with powdered gold, silver, or platinum. The resulting pieces are believed to have significant beauty and are often considered more valuable than the original. The “broken-ness” of the objects is celebrated and their usability extended beyond that of its original use. How might we resist the temptations of planned obsolescence and the fragility of technological devices to instead embrace the damage and repair that occurs through the life of these objects? </p></span></div>
 	              </li>
 	              <li>
-	                <div class="collapsible-header transparent white-text"><i class="material-icons">arrow_drop_down</i>Wabi-Sabi
+	                <div class="collapsible-header transparent white-text"><i class="material-icons">chevron_right</i>Wabi-Sabi
 	                </div>
 	                <div class="collapsible-body white-text"><span><p>Wabi-sabi is centered on the acceptance of transience and imperfection. It is an aesthetic tradition that is sometimes described as one of beauty that is "imperfect, impermanent, and incomplete". It is derived from the Buddhist teaching of the three marks of existence, specifically impermanence, suffering and emptiness or absence of self-nature. Our technological devices have been designed based on ideals that are rooted in precision and perfection. What if they were instead driven by imperfection and assumed impermanence?
 					</p></span></div>
@@ -186,19 +209,23 @@
 
 		        
 		    </div>
-
-		    <div class="row">
-		    	<div class="col s12 m6 l6">
-		    		<img style="width:100%; height:100%; left:30px;" class="activator materialboxed" src="images/IMG_protypes/6_mendingBrokenPieces_steps.png"> 
+			<div class="row container">
+				
+				<div class="col s12 m12 l12">
+		    		<img style="width:100%; height:80%; " class="activator materialboxed" src="images/IMG_protypes/6_mendingBrokenPieces_steps.png"> 
 		    	</div>
-		    	<div class="col s12 m4 l4 offset-l1 offset-m1">
+				
+			</div>
+		    <div class="row">
+		    	
+		    	<div class="col s12 m4 l4 offset-l2 offset-m2">
 		      		<div class="card-panel" style="background-color: #bcbc2f">
-				        <span class="white-text"><b>Repair, not Replacement</b> <br>Instead of planned obsolescence or rapid replacement, devices are developed to encourage repair and slow replacement. Innovation focuses on extending the life of devices through material selection and repair techniques. 
-
-				        </span> <hr style="border-width: 3px;">
-				        <span class="white-text"><b>Imperfection, not Flawless</b><br> The sleek, delicate aesthetic that has permeated design has promoted the “new shiny object” and encouraged shortened life spans. The “new shiny object” is replaced with the “the beautifully flawed object”. Damage and repair are traces of the story of objects. Attention is given to treating repair as an aesthetic, highlighting it and encouraging imperfection.
-
-				        </span>
+				        <span class="white-text"><b>Repair, not Replacement</b> <br>Instead of planned obsolescence or rapid replacement, devices are developed to encourage repair and slow replacement. Innovation focuses on extending the life of devices through material selection and repair techniques. </span>
+				    </div>
+		      	</div>
+		      	<div class="col s12 m4 l4 ">
+		      		<div class="card-panel" style="background-color: #bcbc2f">
+				        <span class="white-text"><b>Imperfection, not Flawless</b><br> The sleek, delicate aesthetic that has permeated design has promoted the “new shiny object” and encouraged shortened life spans. The “new shiny object” is replaced with the “the beautifully flawed object”. Damage and repair are traces of the story of objects. Attention is given to treating repair as an aesthetic, highlighting it and encouraging imperfection.</span>
 				    </div>
 		      	</div>
 		    	
@@ -207,34 +234,41 @@
     	</div>
     	<!-- Gee's-->
 		<div id="patchwork" class="parallax-container">
-	      <div class="parallax" style="background-color: #bcbc2f"><img src="images/IMG_protypes/6_geesPatchwork.png"></div>
+	      <div class="parallax" style="background-color: #cc3399"><img src="images/IMG_protypes/6_geesPatchwork.png"></div>
 	    </div>
 
-		<div  class="section " style="background-color: #bcbc2f">
+		<div  class="section " style="background-color: #cc3399">
 	    	<div class="row container">
 		        <h2 class="header white-text">Gee's Patchwork</h2>
 		        <p class="white-text text-darken-3 lighten-3">Gee’s bend is a small community in Alabama. Most of the inhabitants of this remote community <a href="https://www.soulsgrowndeep.org/gees-bend-quiltmakers">“are mostly descendants of slaves, and for generations they worked the fields belonging to the local Pettway plantation.”</a> The women of Gee’s bend have produced patchwork quilts beginning as far back as the mid-nineteenth century. Few other places have “works been found by three and sometimes four generations of women in the same family, or works that bear witness to visual conversations among community quilting groups and lineages.”  Because of the isolation of their location quilters used <a href="https://en.wikipedia.org/wiki/Quilts_of_Gee%27s_Bend">whatever materials were on hand, often recycling from old clothing and textiles</a>. Could we think about e-waste as “materials on hand”? Can we develop connection systems that allow us to reuse and repurpose discarded computing parts, quilting them together in new configurations?</p>
 		         <ul class="collapsible z-depth-0">
 	              
 	              <li>
-	                <div class="collapsible-header transparent white-text"><i class="material-icons">arrow_drop_down</i>Patchwork Quilting
+	                <div class="collapsible-header transparent white-text"><i class="material-icons">chevron_right</i>Patchwork Quilting
 	                </div>
 	                <div class="collapsible-body white-text"><span><p>Patchwork quilts include <a href="https://en.wikipedia.org/wiki/Patchwork_quilt">“a top layer that consist of pieces of fabric sewn together to form a design.”</a> Originally, discarded or left-over scraps were accumulated over time and attached to each other to make larger blankets. Quilting has historically been an important practice for African-American women. <a href="https://faculty.risd.edu/bcampbel/Cash-Quilting.pdf">“The voices of black women are stitched within their quilts.”</a> The technique allowed black women to make large textiles with limited materials, supported social communities, and even carried coded communication. </p></span></div>
 	              </li>
 	             
 	         	</ul>
 		    </div>
-
-		    <div class="row">
-		    	<div class="col s12 m6 l6">
-		    		<img style="width:100%; height:100%; left:30px" class="activator materialboxed" src="images/IMG_protypes/6_geesPatchwork_steps.png"> 
+			<div class="row container">
+				
+				<div class="col s12 m12 l12">
+		    		<img style="width:100%; height:80%; " class="activator materialboxed" src="images/IMG_protypes/6_geesPatchwork_steps.png"> 
 		    	</div>
+				
+			</div>
+		    <div class="row">
 
-		    	<div class="col s12 m4 l4 offset-l1 offset-m1">
-		      		<div class="card-panel" style="background-color: #660066">
+		    	<div class="col s12 m4 l4 offset-l2 offset-m2">
+		      		<div class="card-panel" style="background-color: #bcbc2f">
 				        <span class="white-text"><b style="color:white">Possibilities, not Waste</b><br> E-waste is not waste at all. Instead it is scrap material available for new creations. Functioning components do not have to be discarded along with nonrepairable ones. 
-				        </span> <hr style="border-width: 3px;">
-						<span class="white-text"><b style="color:white">Reconfigurable, not Fixed</b><br> Design prioritizes deconstruction and disassembly over black box strategies that are inaccessible to users. New configurations of technological parts can be achieved. No longer are devices limited by previous forms of “phone” or “computer”. Instead they can be reformed with scaffolds of any shape.
+				        
+				    </div>
+		      	</div>
+		      	<div class="col s12 m4 l4 ">
+		      		<div class="card-panel" style="background-color: #bcbc2f">
+				        <span class="white-text"><b style="color:white">Reconfigurable, not Fixed</b><br> Design prioritizes deconstruction and disassembly over black box strategies that are inaccessible to users. New configurations of technological parts can be achieved. No longer are devices limited by previous forms of “phone” or “computer”. Instead they can be reformed with scaffolds of any shape.
 
 				        </span>
 				    </div>
@@ -245,76 +279,7 @@
 				
     	</div>
 
-	</div> <!--  put in here -->
-
-
-		
-		
-	<div id="liveAt" class="parallax-container ">
-      <div class="parallax" style="background-color: #cc3399"><img style="max-height: 135%; max-width: 135%;" class="" src="images/IMG_protypes/7_liveAt.png"></div>
-    </div>
-
-	<div  class="section " style="background-color: #339999">
-      <div class="row container">
-        <h2 class="header white-text">CS Live At...</h2>
-        <p class="white-text text-darken-3 lighten-3">Live DJ performances include real time mixing, crowd interaction, and sometimes even live musicians, beat boxes, or singing. Live coding events share many of these qualities. Computer scientists are experimenting with coding as a performative act broadcasting oversized code for the audience to see and/or making visual or musical compositions using computation in real time. What can computer science learn from these live, real time approaches? How might we think about the development of software differently if users gave live feedback during the coding process? How might a “call and response” approach reduce waste? 
-        </p>
-      </div>
-
-      <div class="row">
-	    	<div class="col s12 m6 l6">
-	    		<img style="width:100%; height:100%; left:30px" class="activator materialboxed" src="images/IMG_protypes/7_liveAt.png"> 
-	    	</div>
-
-	    	<div class="col s12 m4 l4 offset-l1 offset-m1">
-	      		<div class="card-panel" style="background-color: #c03060">
-			        <span class="white-text"><b style="color:white">Performative, not Packaged</b><br> Building software or digital platforms is no longer an activity happening in isolated workstations, separated from users. Coding happens “on-stage”, live with potential users. Now the two can “call and respond” to build platforms. Now there is opportunity to get active feedback and input from users during the development process, not afterwards. 
-			        </span> <hr style="border-width: 3px;">
-					<span class="white-text"><b style="color:white">Co-creative, not Singular</b><br> The live performance transforms the “isolated hacker” into the “social collaborator”. Users are co-creators just as the audience is during a live DJ performance.  Design assumptions are continuously confirmed, questioned, or contradicted as the computer scientist develops components for feedback and the audience offers ideas for consideration.
-
-			        </span>
-			    </div>
-	      	</div>
-	      
-
-	    </div>
-
-	</div>
-
-	<div id="codeTellin" class="parallax-container">
-	      <div class="parallax" style="background-color: #cc3399"><img style="max-height: 135%; max-width: 135%;"  class="topimg" src="images/IMG_protypes/7_artOfCodtellin.png"></div>
-	</div>
-
-	<div  class="section " style="background-color: #660066">
-      <div class="row container">
-        <h2 class="header white-text">Da Art of Codetellin'</h2>
-        <p class="white-text text-darken-3 lighten-3">This is the prototype exploring moving away from the black text box to an interface that lets you “sample” software to make new software. 
-        </p>
-      </div>
-
-      <div class="row">
-	    	<div class="col s12 m6 l6">
-	    		<img style="width:100%; height:100%; left:30px" class="activator materialboxed" src="images/IMG_protypes/7_artOfCodtellin.png"> 
-	    	</div>
-
-	    	<div class="col s12 m4 l4 offset-l1 offset-m1">
-	      		<div class="card-panel" style="background-color: #339999">
-			        <span class="white-text"><b style="color:white">Joining, not Isolating</b><br> Instead of separating technology into devices that do not communicate with each other, software and hardware are “open”.  Products produced by different brands can be used together. Software features operate across platforms and users can join any of the favorite components to each other. 
-			        </span> <hr style="border-width: 3px;">
-					<span class="white-text"><b style="color:white">Reconfiguring, not Restarting</b><br> Existing products are now raw material. Computer scientists sample and splice existing platforms and reconfigure them into new ones. The resources and embodied energy in existing applications don’t have to be duplicated.
-
-			        </span>
-			    </div>
-	      	</div>
-	      
-
-	    </div>
-
-	</div>
-
-
-
-	
+	</div> <!--  put in here -->	
 
 <script>
 

@@ -6,12 +6,12 @@
 	<meta charset="UTF-8">
 	<!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-	<title>Loading</title>
+	
 	<!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <!-- materialize icons -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link type="text/css" rel="stylesheet" href="css/images.css" >
+    <!--<link type="text/css" rel="stylesheet" href="css/images.css" > -->
     <!-- Importing jQuery from Google CDN -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<!-- Compiled and minified JavaScript for optimized loading -->
@@ -23,10 +23,43 @@
 
 	<style>
 		.navbar-fixed .nav-wrapper .brand-logo img {
-       height: 30px;
-       padding-left: 10px;
+	       height: 30px;
+	       padding-left: 10px;
 
-    }
+	    }
+	    /* mobile */
+	    iframe {
+			width: 500px;
+		    height: 315px;
+		}
+		#maingrid {
+			padding-left: 0px;
+		}
+
+	    /* desktop large*/
+	    @media only screen and (min-width: 560px) {
+			iframe {
+		    	width: 600px;
+			    height: 415px;
+			    
+
+		    }
+		    #maingrid {
+		    	padding-left: 65px;
+		    }
+	    }
+	    
+		/* medium / tablet */
+		@media only screen and (min-width: 550px) {
+			iframe {
+				width: 500px;
+		    	height: 315px;
+			}
+			#maingrid {
+			  	padding-left: 35px;
+			}
+		}
+
 		nav ul li.active {
 		  background-color: rgba(5, 7, 10, 1);
 
@@ -58,7 +91,7 @@
 		    <li><a href="literature.html">Literature</a></li>
 		    <li><a href="gallery.html">Photos</a></li>
 		    <li><a href="video.html">Video + Film</a></li>
-		    <li><a href="prototypes.html">Prototypes</a></li>
+		    <li><a href="prototypes.html">Mixes</a></li>
 		</ul>
 	  <!-- NAVBAR -->
 		<div class="navbar-fixed ">
@@ -74,7 +107,7 @@
 	              <li><a href="literature.html">Literature</a></li>
 	              <li><a href="gallery.html">Photos</a></li>
 	              <li class="active"><a href="video.html">Video + Film</a></li>
-	              <li><a href="prototypes.html">Prototypes</a></li>
+	              <li><a href="prototypes.html">Mixes</a></li>
 	            </ul>
 	          </div>
 	        </nav>    
@@ -110,9 +143,12 @@
 		        <a onclick="repair_imgs()" id="repair" class="no-underline"href="#"><i>repair & rare</i></a>
 		    </div>  
 		</div>
+		
+		
+
 		<!-- image grid items, added with javascript -->
 		<div class="row" >
-			<div style="padding-left: 15px;" id="maingrid" class="grid effect-1"> </div>
+			<div style="" id="maingrid" class="grid effect-1"> </div>
 		</div>
 	</div>
 
@@ -180,8 +216,8 @@ function displayGallery(dataset){
 		//video.setAttribute('data-caption',caption + "  *" + "title: " + title);
 		// materialize class for clicking images 
 		video.setAttribute('class', 'materialboxed placeholder'); 
-		video.style.width = 620;
-		video.style.height = 349;
+		//video.style.width = 820; //was 620
+		//video.style.height = 549; //was 349
 		//video.setAttribute('style','width:620px; height:349px');
 		// toggle different widths for images 
 	  	if (gridItemWidthFlag){
@@ -453,13 +489,13 @@ var remixing = {
 	"1":{
 	    "Index": 0,
 	    "description": "DJ Screw Chopped & Screwed example",
-	    "source": "https://www.youtube/embed/IzRMVZdykjo",
+	    "source": "https://www.youtube.com/embed/IzRMVZdykjo",
 	    "title": "DJ Screw - Juicy (Biggie) Chopped & Screwed",
 	},
 	"2":{
 	    "Index": 0,
 	    "description": "Example of chopped & screwed remix style",
-	    "source": "https://www.youtube/embed/BeTfqUQ9oNQ",
+	    "source": "https://www.youtube.com/embed/BeTfqUQ9oNQ",
 	    "title": "Roddy Ricch - The Box (Chopped & Screwed)",
 	},
 	"3":{
@@ -494,25 +530,25 @@ var computing = {
 	"1":{
 	    "Index": 0,
 	    "description": "E-waste, the term given to discarded electronic appliances, is often shipped by developed nations to poorer countries such as Ghana. RTD visits the country's most infamous dumping ground, Agbogbloshie. Locals call it “Sodom and Gomorrah” after the infamous Biblical sin cities. Its air and soil are polluted with toxic chemicals, while extreme poverty, child labour and criminal gangs are also rife. Learn more https://rtd.rt.com/films/toxicity/ ",
-	    "source": "https://www.youtube/embed/mleQVO1Vd1I ",
+	    "source": "https://www.youtube.com/embed/mleQVO1Vd1I ",
 	    "title": "ToxiCity: life at Agbobloshie, the world's largest e-waste dump in Ghana",
 	},
 	"2":{
 	    "Index": 0,
 	    "description": "Mon, Jul 23: Used electronic devices are often discarded in the cheapest way possible to some of the world's poorest countries. Sean O'Shea reports.",
-	    "source": "https://www.youtube/embed/_-N92-wZCOU ",
+	    "source": "https://www.youtube.com/embed/_-N92-wZCOU ",
 	    "title": "Examining e-waste in Africa",
 	},
 	"3":{
 	    "Index": 0,
 	    "description": "Residents living in the St. James Welcome community share their fight against pollution and slow crisis. This story was created in a digital storytelling workshop coordinated by the Louisiana Bucket Brigade, led by StoryCenter, and funded by Eileen Fisher.",
-	    "source": "https://www.youtube/embed/XZsPTLWCuOA",
+	    "source": "https://www.youtube.com/embed/XZsPTLWCuOA",
 	    "title": "Our Town, Our Fight – by Shamell and Sharon Lavigne",
 	},
 	"4":{
 	    "Index": 0,
 	    "description": "In a Louisiana town of 10,000 people, the Environmental Protection Agency (EPA) said there is some of the most toxic air in America. More than 100 petrochemical plants and refineries dot the corridor between New Orleans and Baton Rouge, often referred to as ‘cancer alley.’",
-	    "source": "https://www.youtube/embed/XZsPTLWCuOA",
+	    "source": "https://www.youtube.com/embed/XZsPTLWCuOA",
 	    "title": "High cancer risk plagues Louisiana town near chemical plants",
 	},
 	
@@ -554,7 +590,7 @@ var afrofuturism = {
     "5":{
 	    "Index": 0,
 	    "description": "WHEN THEY LED A POST-APOCALYPTIC ESCAPE TO THE PYRAMIDS",
-    "source": "https://www.youtube/embed/uqB_UVlhlPA",
+    "source": "https://www.youtube.com/embed/uqB_UVlhlPA",
     "title": "Outkast - Elevators (Me & You)",
     },
     "6":{
@@ -566,19 +602,19 @@ var afrofuturism = {
     "7":{
 	    "Index": 0,
 	    "description": "In this inaugural episode of BK3K we find 2 sisters living in Brooklyn 'sometime in the future'. We soon learn that a basic human need, namely the sun, comes at a premium.",
-    "source": "https://www.youtube/embed/QPskRo3_4WU",
+    "source": "https://www.youtube.com/embed/QPskRo3_4WU",
     "title": "They Charge for the Sun",
     },
 	"8":{
 	    "Index": 0,
 	    "description": "The Twi language of Ghanaian word, 'sankofa' meaning 'to return, to seek, to take' is applied in his emotionally tolling, yet thrilling film. Sankofa follows a narcissistic supermodel who is sucked back in time to a West Indies plantation as a slave,",
-    "source": "https://www.youtube/embed/NOGWSL2Pkoc",
+    "source": "https://www.youtube.com/embed/NOGWSL2Pkoc",
     "title": "Sankofa",
     },
     "9":{
 	    "Index": 0,
 	    "description": "Afronauts is both a journey back in time and a gaze into the future. It tells the hidden story of Zambian citizens who tried to beat the United States to the moon. ",
-    "source": "https://www.youtube/embed/Jd9278JAjkU",
+    "source": "https://www.youtube.com/embed/Jd9278JAjkU",
     "title": "Afronauts",
     },
    

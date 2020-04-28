@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>CS as DJ</title>
+	<!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	
+	<!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!-- materialize icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="css/images.css" >
+    <!-- Importing jQuery from Google CDN -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<!-- Compiled and minified JavaScript for optimized loading -->
+    <script type="text/javascript" src="js/materialize.js"></script>
+	<!-- masonry library for image grid -->
+	<script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+	<!-- masonry image load script -->
+	<script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
+
+	<style>
+		.navbar-fixed .nav-wrapper .brand-logo img {
+	       height: 30px;
+	       padding-left: 10px;
+
+	    }
+		.collapsible-header {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        cursor: pointer;
+        -webkit-tap-highlight-color: transparent;
+        line-height: 1.5;
+        padding: 0.2rem;
+        /*background-color: black;*/
+        border-top: 1px none;
+        border-bottom: 1px none;
+      }
+    
+      .collapsible-body {
+        display: none;
+        border-bottom: 1px none #ddd;
+        -webkit-box-sizing: border-box;
+                box-sizing: border-box;
+        padding: 0.2rem;
+      }
+
+		.row .col.offset-m1 {
+		    margin-left: 7.3333333333%;
+		}
+		.row .col.offset-l1 {
+		    margin-left: 7.3333333333%;
+		}
+	   .parallax-container {
+        position: relative;
+        overflow: hidden;
+        height: 600px;
+       }
+      .parallax-container .parallax img .topimg {
+        opacity: 0;
+        position: absolute;
+        left: 50%;
+        bottom: 0;
+        min-width: 50%;  /* originally 100%  */
+        min-height: 50%; /* originally 100% */
+        max-height: 135%; /* max values were added in by me, not in materialize */
+        max-width: 135%;
+        -webkit-transform: translate3d(0, 0, 0);
+                transform: translate3d(0, 0, 0);
+        -webkit-transform: translateX(-50%);
+                transform: translateX(-50%);
+       }
+      .parallax-container .parallax img {
+        opacity: 0;
+        position: absolute;
+        left: 50%;
+        bottom: 0;
+        min-width: 50%;  /* originally 100%  */
+        min-height: 50%; /* originally 100% */
+        max-height: 155%; /* max values were added in by me, not in materialize */
+        max-width: 155%;
+        -webkit-transform: translate3d(0, 0, 0);
+                transform: translate3d(0, 0, 0);
+        -webkit-transform: translateX(-50%);
+                transform: translateX(-50%);
+       }
+		.card.large {
+		  height: 500px;
+		}
+		.card{
+
+			height:100%;
+			width:100%;
+		}
+		.no-underline{
+            text-decoration: none;
+            color: white;
+        }
+        .section p a {
+	      text-decoration: underline;
+	      color: white;
+	    }
+        .section ul li p a{
+	      text-decoration: underline;
+	      color: white;
+	    }
+	    .section p a:hover {
+
+	      text-decoration: underline;
+	      color: black;
+	    }
+	    .section p {
+	      color: white;
+	      font-size: 16px;
+	      line-height:2.0;
+	    }
+	  	h2 {
+		    font-size:3em;
+		    line-height: 100%;
+		    font-weight:300;
+	  	}
+	    h5 {
+	      font-size:1.5em;
+	      line-height: 100%;
+	        color: white;
+	        font-weight:300;
+	    }
+	    .onlythis p a:hover {
+	    text-decoration: underline;
+	        color: #cc3366;
+	    }
+	    .collapsible {
+	        border-style: solid;
+	        border-bottom: none;
+	        border-top: none;
+	        border-right: none;
+	        border-left: none;
+	        margin: 0.5rem 0 1rem 0;
+	    }
+        nav ul li.active {
+		  background-color: rgba(5, 7, 10, 1);
+
+		}
+		body, html{
+		  height: 100%;
+		 
+		}
+		nav ul a:hover {
+	      background-color: rgba(31, 32, 30, 0.44);
+	    }
+	</style>
+</head>
+<body>
+	<div class="">
+	<ul class="sidenav" id="mobile-demo">
+      <li><a href="home.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="literature.html">Literature</a></li>
+        <li><a href="gallery.html">Photos</a></li>
+        <li><a href="video.html">Video + Film</a></li>
+        <li><a href="prototypes.html">Mixes</a></li>
+    </ul>
+    <!-- NAVBAR -->
+    <div class="navbar-fixed ">
+          <nav>
+            <div class="nav-wrapper black" style="border-bottom: 2px solid white;">
+              
+              <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+              <a href="#" class="brand-logo"><img src="images/2619logo.png"></a>
+              <ul class="right hide-on-med-and-down">
+                
+                <li><a href="home.html" >Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="literature.html">Literature</a></li>
+                <li><a href="gallery.html">Photos</a></li>
+                <li ><a href="video.html">Video + Film</a></li>
+                <li class="active"><a href="prototypes.html">Mixes</a></li>
+              </ul>
+            </div>
+          </nav>    
+     </div> 
+	</div> <!--  put in here -->
+	
+	<div id="liveAt" class="parallax-container ">
+      <div class="parallax" style="background-color: #339999"><img style="max-height: 135%; max-width: 135%;" class="" src="images/IMG_protypes/7_liveAt.png"></div>
+    </div>
+
+	<div  class="section " style="background-color: #339999">
+    	<div class="row container">
+	        <h2 class="header white-text">CS Live At...</h2>
+	        <p class="white-text text-darken-3 lighten-3">Live DJ performances include real time mixing, crowd interaction, and sometimes even live musicians, beat boxes, or singing. Live coding events share many of these qualities. Computer scientists are experimenting with coding as a performative act broadcasting oversized code for the audience to see and/or making visual or musical compositions using computation in real time. What can computer science learn from these live, real time approaches? How might we think about the development of software differently if users gave live feedback during the coding process? How might a “call and response” approach reduce waste? 
+	        </p>
+    	</div>
+
+		<div class="row container">
+					
+			<div class="col s12 m12 l12">
+	    		<img style="width:100%; height:80%; " class="activator materialboxed" src="https://media.giphy.com/media/Pm9BqSwFvh2mtMBFBy/giphy.gif"> 
+	    	</div>
+				
+		</div>
+    	<div class="row">
+
+	    	<div class="col s12 m4 l4 offset-l2 offset-m2">
+	      		<div class="card-panel" style="background-color: #c03060">
+			        <span class="white-text"><b style="color:white">Performative, not Packaged</b><br> Building software or digital platforms is no longer an activity happening in isolated workstations, separated from users. Coding happens “on-stage”, live with potential users. Now the two can “call and respond” to build platforms. Now there is opportunity to get active feedback and input from users during the development process, not afterwards. 
+			        </span> 
+			    </div>
+	      	</div> 
+			<div class="col s12 m4 l4 ">
+	      		<div class="card-panel" style="background-color: #c03060">
+			        <span class="white-text"><b style="color:white">Co-creative, not Singular</b><br> The live performance transforms the “isolated hacker” into the “social collaborator”. Users are co-creators just as the audience is during a live DJ performance.  Design assumptions are continuously confirmed, questioned, or contradicted as the computer scientist develops components for feedback and the audience offers ideas for consideration.
+
+			        </span>
+			    </div>
+			</div>
+
+	    </div>
+
+	</div>
+
+	<div id="codeTellin" class="parallax-container">
+	      <div class="parallax" style="background-color: #339999"><img style="max-height: 135%; max-width: 135%;"  class="topimg" src="images/IMG_protypes/7_artOfCodtellin.png"></div>
+	</div>
+
+	<div  class="section " style="background-color: #660066">
+		<div class="row container">
+		    <h2 class="header white-text">Da Art of Codetellin'</h2>
+		    <p class="white-text text-darken-3 lighten-3">Story telling is embedded at the heart of the remix, the rhyme, and the waves that we ride as we engage with both. The narratives weaved stick with us, encouraging us to ponder scenarios and possibilities. We explore moving away from several normative narratives and experiences with tech, software, and with those who produce both. Among these experiences are the "black-box" relationships that are mediated through technology design, production, and publication. The black-box metaphor becomes a literal manifestation of inaccess to alter and shift tools based on needs, a system too rigid for anthropocenic realities that require change. What if we were able intract with interfaces that allow us to “sample” software to make new software in ways untraditional in current open-source practices? What would the possibilies of drag and drop components yield?  
+		    </p>
+		</div>
+		<div class="row container">
+					
+			<div class="col s12 m12 l12">
+	    		<img style="width:100%; height:80%; " class="activator materialboxed" src="https://media.giphy.com/media/WoWoXDjZQLpowyuZQt/giphy.gif"> 
+	    	</div>
+				
+		</div>
+		<div class="row">
+	    	
+	    	<div class="col s12 m4 l4 offset-l2 offset-m2">
+	      		<div class="card-panel" style="background-color: #c03060">
+			        <span class="white-text"><b style="color:white">Joining, not Isolating</b><br> Instead of separating technology into devices that do not communicate with each other, software and hardware are “open”.  Products produced by different brands can be used together. Software features operate across platforms and users can join any of the favorite components to each other. 
+			        </span> 
+			    </div>
+	      	</div> 
+			<div class="col s12 m4 l4 ">
+	      		<div class="card-panel" style="background-color: #c03060">
+			        <span class="white-text"><b style="color:white">Reconfiguring, not Restarting</b><br> Existing products are now raw material. Computer scientists sample and splice existing platforms and reconfigure them into new ones. The resources and embodied energy in existing applications don’t have to be duplicated.
+
+			        </span>
+			    </div>
+			</div>
+
+
+	    </div>
+
+	</div>
+
+<script>
+
+	$(document).ready(function(){
+        (function($){
+            $(function(){
+            	
+
+            	console.log("ready");
+                
+                $('.tabs').tabs();
+                $('.parallax').parallax();
+                $('.materialboxed').materialbox();
+                $('.collapsible').collapsible();
+                $('.sidenav').sidenav();
+                $('.grid').masonry({
+                    // options
+                    itemSelector: '.grid-item',
+                    columnWidth: '.grid-item',
+                    gutter: 15, //was 5
+                    
+
+                });
+                // layout Masonry after each image loads
+				$('.grid').imagesLoaded().progress( function() {
+				  $('.grid').masonry('layout');
+				});
+
+
+            });
+        })(jQuery);
+    });
+
+</script>
+</body>
+</html>

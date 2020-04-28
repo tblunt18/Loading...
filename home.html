@@ -15,39 +15,7 @@
 
 
 	<style>
-      .onlythis .container {
-          margin: 0 auto;
-          max-width: 1280px;
-          width: 90%;
-        }
-      .collapsible-header {
-        display: -webkit-box;
-        display: -webkit-flex;
-        display: -ms-flexbox;
-        display: flex;
-        cursor: pointer;
-        -webkit-tap-highlight-color: transparent;
-        line-height: 1.5;
-        padding: 0.2rem;
-        /*background-color: black;*/
-        border-top: 1px none;
-        border-bottom: 1px none;
-      }
-      .collapsible {
-        border-style: solid;
-        border-bottom: 0.5px solid white;
-        border-top: none;
-        border-right: none;
-        border-left: none;
-        margin: 0.5rem 0 1rem 0;
-      }
-      .collapsible-body {
-        display: none;
-        border-bottom: 1px none #ddd;
-        -webkit-box-sizing: border-box;
-                box-sizing: border-box;
-        padding: 0.2rem;
-      }
+      
       .parallax-container {
         position: relative;
         overflow: hidden;
@@ -99,34 +67,75 @@
       background-color: rgba(5, 7, 10, 1);
 
     }
-		body, html {
+	body, html {
 		  height: 100%;
       
-		}
-    .section ul li p a{
+	}
+    .section ul li p a {
       text-decoration: underline;
       color: white;
     }
-    .section p a{
+    .section p a {
       text-decoration: underline;
       color: white;
+    }
+    .section p a:hover {
+
+      text-decoration: underline;
+      color: black;
     }
     .section p {
       color: white;
+      font-size: 16px;
+      line-height:2.0;
     }
-
-    h5{
-      color: white;
+	h2 {
+		font-size:3em;
+		line-height: 100%;
+		font-weight:300;
+	}
+    h5 {
+    	font-size:1.5em;
+    	line-height: 100%;
+      	color: white;
+      	font-weight:300;
     }
+    .onlythis p a:hover {
+		text-decoration: underline;
+      	color: #cc3366;
+    }
+    .collapsible {
+        border-style: solid;
+        border-bottom: none;
+        border-top: none;
+        border-right: none;
+        border-left: none;
+        margin: 0.5rem 0 1rem 0;
+    }
+    .collapsible-header {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        cursor: pointer;
+        -webkit-tap-highlight-color: transparent;
+        line-height: 1.5;
+        padding: 0.2rem;
+        /*background-color: black;*/
+        border-top: 1px none;
+        border-bottom: 1px none;
+      }
+      .collapsible-body {
+        display: none;
+        border-bottom: 1px none #ddd;
+        -webkit-box-sizing: border-box;
+                box-sizing: border-box;
+        padding: 0.2rem;
+      }
     nav ul a:hover {
       background-color: rgba(31, 32, 30, 0.44);
     }
-    .stankonia{
-      color: #cc3366;
-    }
-    .campFire{
-      color: #ff9900;
-    }
+    
     .navbar-fixed .nav-wrapper .brand-logo img {
        height: 30px;
        padding-left: 10px;
@@ -143,7 +152,7 @@
             <li><a href="literature.html">Literature</a></li>
             <li><a href="gallery.html">Photos</a></li>
             <li><a href="video.html">Video + Film</a></li>
-            <li><a href="prototypes.html">Prototypes</a></li>
+            <li><a href="prototypes.html">Mixes</a></li>
   </ul>
   <!-- NAVBAR -->
 	<div class="navbar-fixed ">
@@ -159,53 +168,47 @@
               <li><a href="literature.html">Literature</a></li>
               <li><a href="gallery.html">Photos</a></li>
               <li><a href="video.html">Video + Film</a></li>
-              <li><a href="prototypes.html">Prototypes</a></li>
+              <li><a href="prototypes.html">Mixes</a></li>
             </ul>
           </div>
         </nav>    
    </div>
     
+    <div class="parallax-container" >
+      <div class="parallax" style="background-color: black"><img style="width:90%; height:100%; top:20px" src="https://media.giphy.com/media/S5zD0kOuGK8eoQnIHl/giphy.gif"></div>
+    </div>
+
     <div id="skit" class="section black onlythis">
-      
 
-      <div class="row  " style="padding-left: 25px">
-        <h2 class=" white-text">Twenty-Six-Nineteen</h2>
-        <h6 class=" white-text">Remixing Computing in the Anthropocene</h6>
+      <div class="row container" style="padding-left: 25px">
+        <h2 class=" white-text">Intro: Twenty-Six-Nineteen</h2>
+        
         <!-- GIFS; POEM-->
-        <div class="col s12 m6 l6">
+        <div class="">
           <p>
-          <b>Intro</b>
-          <p class="stankonia"> <span style="color: #cc3366;">&#8226</span>  <a href="https://genius.com/Outkast-intro-lyrics">Live, from the center of the Earth</a> <br>
-          <span style="color: #cc3366;">&#8226</span>  <a href="https://genius.com/Outkast-intro-lyrics">Seven light-years</a> into the possible we go <br>
-          <span style="color: #cc3366;">&#8226</span>  <a href="https://genius.com/Outkast-intro-lyrics">Welcome to</a> twenty-six-nineteen, <a href="https://genius.com/Outkast-intro-lyrics">the place from which all</a> remixed <a href="https://genius.com/Outkast-intro-lyrics">things come</a><br></p>
+        
+          <p class="stankonia">  <a href="https://genius.com/Outkast-intro-lyrics">Live, from the center of the Earth</a> <br>
+            <a href="https://genius.com/Outkast-intro-lyrics">Seven light-years</a> into the possible we go <br>
+            <a href="https://genius.com/Outkast-intro-lyrics">Welcome to</a> twenty-six-nineteen, <a href="https://genius.com/Outkast-intro-lyrics">the place from which all</a> remixed <a href="https://genius.com/Outkast-intro-lyrics">things come</a><br></p>
           
-          <p class="campFire"><span style="color: #ff9900;">&#8226</span>  <a href="https://genius.com/Outkast-camp-fire-intro-lyrics">A long, long, long, long time ago, before the beginnin' of time</a> <br>
-            <span style="color: #ff9900;">&#8226</span>  <a href="https://genius.com/Outkast-camp-fire-intro-lyrics">There were thi- there were</a> others - <a href="https://genius.com/Outkast-camp-fire-intro-lyrics">there was thi’</a> people <br>
-            <span style="color: #ff9900;">&#8226</span>  <a href="https://genius.com/Outkast-camp-fire-intro-lyrics">A group called</a> by many names. <a href="https://genius.com/Outkast-camp-fire-intro-lyrics">...Yeah</a> <br>
-            <span style="color: #ff9900;">&#8226</span>  <a href="https://genius.com/Outkast-camp-fire-intro-lyrics">There were</a> many <a href="https://genius.com/Outkast-camp-fire-intro-lyrics">of 'em</a> <br>
-            <span style="color: #ff9900;">&#8226</span>  <a href="https://genius.com/Outkast-camp-fire-intro-lyrics">One was named..</a>forgotten <a href="https://genius.com/Outkast-camp-fire-intro-lyrics">and one was named</a> invisible, <a href="https://genius.com/Outkast-camp-fire-intro-lyrics">or sum' like that</a> <br>
-            <span style="color: #ff9900;">&#8226</span>  <a href="https://genius.com/Outkast-camp-fire-intro-lyrics">Anyway, dem'</a> folks <a href="https://genius.com/Outkast-camp-fire-intro-lyrics">made some of the coldest</a> stuff <a href="https://genius.com/Outkast-camp-fire-intro-lyrics">I ever</a> experienced <a href="https://genius.com/Outkast-camp-fire-intro-lyrics">in my life</a> <br></p>
+          <p class="campFire">  <a href="https://genius.com/Outkast-camp-fire-intro-lyrics">A long, long, long, long time ago, before the beginnin' of time</a> <br>
+              <a href="https://genius.com/Outkast-camp-fire-intro-lyrics">There were thi- there were</a> others - <a href="https://genius.com/Outkast-camp-fire-intro-lyrics">there was thi’</a> people <br>
+              <a href="https://genius.com/Outkast-camp-fire-intro-lyrics">A group called</a> by many names. <a href="https://genius.com/Outkast-camp-fire-intro-lyrics">...Yeah</a> <br>
+              <a href="https://genius.com/Outkast-camp-fire-intro-lyrics">There were</a> many <a href="https://genius.com/Outkast-camp-fire-intro-lyrics">of 'em</a> <br>
+              <a href="https://genius.com/Outkast-camp-fire-intro-lyrics">One was named..</a>forgotten <a href="https://genius.com/Outkast-camp-fire-intro-lyrics">and one was named</a> invisible, <a href="https://genius.com/Outkast-camp-fire-intro-lyrics">or sum' like that</a> <br>
+              <a href="https://genius.com/Outkast-camp-fire-intro-lyrics">Anyway, dem'</a> folks survived<a href="https://genius.com/Outkast-camp-fire-intro-lyrics"> some of the coldest</a> stuff <a href="https://genius.com/Outkast-camp-fire-intro-lyrics">I ever</a> experienced <a href="https://genius.com/Outkast-camp-fire-intro-lyrics">in my life</a> <br></p>
 
-          <p class="stankonia"><span style="color: #cc3366;">&#8226</span> <a href="https://genius.com/Outkast-intro-lyrics">Would you like to come?</a> <br></p>
+          <p class="stankonia"> <a href="https://genius.com/Outkast-intro-lyrics">Would you like to come?</a><br>
+			<a href="https://genius.com/Outkast-camp-fire-intro-lyrics">Anyway, legend has it, if you close your eyes, and be real still, you can hear them</a> folks <a href="https://genius.com/Outkast-camp-fire-intro-lyrics">at night</a> <br> 
+			<a href="https://genius.com/Outkast-camp-fire-intro-lyrics">Shhh! Listen! Listen,</a> y’all <a href="https://genius.com/Outkast-camp-fire-intro-lyrics">listen!</a>
+          </p>
           
-          <p class="campFire"><span style="color: #ff9900;">&#8226</span>  <a href="https://genius.com/Outkast-camp-fire-intro-lyrics">Anyway, legend has it, that if you</a> <br>
-            <span style="color: #ff9900;">&#8226</span>  <a href="https://genius.com/Outkast-camp-fire-intro-lyrics">Listen real still:</a> <br>
-            <span style="color: #ff9900;">&#8226</span>  <a href="https://genius.com/Outkast-camp-fire-intro-lyrics">Okay</a> <br>
-            <span style="color: #ff9900;">&#8226</span>  <a href="https://genius.com/Outkast-camp-fire-intro-lyrics">Anyway, legend has it, if you close your eyes, and be real still, you can hear them</a> folks <a href="https://genius.com/Outkast-camp-fire-intro-lyrics">at night</a> <br></p>
-          <p class="campFire"> <span style="color: #ff9900;">&#8226</span>  <a href="https://genius.com/Outkast-camp-fire-intro-lyrics">...Hoody hooo....</a><br></p>
-           <p class="campFire"><span style="color: #ff9900;">&#8226</span><a href="https://genius.com/Outkast-camp-fire-intro-lyrics">Shhh! Listen! Listen,</a> y’all <a href="https://genius.com/Outkast-camp-fire-intro-lyrics">listen!</a></p> <br>
-          <p><i>*skit sampled from <a style="color: #ff9900;" class="campFire" href="https://genius.com/Outkast-camp-fire-intro-lyrics">“Camp Fire Intro”</a> by Outkast on Big Boi and Dré Presents, and from 
-            <a style="color: #cc3366;" class="stankonia" href="https://genius.com/Outkast-intro-lyrics">“Intro”</a> by Outkast on the Stankonia album</i></p>
+          <br>
+          <p><i>*skit sampled from <a  class="campFire" href="https://genius.com/Outkast-camp-fire-intro-lyrics">“Camp Fire Intro”</a> by Outkast on Big Boi and Dré Presents, and from 
+            <a  class="stankonia" href="https://genius.com/Outkast-intro-lyrics">“Intro”</a> by Outkast on the Stankonia album</i></p>
         
         </div>
-        <!-- 
-        <div class="col s12 m6 m6">
-          <div style="width:100%;height:0;padding-bottom:65%;position:relative;"><iframe src="https://giphy.com/embed/gjx7p7OYhSX7jJbJKK" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div>
-        </div>-->
-        <div class="col s12 m6 m6">
-          <!--<img style="width: 100%;height:95%;" src="images/homegif.gif"></div> -->
-          <div style="width:100%;height:auto;padding-bottom:60%;position:relative;"><iframe src="https://giphy.com/embed/S5zD0kOuGK8eoQnIHl" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div>
-        </div>
+
 
         
         
@@ -238,7 +241,7 @@
         <ul class="collapsible z-depth-0">
               
               <li>
-                <div class="collapsible-header transparent white-text"><i class="material-icons">arrow_drop_down</i>Decolonizing the Anthropocene
+                <div class="collapsible-header transparent white-text"><i class="material-icons">chevron_right</i>Decolonizing the Anthropocene
                 </div>
                 <div class="collapsible-body"><span><p>“<a href="https://jps.library.utoronto.ca/index.php/des/article/view/30396 ">The Anthropocene makes for an easy story. Easy, because it does not challenge the naturalized inequalities, alienation, and violence inscribed in modernity’s strategic relations of power and production.</a>” Reclaiming the story of the Anthropocene awknowledges that it “<a href="https://www.acme-journal.org/index.php/acme/article/view/1539">is not a new event, but is rather the continuation of practices of dispossession and genocide, coupled with a literal transformation of the environment, that have been at work for the last five hundred years.</a>” Opening up the Anthropocene beyond its eurocentric framing requires that we consider the Indigenous and Black philosophies, narratives, and processes that are absent. 
                 </p></span></div>
@@ -260,12 +263,12 @@
             <ul class="collapsible z-depth-0">
               
               <li>
-                <div class="collapsible-header transparent white-text"><i class="material-icons">arrow_drop_down</i>E-waste & Unbalanced Impact</div>
+                <div class="collapsible-header transparent white-text"><i class="material-icons">chevron_right</i>E-waste & Unbalanced Impact</div>
                 <div class="collapsible-body white-text"><span><p>Emphasis on capitalist ideals of expansion and profit has supported the perpetuation of practices like planned obsolescence and rapid device replacement culture. Both of which result in developing nations bearing the brunt of e-waste produced in other countries. There is a separation between the producers of e-waste and those who must negotiate the resulting stockpiles of slow decomposing plastic, toxic metals, or contaminated water and soil. It is important for us to not only acknowledge this unbalanced impact of computing, we must also imagine responses and futures that consider it at the core of the problem of computing and the anthropocene.
                 </p></span></div>
               </li>
               <li>
-                <div class="collapsible-header transparent white-text"><i class="material-icons">arrow_drop_down</i>Slow Crisis and Environmental Racism</div>
+                <div class="collapsible-header transparent white-text"><i class="material-icons">chevron_right</i>Slow Crisis and Environmental Racism</div>
                 <div class="collapsible-body white-text"><span><p>Marginalized bodies and the proximity to death that permeates daily life is often unconsidered in scientific discourse on the anthropocene. Cases of environmental injustice and racism resulting from the polluting of poor, marginalized neighborhoods is critical to these discussions about computing and the anthropocene. One example is the petrochemical industry and its disregard for small, rural communities of Black people living in Freetown, Louisiana. The petrochemical industry situated in this once vibrant, healthy community has contributed to what scholars have described as “<a href="https://www.hup.harvard.edu/catalog.php?isbn=9780674072343">slow violence</a>” for over eight decades. This violence is described as virtually invisible, not easily seen, practically unnoticed--though folks have begun to ask—“<a href="https://journals.sagepub.com/doi/full/10.1177/2399654419841063">invisible to whom?</a>” There is a juxtaposition of slow crises versus the fastness of computing and technological advancement that warrants further exploration</p></span></div>
               </li>
             </ul>
@@ -300,19 +303,19 @@
             <ul class="collapsible z-depth-0">
               
               <li>
-                <div class="collapsible-header transparent white-text"><i class="material-icons">arrow_drop_down</i>Taxonomies of Remixing</div>
+                <div class="collapsible-header transparent white-text"><i class="material-icons">chevron_right</i>Taxonomies of Remixing</div>
                 <div class="collapsible-body white-text"><span><p>Playing on the taxonomies of remixing that <a href="https://muse.jhu.edu/book/38837">Banks</a> and <a href="http://remixtheory.net/">Navas</a> discuss, we explore (a) extension, which which grows directly from an original, (b) selective versioning, which keeps and deletes elements of the original, still adding new sounds but keeping the original essence, and (c) the reflective remix that “<a href="https://muse.jhu.edu/book/38837">allegorizes and extends the aesthetic of a sampling, where the remixed version challenges the aura of the original</a>”. We hope that applying various methods to the concepts and practices that we will remix and prototype will shed light on remixing and <a href="https://nyupress.org/9781479829965/distributed-blackness/">Afrofuturism-the-project</a> broadly.</p></span></div>
               </li>
               <li>
-                <div class="collapsible-header transparent white-text"><i class="material-icons">arrow_drop_down</i>Remixing: Chopped n Screwed</div>
+                <div class="collapsible-header transparent white-text"><i class="material-icons">chevron_right</i>Remixing: Chopped n Screwed</div>
                 <div class="collapsible-body white-text"><span><p>In the early 1990s, DJ Screw introduced “chopped and screwed” (also called screwed and chopped, or slowed and throwed) onto the Houston Hip-Hop scene. The technique slows the tempo of a recording and applies operations such as skipping beats, record scratching, and stop-time to affect portions of the music to make a "chopped-up" version of the original. The slow down of tempo creates the opportunity for intervention and creative expression. Perhaps our obsession with speed has collapsed these opportunities.</p></span></div>
               </li>
               <li>
-                <div class="collapsible-header transparent white-text"><i class="material-icons">arrow_drop_down</i>Remixing: Virgil Abloh: “Figures of Speech”</div>
+                <div class="collapsible-header transparent white-text"><i class="material-icons">chevron_right</i>Remixing: Virgil Abloh: “Figures of Speech”</div>
                 <div class="collapsible-body white-text"><span><p>Virgil Abloh’s work is a process of repurposing, recontextualizing, and recombining imagery to highlight relationships, make commentary, and push conceptions of fashion and design. Trained as an architect, a DJ, a fashion designer, and artist, Abloh consistently uses remixing as an aesthetic and the potential of mixing multiple sources (sound, images, words, icons, etc.) as a critical exercise.</p></span></div>
               </li>
               <li>
-                <div class="collapsible-header transparent white-text"><i class="material-icons">arrow_drop_down</i>Remixing: Romare Bearden</div>
+                <div class="collapsible-header transparent white-text"><i class="material-icons">chevron_right</i>Remixing: Romare Bearden</div>
                 <div class="collapsible-body white-text"><span><p>Romare Bearden’s textured collages began as cut and torn photographs from popular magazines that he then reassembled into statements on African-American life. For Bearden the collage fragments ushered the past into the present: "When I conjure these memories, they are of the present to me, because after all, the artist is a kind of enchanter in time.” Collage, or what might be considered remixed images, becomes formal, cultural and socially conscious in Bearden’s work.</p></span></div>
               </li>
              
@@ -327,7 +330,7 @@
 
     <div class="section " style="background-color: #cc3399">
       <div class="row container">
-        <h2 class="header white-text">Extending the Beat </h2>
+        <h2 class="header white-text">The Mix: Extending the Beat </h2>
         <h5>Product Lifespan and Reducing E-waste</h5>
         <p class="white-text text-darken-3 lighten-3">Planned obsolescence and the black boxing of technological devices has made it difficult for users to keep their devices and encourages the rapid increase of e-waste. What might we learn from cultures that have been silenced by capitalism about the relationship between humans and the environment? How might we extend the lifespan of computing products through principles of repair and care rooted in african and indigenous philosophies? Using remixing approaches and techniques, we provide various ideas that play on care, repair, and imperfection to extend the life cycles of devices -- “extending the beat” in response to problems such as e-waste, unbalanced impact, and slow violence. We begin with african and indigenous philosophies and techniques as a strategy of decolonizing the anthropocene. </p>
         
@@ -335,12 +338,12 @@
     </div>
 
     <div class="parallax-container">
-      <div class="parallax" style="background-color: #339999"><img src="images/7_CSasDJ.png"></div>
+      <div class="parallax" style="background-color: #339999"><img src="images/7_CSasDJ_v2.png"></div>
     </div>
 
     <div class="section " style="background-color: #339999">
       <div class="row container">
-        <h2 class="header white-text">CS as DJ</h2>
+        <h2 class="header white-text">The Mix: CS as DJ</h2>
         <h5>Rethinking the Computer Scientist</h5>
         <p class="white-text text-darken-3 lighten-3">The DJ is to music as the computer scientist is to programmable technology. The DJ is responsible for the creative work that bubbles to the fore in the nightclub, on the records we play, in the on-stage performances of our favorite artists, or in the solo groove that we blast through our headphones. The method is by no means simple, as many elements must be artfully and thoughtfully sampled, revamped, edited, and or omitted altogether. The message is just as complex as the method, where a DJ could take tunes from times long past and use them in the present to, say, make a statement about anything--to pull us into the past in fresh ways that suddenly have us jamming songs from our grandparents’ era. This is the beauty of the remix that the DJ masters. What would computing and the anthropocene look like if computer scientists embodied the methods and goals of a DJ through afrofuturistic, environmentally conscious lens? 
         </p>
